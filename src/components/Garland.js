@@ -14,8 +14,8 @@ export default function Garland({ side = 'left' }) {
                 position: 'fixed',
                 top: 0,
                 [side]: '-20px', // Slight negative to hug edge
-                height: '85vh',
-                width: '350px', // Grand scale
+                height: '100vh',
+                width: '450px', // Grand scale
                 zIndex: 9998,
                 pointerEvents: 'none',
             }}
@@ -96,9 +96,9 @@ function GarlandString({ index, side, total }) {
                 src="/newgarland.png"
                 alt={`Garland String ${index} `}
                 style={{
-                    height: '100%',
                     width: '100%',
-                    objectFit: 'contain',
+                    height: '100%',
+                    objectFit: 'cover', // Force it to fill the height even if it crops width
                     objectPosition: 'top center', // Ensure distinct top attachment
                     transform: !isLeft ? 'scaleX(-1)' : 'none',
                     filter: 'drop-shadow(2px 4px 5px rgba(0,0,0,0.2))' // Deep shadow for depth
