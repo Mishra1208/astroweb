@@ -1,68 +1,110 @@
 .gridSection {
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     text-align: center;
 }
 
 .heading {
     font-size: 3rem;
-    margin-bottom: 3rem;
-    color: var(--text-primary);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    margin-bottom: 4rem;
+    color: #fff;
+    font-family: var(--font-rozha);
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+    position: relative;
+    display: inline-block;
+}
+
+.heading::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    background: #fbbf24;
+    margin: 0.5rem auto 0;
+    box-shadow: 0 0 10px #fbbf24;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .card {
-    background: rgba(10, 10, 10, 0.6);
-    /* Black tint */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Transparent Background for Floating Effect */
+    background: transparent;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.5rem;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
     position: relative;
-    overflow: hidden;
 }
 
-/* Glow effect on hover - GOLD ONLY */
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    background: rgba(20, 20, 20, 0.9);
-    border-color: rgba(251, 191, 36, 0.4);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(251, 191, 36, 0.1);
+/* Hover: Scale and glow the text */
+.card:hover .name {
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
 }
 
-.icon {
-    font-size: 3.5rem;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
-    transition: transform 0.3s;
+/* Ivory Token Style (Synced with Calculator) */
+.iconWrapper {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fffbeb 0%, #f3f4f6 100%);
+    /* Ivory */
+    border: 3px solid #fbbf24;
+    /* Gold Rim */
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.1),
+        inset 0 5px 10px rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover .icon {
+/* Hover Effect: Token Floats Up */
+.card:hover .iconWrapper {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(251, 191, 36, 0.4),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.1),
+        inset 0 5px 10px rgba(255, 255, 255, 0.8);
+    border-color: #fff;
+    /* Rim shines white briefly */
+}
+
+.signImage {
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.card:hover .signImage {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.6));
 }
 
 .name {
-    font-size: 1.5rem;
-    color: var(--accent-gold);
+    font-size: 1.4rem;
+    color: #e2e8f0;
     font-family: var(--font-rozha);
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
 }
 
 .date {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    font-size: 0.85rem;
+    color: #94a3b8;
     font-family: var(--font-poppins);
+    letter-spacing: 1px;
 }
