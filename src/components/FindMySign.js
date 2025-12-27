@@ -4,12 +4,15 @@ import styles from "./FindMySign.module.css";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import ConstellationLoader from "./ConstellationLoader";
+
 export default function FindMySign() {
     const [date, setDate] = useState("");
     const [result, setResult] = useState(null);
+    const [isVerifying, setIsVerifying] = useState(false);
 
     const calculateSign = (dateString) => {
-        if (!dateString) return;
+        if (!dateString) return null;
 
         const d = new Date(dateString);
         const day = d.getDate();
@@ -45,12 +48,19 @@ export default function FindMySign() {
             sign = "Pisces"; hindiName = "मीन"; icon = "/zodiac/pisces.png";
         }
 
-        setResult({ sign, hindiName, icon });
+        return { sign, hindiName, icon };
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        calculateSign(date);
+        setResult(null);
+        setIsVerifying(true);
+    };
+
+    const handleVerificationComplete = () => {
+        const res = calculateSign(date);
+        setResult(res);
+        setIsVerifying(false);
     };
 
     return (
@@ -65,34 +75,47 @@ export default function FindMySign() {
                 <h2 className={styles.heading}>अपनी राशि जानें</h2>
                 <p className={styles.subtext}>अपनी जन्मतिथि दर्ज करें और ब्रह्मांड में अपना स्थान खोजें।</p>
 
-                <form className={styles.form} onSubmit={handleSubmit}>
-                    <div className={styles.inputGroup}>
-                        <input
-                            type="date"
-                            className={styles.input}
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <motion.button
-                        className={styles.button}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        type="submit"
-                    >
-                        खोजें
-                    </motion.button>
-                </form>
+                {!isVerifying && !result && (
+                    <form className={styles.form} onSubmit={handleSubmit}>
+                        <div className={styles.inputGroup}>
+                            <input
+                                type="date"
+                                className={styles.input}
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <motion.button
+                            className={styles.button}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            type="submit"
+                        >
+                            खोजें
+                        </motion.button>
+                    </form>
+                )}
 
-                <AnimatePresence>
-                    {result && (
+                <AnimatePresence mode="wait">
+                    {isVerifying && (
                         <motion.div
+                            key="loader"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        >
+                            <ConstellationLoader onComplete={handleVerificationComplete} />
+                        </motion.div>
+                    )}
+
+                    {result && !isVerifying && (
+                        <motion.div
+                            key="result"
                             className={styles.result}
-                            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 30, scale: 0.95 }}
-                            transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ type: "spring", stiffness: 200, damping: 20 }}
                         >
                             <div className={styles.iconWrapper}>
                                 <div className={styles.iconGlow}></div>
@@ -100,6 +123,15 @@ export default function FindMySign() {
                             </div>
                             <h3 className={styles.signName}>{result.hindiName}</h3>
                             <p className={styles.dateRange}>{result.sign}</p>
+
+                            <motion.button
+                                className={styles.button}
+                                style={{ marginTop: '2rem', fontSize: '0.8rem' }}
+                                onClick={() => setResult(null)}
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                पुनः प्रयास करें
+                            </motion.button>
                         </motion.div>
                     )}
                 </AnimatePresence>
