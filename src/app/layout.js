@@ -44,29 +44,76 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
-        {/* Marigold Garland Decoration */}
+        {/* Marigold Garland Decoration - Vertical Strings (Ladi) */}
+
+        {/* Left Side */}
         <div style={{
           position: 'fixed',
           top: 0,
-          left: 0,
-          width: '100%',
-          zIndex: 9998, // Below Loading Screen (9999) but above Navbar (usually 100-1000)
-          pointerEvents: 'none', // Allow clicking through
+          bottom: 0,
+          left: '10px',
+          width: '70px',
+          zIndex: 9998,
+          pointerEvents: 'none',
           display: 'flex',
           justifyContent: 'space-between'
         }}>
-          <img
-            src="/garland.png"
-            alt="Marigold Garland"
-            style={{
-              width: '100%',
-              height: 'auto',
-              maxHeight: '120px',
-              objectFit: 'cover',
-              objectPosition: 'top',
-              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
-            }}
-          />
+          {/* String 1 */}
+          <div style={{
+            width: '30px',
+            height: '100%',
+            backgroundImage: "url('/garland.png')",
+            backgroundRepeat: 'repeat-y',
+            backgroundSize: '100% auto',
+            opacity: 0.95,
+            filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))'
+          }}></div>
+          {/* String 2 (Offset for natural look) */}
+          <div style={{
+            width: '30px',
+            height: '100%',
+            backgroundImage: "url('/garland.png')",
+            backgroundRepeat: 'repeat-y',
+            backgroundSize: '100% auto',
+            backgroundPosition: '0 -40px',
+            opacity: 0.9,
+            filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))'
+          }}></div>
+        </div>
+
+        {/* Right Side */}
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          bottom: 0,
+          right: '10px',
+          width: '70px',
+          zIndex: 9998,
+          pointerEvents: 'none',
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}>
+          {/* String 1 */}
+          <div style={{
+            width: '30px',
+            height: '100%',
+            backgroundImage: "url('/garland.png')",
+            backgroundRepeat: 'repeat-y',
+            backgroundSize: '100% auto',
+            opacity: 0.95,
+            filter: 'drop-shadow(-2px 2px 2px rgba(0,0,0,0.3))'
+          }}></div>
+          {/* String 2 (Offset) */}
+          <div style={{
+            width: '30px',
+            height: '100%',
+            backgroundImage: "url('/garland.png')",
+            backgroundRepeat: 'repeat-y',
+            backgroundSize: '100% auto',
+            backgroundPosition: '0 -40px',
+            opacity: 0.9,
+            filter: 'drop-shadow(-2px 2px 2px rgba(0,0,0,0.3))'
+          }}></div>
         </div>
 
         {children}
