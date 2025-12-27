@@ -46,13 +46,13 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
         {/* Marigold Garland Decoration - Vertical Sides (Ladi) */}
 
-        {/* Left Side: Hanging from top */}
+        {/* Left Side: Hanging from top - Pulled negative to flush edge */}
         <div style={{
           position: 'fixed',
           top: 0,
-          left: 0,
-          height: '65vh', // Increased height
-          width: '200px', // Increased width (Significant boost)
+          left: '-15px', // Pull outwards to remove gap
+          height: '65vh',
+          width: '220px', // Compensate for negative margin
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
@@ -65,20 +65,20 @@ export default function RootLayout({ children }) {
             style={{
               height: '100%',
               width: '100%',
-              objectFit: 'contain', // Show full image details
+              objectFit: 'contain',
               objectPosition: 'top left',
               filter: 'drop-shadow(2px 2px 3px rgba(0,0,0,0.15))'
             }}
           />
         </div>
 
-        {/* Right Side: Hanging from top */}
+        {/* Right Side: Hanging from top - Pulled negative to flush edge */}
         <div style={{
           position: 'fixed',
           top: 0,
-          right: 0,
+          right: '-15px', // Pull outwards to remove gap
           height: '65vh',
-          width: '200px', // Increased width
+          width: '220px',
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
