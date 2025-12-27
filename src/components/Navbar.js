@@ -49,9 +49,10 @@ export default function Navbar() {
             {!isMobile && (
                 <motion.nav
                     className={`${styles.navbar} ${isScrolled ? styles.navbarHidden : ''}`}
-                    initial={{ y: 0, opacity: 1 }}
+                    initial={{ y: 0, x: "-50%", opacity: 1 }}
                     animate={{
                         y: isScrolled ? -100 : 0,
+                        x: "-50%", // Maintain centering during scroll animation
                         opacity: isScrolled ? 0 : 1
                     }}
                     transition={{ duration: 0.5 }}
