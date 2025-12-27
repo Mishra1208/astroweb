@@ -33,6 +33,7 @@ const mukta = Mukta({
 });
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Astroweb | Aligning the Cosmos",
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
