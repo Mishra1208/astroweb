@@ -35,9 +35,11 @@
 .footerGarland {
     position: absolute;
     top: 0;
-    width: 35vw;
-    /* Grand scale to reach content columns */
-    min-width: 300px;
+    width: 25vw;
+    /* Reduced from 35vw to avoid overlap */
+    max-width: 380px;
+    /* Cap size on large screens */
+    min-width: 220px;
     height: auto;
     pointer-events: none;
     z-index: 1;
