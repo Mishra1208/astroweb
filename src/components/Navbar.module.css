@@ -1,26 +1,32 @@
+```css
+
 /* Base Navbar (Pill) - Visible at top */
 .navbar {
     position: fixed;
     top: 2rem;
     left: 50%;
     transform: translateX(-50%);
+    /* Perfectly centered */
     width: fit-content;
     min-width: 600px;
-    background: var(--glass-bg);
+    /* Substantial but compact */
+    background: rgba(255, 253, 240, 0.7);
     /* Frosted Parchment */
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(176, 141, 87, 0.2);
     /* Brass */
-    border-radius: 100px;
+    border-radius: 50px;
     padding: 0.8rem 3rem;
     display: flex;
     justify-content: center;
+    /* Center items in the pill */
     gap: 4rem;
+    /* Specific spacing between Logo and Links */
     align-items: center;
-    z-index: 999;
-    box-shadow: 0 10px 40px rgba(43, 27, 18, 0.1);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+    transition: all 0.3s ease;
 }
 
 /* Hidden state for Pill */
