@@ -35,6 +35,7 @@ const mukta = Mukta({
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import Garland from "@/components/Garland";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "Astroweb | Aligning the Cosmos",
@@ -48,6 +49,8 @@ export default function RootLayout({ children }) {
         {/* Marigold Garland Decoration - Animated & Interactive */}
         <Garland side="left" />
         <Garland side="right" />
+
+        <Navbar />
 
         {children}
         <SpeedInsights />
