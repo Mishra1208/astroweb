@@ -44,62 +44,54 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
-        {/* Marigold Garland Decoration - Top Horizontal (Two strings side by side) */}
+        {/* Marigold Garland Decoration - Vertical Sides (Ladi) */}
+
+        {/* Left Side: 2 Strings */}
         <div style={{
           position: 'fixed',
           top: 0,
-          left: 0,
-          width: '100%',
+          left: '10px',
+          width: '80px', // Width to show approx 2 strings from the image
+          height: '60vh', // Hang down significantly
           zIndex: 9998,
           pointerEvents: 'none',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'flex-start' // Ensure it hugs the top
+          overflow: 'hidden'
         }}>
-          {/* Left Half */}
-          <div style={{
-            width: '50%',
-            height: 'auto',
-            display: 'flex',
-            justifyContent: 'flex-end', // Align inward to touch seam
-            overflow: 'hidden'
-          }}>
-            <img
-              src="/marigold-top.png"
-              alt="Garland Left"
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '140px', // Slightly larger for impact
-                objectFit: 'cover', // Use cover to fill width
-                objectPosition: 'top',
-                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
-              }}
-            />
-          </div>
+          <img
+            src="/marigold-top.png"
+            alt="Garland Left"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover', // Fill vertical height
+              objectPosition: 'left center', // Show left part of image
+              filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))'
+            }}
+          />
+        </div>
 
-          {/* Right Half */}
-          <div style={{
-            width: '50%',
-            height: 'auto',
-            display: 'flex',
-            justifyContent: 'flex-start', // Align inward
-            overflow: 'hidden'
-          }}>
-            <img
-              src="/marigold-top.png"
-              alt="Garland Right"
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '140px',
-                objectFit: 'cover',
-                objectPosition: 'top', // Mirror logic not needed if image is symmetric, otherwise scaleX(-1)
-                transform: 'scaleX(-1)', // Mirror it for symmetry
-                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
-              }}
-            />
-          </div>
+        {/* Right Side: 2 Strings */}
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          right: '10px',
+          width: '80px',
+          height: '60vh',
+          zIndex: 9998,
+          pointerEvents: 'none',
+          overflow: 'hidden'
+        }}>
+          <img
+            src="/marigold-top.png"
+            alt="Garland Right"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'right center', // Show right part of image (or mirror)
+              filter: 'drop-shadow(-2px 2px 4px rgba(0,0,0,0.2))'
+            }}
+          />
         </div>
 
         {children}
