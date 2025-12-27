@@ -51,13 +51,13 @@ export default function RootLayout({ children }) {
           position: 'fixed',
           top: 0,
           left: 0,
-          height: '45vh', // Reduce height to be decorative, not dominating
-          width: '80px', // Constrain width
+          height: '55vh', // Slightly longer for balance
+          width: '150px', // Increased width so it's not tiny
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
           alignItems: 'flex-start',
-          justifyContent: 'flex-start' // Push to extreme left
+          justifyContent: 'flex-start'
         }}>
           <img
             src="/marigold-top.png"
@@ -65,8 +65,8 @@ export default function RootLayout({ children }) {
             style={{
               height: '100%',
               width: '100%',
-              objectFit: 'contain',
-              objectPosition: 'top left', // Anchor to top-left corner
+              objectFit: 'contain', // Show full image details
+              objectPosition: 'top left',
               filter: 'drop-shadow(2px 2px 3px rgba(0,0,0,0.15))'
             }}
           />
@@ -77,13 +77,13 @@ export default function RootLayout({ children }) {
           position: 'fixed',
           top: 0,
           right: 0,
-          height: '45vh',
-          width: '80px',
+          height: '55vh',
+          width: '150px', // Increased width
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
           alignItems: 'flex-start',
-          justifyContent: 'flex-end' // Push to extreme right
+          justifyContent: 'flex-end'
         }}>
           <img
             src="/marigold-top.png"
@@ -92,7 +92,7 @@ export default function RootLayout({ children }) {
               height: '100%',
               width: '100%',
               objectFit: 'contain',
-              objectPosition: 'top right', // Anchor to top-right corner
+              objectPosition: 'top right',
               transform: 'scaleX(-1)', // Mirror for symmetry
               filter: 'drop-shadow(-2px 2px 3px rgba(0,0,0,0.15))'
             }}
