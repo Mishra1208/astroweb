@@ -112,7 +112,7 @@ function GarlandString({ index, side, total, shouldAnimate }) {
                 left: isLeft ? positionOffset : undefined,
                 right: !isLeft ? positionOffset : undefined, // Start from right edge for right side
                 height: '100%',
-                width: '22%', // Much thinner to allow spacing
+                width: '20%', // Slightly thinner for 7 strings
                 transformOrigin: 'top center', // Swing from top
                 zIndex: 10 + index, // Layer them
                 pointerEvents: 'auto',
