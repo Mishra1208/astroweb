@@ -51,8 +51,8 @@ export default function RootLayout({ children }) {
           position: 'fixed',
           top: 0,
           left: 0,
-          height: '55vh', // Slightly longer for balance
-          width: '150px', // Increased width so it's not tiny
+          height: '65vh', // Increased height
+          width: '200px', // Increased width (Significant boost)
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
@@ -77,8 +77,8 @@ export default function RootLayout({ children }) {
           position: 'fixed',
           top: 0,
           right: 0,
-          height: '55vh',
-          width: '150px', // Increased width
+          height: '65vh',
+          width: '200px', // Increased width
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
