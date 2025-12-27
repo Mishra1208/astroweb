@@ -44,6 +44,31 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
+        {/* Marigold Garland Decoration */}
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          zIndex: 9998, // Below Loading Screen (9999) but above Navbar (usually 100-1000)
+          pointerEvents: 'none', // Allow clicking through
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}>
+          <img
+            src="/garland.png"
+            alt="Marigold Garland"
+            style={{
+              width: '100%',
+              height: 'auto',
+              maxHeight: '120px',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+            }}
+          />
+        </div>
+
         {children}
         <SpeedInsights />
         <Analytics />

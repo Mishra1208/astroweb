@@ -11,6 +11,34 @@ export default function Hero() {
                 <MandalaBackground />
             </div>
 
+            {/* OM Symbol - Spiritual Focus */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                style={{
+                    width: '80px',
+                    height: '80px',
+                    marginBottom: '1rem',
+                    position: 'relative',
+                    zIndex: 2,
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    boxShadow: '0 0 20px rgba(196, 90, 0, 0.4)',
+                    border: '2px solid rgba(176, 141, 87, 0.6)'
+                }}
+            >
+                <img
+                    src="/om-symbol.jpg"
+                    alt="Om Symbol"
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                    }}
+                />
+            </motion.div>
+
             <motion.h1
                 className={styles.title}
                 initial={{ opacity: 0, y: 50 }}
