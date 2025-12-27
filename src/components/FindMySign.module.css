@@ -114,6 +114,17 @@
     opacity: 0.7;
 }
 
+/* Hide custom placeholder on focus so it doesn't overlap with native picker */
+.input:focus::before,
+.input:valid::before {
+    display: none;
+}
+
+/* Restore native text visibility on focus */
+.input:focus::-webkit-datetime-edit {
+    color: var(--text-main);
+}
+
 /* Force text visibility on iOS */
 .input::-webkit-date-and-time-value {
     color: var(--text-main);
