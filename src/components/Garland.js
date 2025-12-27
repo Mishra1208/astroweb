@@ -2,11 +2,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 export default function Garland({ side = 'left' }) {
     const isLeft = side === 'left';
     // Increase to 5 strings for a "thick bunch" look
     const strings = [0, 1, 2, 3, 4];
+
+    // State to delay the start of the animation until after loading screen
+    const [startAnimation, setStartAnimation] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setStartAnimation(true);
+        }, 4800); // Sync with loading screen
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div
@@ -22,13 +33,19 @@ export default function Garland({ side = 'left' }) {
         >
             {/* Render strings absolutely positioned within this bunch container */}
             {strings.map((i) => (
-                <GarlandString key={i} index={i} side={side} total={strings.length} />
+                <GarlandString
+                    key={i}
+                    index={i}
+                    side={side}
+                    total={strings.length}
+                    shouldAnimate={startAnimation}
+                />
             ))}
         </div>
     );
 }
 
-function GarlandString({ index, side, total }) {
+function GarlandString({ index, side, total, shouldAnimate }) {
     const isLeft = side === 'left';
 
     // Physics Parameters
@@ -60,7 +77,7 @@ function GarlandString({ index, side, total }) {
             opacity: 1,
             y: 0,
             transition: {
-                delay: 4.8 + waveDelay, // Wait for Loading Screen (4.5s) + buffer
+                delay: waveDelay, // Just local stagger, no huge delay
                 // Physical spring properties for "Pendulum" effect
                 type: "spring",
                 stiffness: 40,  // Tension
@@ -75,7 +92,7 @@ function GarlandString({ index, side, total }) {
                 ? [0, 10, -8, 6, -4, 2, -1, 0]
                 : [0, -10, 8, -6, 4, -2, 1, 0],
             transition: {
-                delay: 0, // Override initial delay for instant reaction
+                delay: 0, // Instant reaction
                 duration: 6,
                 ease: "linear",
                 times: [0, 0.1, 0.25, 0.45, 0.65, 0.8, 0.9, 1]
@@ -86,7 +103,7 @@ function GarlandString({ index, side, total }) {
     return (
         <motion.div
             initial="initial"
-            animate="animate"
+            animate={shouldAnimate ? "animate" : "initial"}
             whileHover="hover"
             variants={variants}
             style={{
