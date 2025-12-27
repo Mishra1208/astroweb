@@ -86,8 +86,19 @@
     font-size: 1.1rem;
     text-align: center;
     transition: all 0.3s ease;
+
+    /* iOS & Browser Fixes */
     color-scheme: light;
-    /* Force light calendar picker */
+    appearance: none;
+    -webkit-appearance: none;
+    min-height: 52px;
+    /* Ensure visibility */
+}
+
+/* Force text visibility on iOS */
+.input::-webkit-date-and-time-value {
+    color: var(--text-main);
+    text-align: center;
 }
 
 .input:focus {

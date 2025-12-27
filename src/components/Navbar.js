@@ -8,19 +8,29 @@ import Link from "next/link";
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Track Scroll
+    // Track Scroll & Resize
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            setIsScrolled(window.scrollY > 100);
         };
 
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        // Initial check
+        handleScroll();
+        handleResize();
+
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
+        };
     }, []);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -35,35 +45,56 @@ export default function Navbar() {
     return (
         <>
             {/* 1. PILL NAVBAR (Top State) */}
-            <motion.nav
-                className={`${styles.navbar} ${isScrolled ? styles.navbarHidden : ''}`}
-                initial={{ y: 0, opacity: 1 }}
-                animate={{
-                    y: isScrolled ? -100 : 0,
-                    opacity: isScrolled ? 0 : 1
-                }}
-                transition={{ duration: 0.5 }}
-            >
-                <div className={styles.logo}>
+            {/* Hidden on mobile to avoid clutter, replaced by Logo+Burger */}
+            {!isMobile && (
+                <motion.nav
+                    className={`${styles.navbar} ${isScrolled ? styles.navbarHidden : ''}`}
+                    initial={{ y: 0, opacity: 1 }}
+                    animate={{
+                        y: isScrolled ? -100 : 0,
+                        opacity: isScrolled ? 0 : 1
+                    }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <div className={styles.logo}>
+                        ASTRO<span style={{ color: 'var(--accent-main)' }}>WEB</span>
+                    </div>
+
+                    <div className={styles.links}>
+                        {menuItems.map((item) => (
+                            <Link
+                                key={item.id}
+                                href={`#${item.id}`}
+                                className={styles.link}
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
+                    </div>
+                </motion.nav>
+            )}
+
+            {/* Mobile Logo (Always Visible) */}
+            {isMobile && (
+                <div className={styles.mobileLogo} style={{
+                    position: 'fixed',
+                    top: '2rem',
+                    left: '2rem',
+                    zIndex: 1000,
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 700,
+                    fontSize: '1.5rem',
+                    color: 'var(--accent-red)',
+                    textShadow: '0 0 10px rgba(239, 230, 216, 0.8)'
+                }}>
                     ASTRO<span style={{ color: 'var(--accent-main)' }}>WEB</span>
                 </div>
-                {/* Only visible on Desktop in Pill Mode */}
-                <div className={styles.links}>
-                    {menuItems.map((item) => (
-                        <Link
-                            key={item.id}
-                            href={`#${item.id}`}
-                            className={styles.link}
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                </div>
-            </motion.nav>
+            )}
 
-            {/* 2. HAMBURGER BUTTON (Scroll State) */}
+            {/* 2. HAMBURGER BUTTON (Scroll State OR Mobile) */}
+            {/* Always visible on mobile, visible on scroll for desktop */}
             <AnimatePresence>
-                {isScrolled && (
+                {(isScrolled || isMobile) && (
                     <motion.button
                         className={styles.hamburgerBtn}
                         onClick={toggleMenu}
