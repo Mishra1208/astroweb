@@ -5,10 +5,17 @@
     padding-top: 8rem;
     /* Space for Navbar */
     font-family: var(--font-body), serif;
-    color: var(--text-primary);
-    background-image: url('/parchment-hq.jpg');
-    /* Texture base */
-    background-blend-mode: multiply;
+    color: #fce7f3;
+    /* Light Cream text for dark background */
+
+    /* New Background with Strong Overlay for Readability */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)),
+        url('/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax effect */
 }
 
 /* Hero Section */
