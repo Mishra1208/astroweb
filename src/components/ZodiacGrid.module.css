@@ -1,0 +1,68 @@
+.gridSection {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(10, 10, 10, 0.6);
+    /* Black tint */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glow effect on hover - GOLD ONLY */
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(20, 20, 20, 0.9);
+    border-color: rgba(251, 191, 36, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+.icon {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+    transition: transform 0.3s;
+}
+
+.card:hover .icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.6));
+}
+
+.name {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    font-family: var(--font-rozha);
+}
+
+.date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-family: var(--font-poppins);
+}

@@ -1,0 +1,38 @@
+.footer {
+    background: #050410;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 4rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.brand {
+    font-family: var(--font-playfair);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.links a:hover {
+    color: var(--accent-gold);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}

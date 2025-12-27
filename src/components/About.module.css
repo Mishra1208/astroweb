@@ -1,0 +1,238 @@
+.section {
+    padding: 8rem 2rem;
+    background: radial-gradient(ellipse at bottom, #050510 0%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Realistic Starfield */
+.section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.textContent {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    padding: 3.5rem;
+    border-left: 2px solid var(--accent-gold);
+    position: relative;
+}
+
+.heading {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-rozha);
+    letter-spacing: 1px;
+}
+
+.text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #a0a0b0;
+    margin-bottom: 2rem;
+    font-family: var(--font-poppins);
+}
+
+.visualContent {
+    flex: 1.2;
+    height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* REALISTIC SOLAR SYSTEM */
+.solarSystem {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(65deg);
+    /* Flatter perspective for realism */
+}
+
+/* Realistic Sun */
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(-65deg);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* Complex gradient for fiery look */
+    background: radial-gradient(circle at 30% 30%, #fff7e6 0%, #ffcc00 20%, #ff8c00 60%, #ff4500 100%);
+    box-shadow: 0 0 60px #ff8c00, 0 0 120px rgba(255, 69, 0, 0.6);
+    z-index: 10;
+}
+
+/* Orbit Lines - Very faint */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.o1 {
+    width: 180px;
+    height: 180px;
+}
+
+.o2 {
+    width: 300px;
+    height: 300px;
+}
+
+.o3 {
+    width: 440px;
+    height: 440px;
+}
+
+/* Planet Wrappers for Orbit Animation */
+.pWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: orbit linear infinite;
+}
+
+.pw1 {
+    animation-duration: 12s;
+}
+
+.pw2 {
+    animation-duration: 25s;
+}
+
+.pw3 {
+    animation-duration: 45s;
+}
+
+/* Realistic Planets */
+.planet {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    /* Offset to sit on line */
+    transform: translateY(-50%) rotateX(-65deg);
+    /* Counter-tilt to face camera */
+    border-radius: 50%;
+    /* Shadow logic: Light from center (Sun) */
+}
+
+/* Mercury: Rocky, Grey/Brown */
+.mercury {
+    width: 15px;
+    height: 15px;
+    right: -7.5px;
+    /* Sphere shading: Highlight (Sun side) -> Texture -> Shadow (Dark side) */
+    background: radial-gradient(circle at 30% 50%, #d0d0d0 0%, #808080 50%, #202020 100%);
+    box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* Earth: Blue Marble + Atmosphere */
+.earth {
+    width: 25px;
+    height: 25px;
+    right: -12.5px;
+    background: radial-gradient(circle at 30% 50%, #4facfe 0%, #00f2fe 30%, #1e3a8a 70%, #000000 100%);
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.4), inset -6px -6px 12px rgba(0, 0, 0, 0.95);
+    position: relative;
+}
+
+/* Clouds */
+.earth::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 0, transparent 20%, rgba(255, 255, 255, 0.2) 40%);
+    opacity: 0.6;
+}
+
+/* Saturn: Gas Giant + Rings */
+.saturn {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    background: linear-gradient(30deg, #e0c39a, #b48a5f, #7a5c32);
+    /* Sphere shading overlay */
+    box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Realistic Ring */
+.saturnRing {
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    border-radius: 50%;
+    border: 8px solid rgba(180, 160, 130, 0.6);
+    border-top-color: rgba(180, 160, 130, 0.3);
+    /* Dim back side */
+    border-bottom-color: rgba(180, 160, 130, 0.8);
+    /* Bright front side */
+    transform: rotateX(10deg);
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column-reverse;
+        padding-top: 2rem;
+    }
+
+    .visualContent {
+        height: 400px;
+        transform: scale(0.7);
+    }
+
+    .heading {
+        text-align: center;
+    }
+}
