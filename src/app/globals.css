@@ -72,8 +72,10 @@ body {
   color: var(--text-ink);
   /* Ink Brown */
   scroll-behavior: smooth;
-  background-image: url('/textures/paper-noise.png');
+  background-image: url('/parchment-hq.jpg');
   background-blend-mode: multiply;
+  background-size: cover;
+  /* Ensure texture covers */
 }
 
 /* Headings */
@@ -162,14 +164,17 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--bg-primary);
+  /* Parchment */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--accent-gold-dark);
+  /* Dark Gold */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-gold);
+  background: var(--accent-main);
+  /* Saffron */
 }

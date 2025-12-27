@@ -46,26 +46,41 @@ export default function LoadingScreen() {
                         filter: 'blur(20px)',
                     }}></div>
 
-                    {/* Spinning Sri Yantra / Mandala SVG */}
+                    {/* Spinning Sri Yantra / Mandala Image */}
                     <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                        style={{ width: '150px', height: '150px', position: 'relative', zIndex: 10 }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        style={{
+                            width: '280px',
+                            height: '280px',
+                            position: 'relative',
+                            zIndex: 10,
+                            border: '1px solid rgba(176, 141, 87, 0.2)',
+                            borderRadius: '50%',
+                            padding: '10px',
+                            background: 'rgba(176, 141, 87, 0.05)',
+                            boxShadow: '0 0 30px rgba(196, 90, 0, 0.2)'
+                        }}
                     >
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            {/* Outer Circle */}
-                            <circle cx="50" cy="50" r="48" stroke="#B08D57" strokeWidth="1" />
-                            <circle cx="50" cy="50" r="45" stroke="#B08D57" strokeWidth="0.5" strokeDasharray="2 2" />
-
-                            {/* Simplified Yantra Geometry (Interlocking Triangles) */}
-                            <path d="M50 5 L85 80 H15 Z" stroke="#C45A00" strokeWidth="1" fill="none" opacity="0.8" />
-                            <path d="M50 95 L15 20 H85 Z" stroke="#C45A00" strokeWidth="1" fill="none" opacity="0.8" />
-                            <path d="M50 15 L75 70 H25 Z" stroke="#B08D57" strokeWidth="0.8" fill="none" opacity="0.6" />
-                            <path d="M50 85 L25 30 H75 Z" stroke="#B08D57" strokeWidth="0.8" fill="none" opacity="0.6" />
-
-                            {/* Central Bindu */}
-                            <circle cx="50" cy="50" r="2" fill="#7A1E1E" />
-                        </svg>
+                        {/* Inner Image */}
+                        <div style={{
+                            width: '100%',
+                            height: '100%',
+                            borderRadius: '50%',
+                            overflow: 'hidden',
+                            position: 'relative'
+                        }}>
+                            <img
+                                src="/mandala-glow.jpg"
+                                alt="Loading Mandala"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    filter: 'sepia(0.5) contrast(1.2)' // Blends better with parchment
+                                }}
+                            />
+                        </div>
                     </motion.div>
 
                     {/* Text Container */}
