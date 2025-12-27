@@ -1,100 +1,111 @@
+```
 'use client';
 
 import { motion } from 'framer-motion';
 
 export default function Garland({ side = 'left' }) {
-    const isLeft = side === 'left';
-    const strings = [0, 1, 2]; // Render 3 distinct strings per bunch
+  const isLeft = side === 'left';
+  // Increase to 5 strings for a "thick bunch" look
+  const strings = [0, 1, 2, 3, 4]; 
 
-    return (
-        <div
-            style={{
-                position: 'fixed',
-                top: 0,
-                [side]: '-30px',
-                height: '65vh',
-                width: '240px',
-                zIndex: 9998,
-                pointerEvents: 'none', // Container doesn't block, strings might
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: isLeft ? 'flex-start' : 'flex-end',
-            }}
-        >
-            {strings.map((i) => (
-                <GarlandString key={i} index={i} side={side} />
-            ))}
-        </div>
-    );
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        [side]: '-20px', // Slight negative to hug edge
+        height: '60vh',
+        width: '180px', // Tighter container for the bunch
+        zIndex: 9998,
+        pointerEvents: 'none',
+      }}
+    >
+      {/* Render strings absolutely positioned within this bunch container */}
+      {strings.map((i) => (
+        <GarlandString key={i} index={i} side={side} total={strings.length} />
+      ))}
+    </div>
+  );
 }
 
-function GarlandString({ index, side }) {
-    const isLeft = side === 'left';
+function GarlandString({ index, side, total }) {
+  const isLeft = side === 'left';
+  
+  // Physics Parameters
+  // Outer strings (higher index) sway more? Or random?
+  // Let's make them slightly different so they don't move in unison.
+  const waveDelay = index * 0.15; 
+  const duration = 2 + (index % 3) * 0.5; // 2.0, 2.5, 3.0...
+  
+  // Calculate overlap
+  // We want them clustered. 
+  // Let's spread them across the 180px width but with heavy overlap.
+  // Each string could be ~60px wide? 
+  // actually let's use percentage.
+  // spread 5 strings across 100% width? No, that's too spread.
+  // spread them across 80% of width.
+  const step = 15; // percent step
+  const positionOffset = isLeft 
+    ? `${ index * step }% ` 
+    : `${ (total - 1 - index) * step }% `; // Mirror positions for right side?
 
-    // Stagger animations based on index for "fluid" wave
-    const waveDelay = index * 0.2;
-    const duration = 2 + (index * 0.3); // Varying speeds
+  const variants = {
+    initial: { 
+      rotate: isLeft ? 5 + index : -(5 + index), 
+      opacity: 0,
+    },
+    animate: { 
+      rotate: 0, 
+      opacity: 1, 
+      transition: { 
+        delay: waveDelay,
+        duration: duration, 
+        ease: "easeInOut",
+        type: "spring",
+        stiffness: 30, // Softer spring
+        damping: 10
+      }
+    },
+    hover: { 
+      x: isLeft ? 10 : -10, 
+      rotate: isLeft ? -5 : 5, // Spread out on hover?
+      transition: { duration: 0.3 }
+    }
+  };
 
-    const variants = {
-        initial: {
-            rotate: isLeft ? 5 + index : -(5 + index),
-            opacity: 0,
-            y: -50
-        },
-        animate: {
-            rotate: 0,
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: waveDelay,
-                duration: duration,
-                ease: "easeInOut",
-                type: "spring",
-                stiffness: 40,
-                damping: 10
-            }
-        },
-        hover: {
-            // Magnetic pull: inner strings move less, outer strings move more? 
-            // Or all move towards cursor.
-            x: isLeft ? 15 : -15,
-            rotate: isLeft ? -2 : 2,
-            transition: {
-                type: "spring",
-                stiffness: 200,
-                damping: 15
-            }
-        }
-    };
-
-    return (
-        <motion.div
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-            variants={variants}
-            style={{
-                height: '100%',
-                width: '33%', // Divide space among strings
-                position: 'relative',
-                top: index * -10, // Slight vertical stagger for natural look
-                pointerEvents: 'auto',
-                cursor: 'pointer',
-                zIndex: 10 - index
-            }}
-        >
-            <img
-                src="/newgarland.png" // Single string asset provided by user
-                alt={`Garland String`}
-                style={{
-                    height: '100%',
-                    width: '100%',
-                    objectFit: 'contain',
-                    transform: !isLeft ? 'scaleX(-1)' : 'none',
-                    filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.15))'
-                }}
-                draggable={false}
-            />
-        </motion.div>
-    );
+  return (
+    <motion.div
+      initial="initial"
+      animate="animate"
+      whileHover="hover"
+      variants={variants}
+      style={{
+        position: 'absolute', // Stack them!
+        top: 0, // All hang from the very top
+        left: isLeft ? positionOffset : undefined,
+        right: !isLeft ? positionOffset : undefined, // Start from right edge for right side
+        height: '100%',
+        width: '45%', // Wide strings for fullness
+        transformOrigin: 'top center', // Swing from top
+        zIndex: 10 + index, // Layer them
+        pointerEvents: 'auto',
+        cursor: 'pointer',
+      }}
+    >
+      <img
+        src="/newgarland.png"
+        alt={`Garland String ${ index } `}
+        style={{
+          height: '100%',
+          width: '100%',
+          objectFit: 'contain',
+          objectPosition: 'top center', // Ensure distinct top attachment
+          transform: !isLeft ? 'scaleX(-1)' : 'none',
+          filter: 'drop-shadow(2px 4px 5px rgba(0,0,0,0.2))' // Deep shadow for depth
+        }}
+        draggable={false}
+      />
+    </motion.div>
+  );
 }
+```
