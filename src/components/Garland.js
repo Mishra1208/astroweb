@@ -75,6 +75,7 @@ function GarlandString({ index, side, total }) {
                 ? [0, 10, -8, 6, -4, 2, -1, 0]
                 : [0, -10, 8, -6, 4, -2, 1, 0],
             transition: {
+                delay: 0, // Override initial delay for instant reaction
                 duration: 6,
                 ease: "linear",
                 times: [0, 0.1, 0.25, 0.45, 0.65, 0.8, 0.9, 1]
