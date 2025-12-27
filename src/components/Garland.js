@@ -60,7 +60,7 @@ function GarlandString({ index, side, total }) {
             opacity: 1,
             y: 0,
             transition: {
-                delay: waveDelay, // Stagger the start
+                delay: 4.8 + waveDelay, // Wait for Loading Screen (4.5s) + buffer
                 // Physical spring properties for "Pendulum" effect
                 type: "spring",
                 stiffness: 40,  // Tension
