@@ -32,6 +32,8 @@ const mukta = Mukta({
   display: "swap",
 });
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 export const metadata = {
   title: "Astroweb | Aligning the Cosmos",
   description: "Premium Vedic Astrology & Horoscope",
@@ -42,6 +44,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
