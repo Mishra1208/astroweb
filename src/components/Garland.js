@@ -14,8 +14,8 @@ export default function Garland({ side = 'left' }) {
                 position: 'fixed',
                 top: 0,
                 [side]: '-20px', // Slight negative to hug edge
-                height: '75vh',
-                width: '280px', // Much wider for a grand look
+                height: '85vh',
+                width: '350px', // Grand scale
                 zIndex: 9998,
                 pointerEvents: 'none',
             }}
@@ -44,7 +44,7 @@ function GarlandString({ index, side, total }) {
     // actually let's use percentage.
     // spread 5 strings across 100% width? No, that's too spread.
     // spread them across 80% of width.
-    const step = 12; // percent step (tighter overlap for wider container)
+    const step = 9; // percent step (tighter overlap for wider container)
     const positionOffset = isLeft
         ? `${index * step}% `
         : `${(total - 1 - index) * step}% `; // Mirror positions for right side?
