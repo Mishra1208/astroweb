@@ -34,7 +34,8 @@
 /* Footer Decor */
 .footerGarland {
     position: absolute;
-    top: 0;
+    top: -25px;
+    /* Pull upwards to drape over keyline */
     width: 25vw;
     /* Reduced from 35vw to avoid overlap */
     max-width: 380px;
