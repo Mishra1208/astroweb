@@ -74,21 +74,30 @@ export default function Navbar() {
                 </motion.nav>
             )}
 
-            {/* Mobile Logo (Always Visible) */}
+            {/* Mobile Logo (Visible on Mobile, Hides on Scroll) */}
             {isMobile && (
-                <div className={styles.mobileLogo} style={{
-                    position: 'fixed',
-                    top: '2rem',
-                    left: '2rem',
-                    zIndex: 1000,
-                    fontFamily: 'var(--font-heading)',
-                    fontWeight: 700,
-                    fontSize: '1.5rem',
-                    color: 'var(--accent-red)',
-                    textShadow: '0 0 10px rgba(239, 230, 216, 0.8)'
-                }}>
+                <motion.div
+                    className={styles.mobileLogo}
+                    initial={{ y: 0, opacity: 1 }}
+                    animate={{
+                        y: isScrolled ? -100 : 0,
+                        opacity: isScrolled ? 0 : 1
+                    }}
+                    transition={{ duration: 0.5 }}
+                    style={{
+                        position: 'fixed',
+                        top: '2rem',
+                        left: '2rem',
+                        zIndex: 1000,
+                        fontFamily: 'var(--font-heading)',
+                        fontWeight: 700,
+                        fontSize: '1.5rem',
+                        color: 'var(--accent-red)',
+                        textShadow: '0 0 10px rgba(239, 230, 216, 0.8)'
+                    }}
+                >
                     ASTRO<span style={{ color: 'var(--accent-main)' }}>WEB</span>
-                </div>
+                </motion.div>
             )}
 
             {/* 2. HAMBURGER BUTTON (Scroll State OR Mobile) */}
