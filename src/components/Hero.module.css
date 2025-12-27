@@ -24,9 +24,10 @@
     height: 100%;
     background: linear-gradient(to bottom,
             var(--bg-primary) 0%,
-            rgba(239, 230, 216, 0.8) 50%,
+            rgba(239, 230, 216, 0.85) 50%,
             var(--bg-primary) 100%);
-    z-index: 0;
+    z-index: 1;
+    /* Sit above Mandalas, below Text */
 }
 
 .title {
@@ -40,6 +41,10 @@
     letter-spacing: 0.5px;
     /* Precision */
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+
+    /* Layering Fix */
+    position: relative;
+    z-index: 2;
 }
 
 .subtitle {
@@ -50,8 +55,13 @@
     /* Ink Brown */
     font-family: var(--font-body);
     /* Hind */
-    font-weight: 400;
+    font-weight: 500;
+    /* Increased weight for readability */
     line-height: 1.6;
+
+    /* Layering Fix */
+    position: relative;
+    z-index: 2;
 }
 
 .ctaButton {
