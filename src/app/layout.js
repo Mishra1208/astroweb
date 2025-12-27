@@ -50,9 +50,9 @@ export default function RootLayout({ children }) {
         <div style={{
           position: 'fixed',
           top: 0,
-          left: '-15px', // Pull outwards to remove gap
+          left: '-30px', // Pull aggressively to remove gap
           height: '65vh',
-          width: '220px', // Compensate for negative margin
+          width: '240px', // Compensate for negative margin
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
@@ -76,9 +76,9 @@ export default function RootLayout({ children }) {
         <div style={{
           position: 'fixed',
           top: 0,
-          right: '-15px', // Pull outwards to remove gap
+          right: '-30px', // Pull aggressively to remove gap
           height: '65vh',
-          width: '220px',
+          width: '240px',
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
