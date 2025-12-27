@@ -51,25 +51,34 @@ function GarlandString({ index, side, total }) {
 
     const variants = {
         initial: {
-            rotate: isLeft ? 5 + index : -(5 + index),
+            rotate: isLeft ? 15 : -15, // Start with a clear angle
             opacity: 0,
+            y: -50, // Start slightly higher up
         },
         animate: {
             rotate: 0,
             opacity: 1,
+            y: 0,
             transition: {
-                delay: waveDelay,
-                duration: duration,
-                ease: "easeInOut",
+                delay: waveDelay, // Stagger the start
+                // Physical spring properties for "Pendulum" effect
                 type: "spring",
-                stiffness: 30, // Softer spring
-                damping: 10
+                stiffness: 40,  // Tension
+                damping: 7,     // Low friction = more swings before stopping
+                mass: 1.5 + (index * 0.2), // Lower strings heavier?
+                restDelta: 0.001
             }
         },
         hover: {
-            x: isLeft ? 10 : -10,
-            rotate: isLeft ? -5 : 5, // Spread out on hover?
-            transition: { duration: 0.3 }
+            // A "push" effect that swings and settles
+            rotate: isLeft
+                ? [0, 8, -6, 4, -2, 0]
+                : [0, -8, 6, -4, 2, 0],
+            transition: {
+                duration: 2.5,
+                ease: "linear",
+                times: [0, 0.2, 0.4, 0.6, 0.8, 1]
+            }
         }
     };
 
