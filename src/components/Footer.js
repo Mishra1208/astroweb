@@ -52,19 +52,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Column 3: Resources */}
-                <div className={styles.column}>
-                    <h3 className={styles.colTitle}>Resources</h3>
-                    <ul className={styles.links}>
-                        <li><a href="#">Planetary Transits 2024</a></li>
-                        <li><a href="#">Vrat & Festivals</a></li>
-                        <li><a href="#">Gemstone Guide</a></li>
-                        <li><a href="#">Mantra & Chanting</a></li>
-                        <li><a href="#">Astrology Blog</a></li>
-                    </ul>
-                </div>
-
-                {/* Column 4: Contact */}
+                {/* Column 3: Contact (moved to 3rd position) */}
                 <div className={styles.column}>
                     <h3 className={styles.colTitle}>Contact Us</h3>
                     <ul className={styles.contactList}>
