@@ -45,7 +45,7 @@ export default function Navbar() {
                 transition={{ duration: 0.5 }}
             >
                 <div className={styles.logo}>
-                    ASTRO<span style={{ color: '#fff' }}>WEB</span>
+                    ASTRO<span style={{ color: 'var(--accent-main)' }}>WEB</span>
                 </div>
                 {/* Only visible on Desktop in Pill Mode */}
                 <div className={styles.links}>

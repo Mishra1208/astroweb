@@ -1,9 +1,9 @@
 .footer {
-    background: linear-gradient(to bottom, #050410, #000);
+    background: var(--bg-secondary);
     position: relative;
     padding-top: 4rem;
-    color: #cbd5e1;
-    font-family: var(--font-poppins);
+    color: #EFE6D8;
+    font-family: var(--font-body), serif;
 }
 
 .goldLine {
@@ -11,9 +11,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #fbbf24, #d97706, #fbbf24, transparent);
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    height: 2px;
+    /* Thinner, refined */
+    background: linear-gradient(to right, transparent, #B45309, transparent);
+    /* Saffron Line */
+    box-shadow: none;
+    /* Clean separation */
 }
 
 .content {
@@ -26,10 +29,11 @@
 }
 
 /* Typography */
+/* Typography */
 .brandTitle {
     font-family: var(--font-rozha);
     font-size: 2.5rem;
-    background: linear-gradient(to right, #fbbf24, #fff);
+    background: linear-gradient(to right, var(--accent-gold), #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
@@ -40,12 +44,13 @@
     line-height: 1.6;
     margin-bottom: 1.5rem;
     opacity: 0.8;
+    color: #EFE6D8;
 }
 
 .colTitle {
     font-family: var(--font-rozha);
     font-size: 1.4rem;
-    color: #fff;
+    color: #EFE6D8;
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
@@ -58,7 +63,7 @@
     bottom: -5px;
     width: 40px;
     height: 2px;
-    background: #fbbf24;
+    background: var(--accent-gold);
 }
 
 /* Links */
@@ -73,7 +78,8 @@
 
 .links a {
     text-decoration: none;
-    color: #94a3b8;
+    color: #9CA3AF;
+    /* Cool grey for contrast on dark footer */
     transition: all 0.3s;
     font-size: 0.95rem;
     display: flex;
@@ -82,7 +88,7 @@
 }
 
 .links a:hover {
-    color: #fbbf24;
+    color: var(--accent-gold);
     transform: translateX(5px);
 }
 
@@ -95,7 +101,7 @@
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
-    color: #94a3b8;
+    color: #a8a29e;
 }
 
 /* Badges */
@@ -105,14 +111,15 @@
 }
 
 .trustBadge {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(176, 141, 87, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(43, 27, 18, 0.5);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: #EFE6D8;
 }
 
 /* Socials */
@@ -125,19 +132,19 @@
 .socialIcon {
     width: 40px;
     height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(176, 141, 87, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #EFE6D8;
     transition: all 0.3s;
 }
 
 .socialIcon:hover {
-    background: #fbbf24;
+    background: var(--accent-gold);
     color: #000;
-    border-color: #fbbf24;
+    border-color: var(--accent-gold);
 }
 
 /* Bottom Bar */
@@ -182,6 +189,11 @@
 
     .socials {
         justify-content: center;
+    }
+
+    .goldLine {
+        /* Added new rule */
+        height: 1px;
     }
 
     .bottomBar {

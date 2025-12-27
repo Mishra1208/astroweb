@@ -1,21 +1,44 @@
 :root {
-  /* Deep Space / Premium Palette */
-  --background-start: #000000;
-  --background-end: #050505;
-  /* Almost pure black */
+  /* Temple Luxury / Vedic Palette */
+  --bg-primary: #EFE6D8;
+  /* Texture fallback */
+  --bg-secondary: #2B1B12;
+  /* Dark Brown (Footer/Cards) */
+  --bg-gradient: radial-gradient(circle at top, #F6EFE3 0%, #EFE6D8 45%, #E8DDCB 100%);
+  /* Micro-gradient */
 
-  --glass-bg: rgba(15, 15, 15, 0.8);
-  --glass-border: rgba(255, 215, 0, 0.15);
-  /* Gold border */
+  --glass-bg: linear-gradient(180deg, rgba(247, 241, 230, 0.9), rgba(239, 230, 216, 0.8));
+  /* Carved Stone feel */
+  --glass-border: rgba(176, 141, 87, 0.4);
+  /* Brass border */
 
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
+  --text-main: #2B1B12;
+  /* Dark Brown - Primary Text */
+  --text-ink: #3A2A1E;
+  /* Ink Brown - Body Text (was #6B6B6B) */
+  --text-muted: #7A6A58;
+  /* Muted Earth - Secondary Text */
+  --text-light: #FDFBF7;
+  /* Off-white for dark backgrounds */
 
-  --accent-gold: #fbbf24;
-  --accent-glow: rgba(251, 191, 36, 0.4);
+  --accent-main: #C45A00;
+  /* Saffron Deep - Buttons/Highlights */
+  --accent-gold: #B08D57;
+  /* Brass Gold - Primary metallic */
+  --accent-gold-dark: #8F6E3A;
+  /* Antique Shadow Gold - Metallic depth */
+  --accent-red: #7A1E1E;
+  /* Maroon / Kumkum - Headings */
 
-  --font-rozha: 'Rozha One', serif;
-  --font-poppins: 'Poppins', sans-serif;
+  /* Typography System */
+  --font-heading: 'Tiro Devanagari Hindi', serif;
+  --font-body: 'Hind', sans-serif;
+  --font-ui: 'Mukta', sans-serif;
+  --font-numbers: 'Inter', sans-serif;
+
+  /* Legacy Maps (Safe Refactor) */
+  --font-rozha: var(--font-heading);
+  --font-poppins: var(--font-ui);
 }
 
 * {
@@ -24,16 +47,108 @@
   margin: 0;
 }
 
-html,
-body {
+html {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: var(--font-poppins);
-  background: linear-gradient(to bottom,
-      var(--background-start),
-      var(--background-end));
-  color: var(--text-primary);
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+
+  /* Body Typography */
+  font-family: var(--font-body), sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  /* Sacred Readability */
+
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-ink);
+  /* Ink Brown */
+  scroll-behavior: smooth;
+  background-image: url('/textures/paper-noise.png');
+  background-blend-mode: multiply;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), serif;
+  font-weight: 600;
+  /* Authoritative */
+  letter-spacing: 0.3px;
+  /* Precise */
+  color: var(--accent-red);
+  /* Maroon */
+}
+
+/* UI Elements */
+button,
+.btn,
+label,
+input,
+.label,
+.nav-link {
+  font-family: var(--font-ui), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Numbers (Special Class) */
+.num,
+.date,
+.time {
+  font-family: var(--font-numbers), sans-serif;
+  letter-spacing: 0;
+}
+
+/* --- MOBILE ELEGANCE RULES --- */
+@media (max-width: 768px) {
+
+  /* Responsive Spacing: "Breathing Room" */
+  section {
+    padding: 48px 16px !important;
+    /* Enforce vertical rhythm */
+  }
+
+  /* Mobile Typography Hierarchy */
+  h1 {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0.4px !important;
+  }
+
+  h2 {
+    font-size: 22px !important;
+  }
+
+  body {
+    font-size: 15.5px !important;
+    line-height: 1.65 !important;
+    /* Ensure readability */
+  }
+
+  /* Mobile Buttons */
+  button,
+  .btn {
+    min-height: 48px;
+    /* Touch target */
+    width: 100%;
+    /* Full width */
+    border-radius: 999px;
+    /* Pill */
+    margin-top: 1rem;
+  }
 }
 
 a {

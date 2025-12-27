@@ -27,12 +27,14 @@ export default function LoadingScreen() {
                         left: 0,
                         width: '100vw',
                         height: '100vh',
-                        background: '#000',
+                        background: 'var(--bg-primary)', // Parchment
                         zIndex: 9999,
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        backgroundImage: "url('/textures/paper-noise.png')",
+                        backgroundBlendMode: 'multiply'
                     }}
                 >
                     {/* Golden Glow Behind */}
@@ -40,7 +42,7 @@ export default function LoadingScreen() {
                         position: 'absolute',
                         width: '300px',
                         height: '300px',
-                        background: 'radial-gradient(circle, rgba(251, 191, 36, 0.2) 0%, transparent 70%)',
+                        background: 'radial-gradient(circle, rgba(176, 141, 87, 0.4) 0%, transparent 70%)',
                         filter: 'blur(20px)',
                     }}></div>
 
@@ -52,17 +54,17 @@ export default function LoadingScreen() {
                     >
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             {/* Outer Circle */}
-                            <circle cx="50" cy="50" r="48" stroke="#fbbf24" strokeWidth="1" />
-                            <circle cx="50" cy="50" r="45" stroke="#fbbf24" strokeWidth="0.5" strokeDasharray="2 2" />
+                            <circle cx="50" cy="50" r="48" stroke="#B08D57" strokeWidth="1" />
+                            <circle cx="50" cy="50" r="45" stroke="#B08D57" strokeWidth="0.5" strokeDasharray="2 2" />
 
                             {/* Simplified Yantra Geometry (Interlocking Triangles) */}
-                            <path d="M50 5 L85 80 H15 Z" stroke="#fbbf24" strokeWidth="1" fill="none" opacity="0.8" />
-                            <path d="M50 95 L15 20 H85 Z" stroke="#fbbf24" strokeWidth="1" fill="none" opacity="0.8" />
-                            <path d="M50 15 L75 70 H25 Z" stroke="#fbbf24" strokeWidth="0.8" fill="none" opacity="0.6" />
-                            <path d="M50 85 L25 30 H75 Z" stroke="#fbbf24" strokeWidth="0.8" fill="none" opacity="0.6" />
+                            <path d="M50 5 L85 80 H15 Z" stroke="#C45A00" strokeWidth="1" fill="none" opacity="0.8" />
+                            <path d="M50 95 L15 20 H85 Z" stroke="#C45A00" strokeWidth="1" fill="none" opacity="0.8" />
+                            <path d="M50 15 L75 70 H25 Z" stroke="#B08D57" strokeWidth="0.8" fill="none" opacity="0.6" />
+                            <path d="M50 85 L25 30 H75 Z" stroke="#B08D57" strokeWidth="0.8" fill="none" opacity="0.6" />
 
                             {/* Central Bindu */}
-                            <circle cx="50" cy="50" r="2" fill="#fbbf24" />
+                            <circle cx="50" cy="50" r="2" fill="#7A1E1E" />
                         </svg>
                     </motion.div>
 
@@ -83,12 +85,12 @@ export default function LoadingScreen() {
                             transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
                             style={{
                                 fontFamily: 'var(--font-rozha)',
-                                background: 'linear-gradient(to right, #fbbf24, #fff, #fbbf24)',
+                                background: 'linear-gradient(to right, var(--accent-red), var(--accent-main))',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
                                 fontSize: '2.5rem',
                                 textTransform: 'uppercase',
-                                filter: 'drop-shadow(0 0 10px rgba(251, 191, 36, 0.3))'
+                                filter: 'drop-shadow(0 0 2px rgba(176, 141, 87, 0.3))'
                             }}
                         >
                             ASTROWEB
@@ -101,10 +103,10 @@ export default function LoadingScreen() {
                             transition={{ delay: 1.2 }}
                             style={{
                                 fontFamily: 'var(--font-rozha)',
-                                color: '#fbbf24',
+                                color: 'var(--accent-main)',
                                 fontSize: '1.2rem',
                                 letterSpacing: '1px',
-                                textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+                                textShadow: '0 1px 2px rgba(0,0,0,0.1)'
                             }}
                         >
                             ब्रह्मांड के साथ संरेखण...
@@ -113,15 +115,16 @@ export default function LoadingScreen() {
                         {/* English Cinematic Subtitle */}
                         <motion.span
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.5 }}
+                            animate={{ opacity: 0.7 }}
                             transition={{ delay: 1.8 }}
                             style={{
                                 fontSize: '0.75rem',
-                                fontFamily: 'var(--font-poppins)',
-                                color: '#fff',
+                                fontFamily: 'var(--font-body)',
+                                color: 'var(--text-main)',
                                 textTransform: 'uppercase',
                                 letterSpacing: '6px',
-                                marginTop: '0.2rem'
+                                marginTop: '0.2rem',
+                                fontWeight: '600'
                             }}
                         >
                             Aligning the Cosmos

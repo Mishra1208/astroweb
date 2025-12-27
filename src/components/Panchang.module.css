@@ -4,20 +4,21 @@
     max-width: 1000px;
     margin: -4rem auto 4rem;
     /* Overlap Hero slightly or sit just below */
-    background: rgba(10, 10, 10, 0.7);
+    background: var(--glass-bg);
+    /* Frosted Parchment */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    border: 1px solid var(--glass-border);
     border-radius: 30px;
     padding: 2rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 20px 50px rgba(43, 27, 18, 0.15);
     position: relative;
     z-index: 20;
     /* Above stars */
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: 2px solid #fbbf24;
+    border-top: 2px solid var(--accent-gold);
 }
 
 /* Header */
@@ -27,19 +28,21 @@
 }
 
 .title {
-    font-family: var(--font-rozha);
+    font-family: var(--font-heading);
     font-size: 2.5rem;
-    background: linear-gradient(to right, #fbbf24, #fff, #d97706);
+    background: linear-gradient(to right, var(--accent-red), var(--accent-main));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
 }
 
 .date {
-    color: #cbd5e1;
-    font-family: var(--font-poppins);
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    /* Hind for text part */
+    font-weight: 500;
     font-size: 1.1rem;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 /* Dials Grid */
@@ -53,8 +56,8 @@
 
 /* Individual Dial Card */
 .dialCard {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 1.5rem;
     display: flex;
@@ -64,12 +67,13 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .dialCard:hover {
     transform: translateY(-5px);
-    border-color: #fbbf24;
-    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.1);
+    border-color: var(--accent-main);
+    box-shadow: 0 10px 30px rgba(196, 90, 0, 0.15);
 }
 
 /* The "Instrument" Dial */
@@ -77,13 +81,13 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(176, 141, 87, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
     position: relative;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent);
+    background: radial-gradient(circle, #fffbeb, transparent);
 }
 
 /* Rotating Ring */
@@ -93,7 +97,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border-top: 2px solid #fbbf24;
+    border-top: 2px solid var(--accent-main);
     border-right: 2px solid transparent;
     animation: spin 3s linear infinite;
 }
@@ -103,27 +107,29 @@
     height: 60%;
     object-fit: contain;
     z-index: 2;
-    filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.5));
+    filter: drop-shadow(0 0 5px rgba(196, 90, 0, 0.3));
 }
 
-/* Specific adjustments if images have white backgrounds */
-/* We can use the multiply trick again if needed, assuming they are like the zodiac ones */
-/* For now, just a clean fit */
-
 .label {
-    font-family: var(--font-poppins);
-    color: #94a3b8;
+    font-family: var(--font-ui);
+    /* Mukta */
+    font-weight: 600;
+    color: var(--text-muted);
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin-bottom: 0.5rem;
 }
 
 .time {
-    font-family: var(--font-rozha);
-    color: #fff;
-    font-size: 1.4rem;
-    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    font-family: var(--font-numbers);
+    /* Inter for clear time reading */
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1.3rem;
+    /* Slightly smaller for Inter's clarity */
+    text-shadow: none;
+    letter-spacing: -0.5px;
 }
 
 /* Bad Time Highlight */
@@ -137,8 +143,8 @@
 }
 
 .danger .time {
-    color: #fca5a5;
-    text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    color: #b91c1c;
+    text-shadow: none;
 }
 
 @keyframes spin {
@@ -153,20 +159,53 @@
 
 @media (max-width: 768px) {
     .container {
-        width: 95%;
-        padding: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        /* Full bleed on mobile? Or simple rect */
+        border: none;
+        background: transparent;
+        /* Clean look */
+        padding: 1rem 0;
+        /* Edge to edge feeling */
+        box-shadow: none;
+    }
+
+    .header {
+        padding: 0 1rem;
     }
 
     .grid {
-        gap: 1.5rem;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 0 1rem 2rem 1rem;
+        /* Bottom padding for shadow */
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        /* Prevent wrapping */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Hide scrollbar */
+    .grid::-webkit-scrollbar {
+        display: none;
     }
 
     .dialCard {
-        width: 45%;
-        /* 2 per row */
+        min-width: 80%;
+        /* Show part of next card */
+        scroll-snap-align: center;
+        background: var(--glass-bg);
+        /* Ensure visibility */
+        margin-right: 0;
+        box-shadow: 0 5px 15px rgba(43, 27, 18, 0.1);
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        /* Adjusted per global rule */
     }
 }

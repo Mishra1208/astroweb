@@ -2,22 +2,13 @@
 
 import styles from "./Hero.module.css";
 import { motion } from "framer-motion";
-import Galaxy from "./Galaxy";
+import MandalaBackground from "./MandalaBackground";
 
 export default function Hero() {
     return (
         <section className={styles.hero} id="home">
             <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-                <Galaxy
-                    mouseRepulsion={true}
-                    mouseInteraction={true}
-                    density={1.2}
-                    glowIntensity={1.0}
-                    saturation={0.0}
-                    hueShift={0}
-                    starSpeed={0.05}
-                    transparent={false}
-                />
+                <MandalaBackground />
             </div>
 
             <motion.h1
