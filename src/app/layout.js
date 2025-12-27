@@ -44,76 +44,62 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
-        {/* Marigold Garland Decoration - Vertical Strings (Ladi) */}
-
-        {/* Left Side */}
+        {/* Marigold Garland Decoration - Top Horizontal (Two strings side by side) */}
         <div style={{
           position: 'fixed',
           top: 0,
-          bottom: 0,
-          left: '10px',
-          width: '70px',
+          left: 0,
+          width: '100%',
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
-          justifyContent: 'space-between'
+          justifyContent: 'center',
+          alignItems: 'flex-start' // Ensure it hugs the top
         }}>
-          {/* String 1 */}
+          {/* Left Half */}
           <div style={{
-            width: '30px',
-            height: '100%',
-            backgroundImage: "url('/garland.png')",
-            backgroundRepeat: 'repeat-y',
-            backgroundSize: '100% auto',
-            opacity: 0.95,
-            filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))'
-          }}></div>
-          {/* String 2 (Offset for natural look) */}
-          <div style={{
-            width: '30px',
-            height: '100%',
-            backgroundImage: "url('/garland.png')",
-            backgroundRepeat: 'repeat-y',
-            backgroundSize: '100% auto',
-            backgroundPosition: '0 -40px',
-            opacity: 0.9,
-            filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))'
-          }}></div>
-        </div>
+            width: '50%',
+            height: 'auto',
+            display: 'flex',
+            justifyContent: 'flex-end', // Align inward to touch seam
+            overflow: 'hidden'
+          }}>
+            <img
+              src="/marigold-top.png"
+              alt="Garland Left"
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '140px', // Slightly larger for impact
+                objectFit: 'cover', // Use cover to fill width
+                objectPosition: 'top',
+                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+              }}
+            />
+          </div>
 
-        {/* Right Side */}
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          bottom: 0,
-          right: '10px',
-          width: '70px',
-          zIndex: 9998,
-          pointerEvents: 'none',
-          display: 'flex',
-          justifyContent: 'space-between'
-        }}>
-          {/* String 1 */}
+          {/* Right Half */}
           <div style={{
-            width: '30px',
-            height: '100%',
-            backgroundImage: "url('/garland.png')",
-            backgroundRepeat: 'repeat-y',
-            backgroundSize: '100% auto',
-            opacity: 0.95,
-            filter: 'drop-shadow(-2px 2px 2px rgba(0,0,0,0.3))'
-          }}></div>
-          {/* String 2 (Offset) */}
-          <div style={{
-            width: '30px',
-            height: '100%',
-            backgroundImage: "url('/garland.png')",
-            backgroundRepeat: 'repeat-y',
-            backgroundSize: '100% auto',
-            backgroundPosition: '0 -40px',
-            opacity: 0.9,
-            filter: 'drop-shadow(-2px 2px 2px rgba(0,0,0,0.3))'
-          }}></div>
+            width: '50%',
+            height: 'auto',
+            display: 'flex',
+            justifyContent: 'flex-start', // Align inward
+            overflow: 'hidden'
+          }}>
+            <img
+              src="/marigold-top.png"
+              alt="Garland Right"
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '140px',
+                objectFit: 'cover',
+                objectPosition: 'top', // Mirror logic not needed if image is symmetric, otherwise scaleX(-1)
+                transform: 'scaleX(-1)', // Mirror it for symmetry
+                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+              }}
+            />
+          </div>
         </div>
 
         {children}
