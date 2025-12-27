@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react';
 
 export default function Garland({ side = 'left' }) {
     const isLeft = side === 'left';
-    // Increase to 5 strings for a "thick bunch" look
-    const strings = [0, 1, 2, 3, 4];
+    // Increase to 7 strings for a richer, grander pillar look (Temple Luxury)
+    const strings = [0, 1, 2, 3, 4, 5, 6];
 
     // State to delay the start of the animation until after loading screen
     const [startAnimation, setStartAnimation] = useState(false);
@@ -26,7 +26,7 @@ export default function Garland({ side = 'left' }) {
                 top: 0,
                 [side]: '-20px', // Slight negative to hug edge
                 height: '40vh',
-                width: '300px', // Adjusted to stop at OM icon
+                width: '350px', // Slightly wider for 7 strings
                 zIndex: 9998,
                 pointerEvents: 'none',
             }}
@@ -61,7 +61,7 @@ function GarlandString({ index, side, total, shouldAnimate }) {
     // actually let's use percentage.
     // spread 5 strings across 100% width? No, that's too spread.
     // spread them across 80% of width.
-    const step = 19; // Spaced out arrangement (almost 20% per string)
+    const step = 16; // Adjusted for 7 strings to keep gaps
     const positionOffset = isLeft
         ? `${index * step}% `
         : `${(total - 1 - index) * step}% `; // Mirror positions for right side?
