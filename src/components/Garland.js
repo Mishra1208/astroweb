@@ -59,7 +59,7 @@ export default function Garland({ side = 'left' }) {
                     index={i}
                     side={side}
                     total={strings.length}
-                    shouldAnimate={startAnimation}
+                    shouldAnimate={startAnimation && isVisible}
                 />
             ))}
         </motion.div>
