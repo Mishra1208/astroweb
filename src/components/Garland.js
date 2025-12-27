@@ -19,8 +19,29 @@ export default function Garland({ side = 'left' }) {
         return () => clearTimeout(timer);
     }, []);
 
+    // State for scroll visibility
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Show only when at the very top (within 100px)
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > 100) {
+                setIsVisible(false);
+            } else {
+                setIsVisible(true);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <div
+        <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: isVisible ? 0 : -500 }} // Pull up out of view
+            transition={{ duration: 0.8, ease: "easeInOut" }} // Slow, elegant retraction
             style={{
                 position: 'fixed',
                 top: 0,
@@ -41,7 +62,7 @@ export default function Garland({ side = 'left' }) {
                     shouldAnimate={startAnimation}
                 />
             ))}
-        </div>
+        </motion.div>
     );
 }
 
