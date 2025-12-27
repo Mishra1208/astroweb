@@ -35,8 +35,9 @@
 .footerGarland {
     position: absolute;
     top: 0;
-    width: 180px;
-    /* Adjust size as needed */
+    width: 35vw;
+    /* Grand scale to reach content columns */
+    min-width: 300px;
     height: auto;
     pointer-events: none;
     z-index: 1;
