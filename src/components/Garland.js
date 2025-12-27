@@ -14,8 +14,8 @@ export default function Garland({ side = 'left' }) {
                 position: 'fixed',
                 top: 0,
                 [side]: '-20px', // Slight negative to hug edge
-                height: '100vh',
-                width: '450px', // Grand scale
+                height: '40vh',
+                width: '300px', // Adjusted to stop at OM icon
                 zIndex: 9998,
                 pointerEvents: 'none',
             }}
