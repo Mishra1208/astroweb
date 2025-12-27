@@ -46,49 +46,49 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
         {/* Marigold Garland Decoration - Vertical Sides (Ladi) */}
 
-        {/* Left Side: 2 Strings */}
+        {/* Left Side: Hanging from top */}
         <div style={{
           position: 'fixed',
           top: 0,
-          left: '10px',
-          width: '80px', // Width to show approx 2 strings from the image
-          height: '60vh', // Hang down significantly
+          left: 0,
+          height: '85vh', // Hang down most of the page
           zIndex: 9998,
           pointerEvents: 'none',
-          overflow: 'hidden'
+          display: 'flex',
+          alignItems: 'flex-start'
         }}>
           <img
             src="/marigold-top.png"
             alt="Garland Left"
             style={{
-              width: '100%',
               height: '100%',
-              objectFit: 'cover', // Fill vertical height
-              objectPosition: 'left center', // Show left part of image
+              width: 'auto', // Preserve aspect ratio to show full photo
+              objectFit: 'contain',
               filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))'
             }}
           />
         </div>
 
-        {/* Right Side: 2 Strings */}
+        {/* Right Side: Hanging from top */}
         <div style={{
           position: 'fixed',
           top: 0,
-          right: '10px',
-          width: '80px',
-          height: '60vh',
+          right: 0,
+          height: '85vh',
           zIndex: 9998,
           pointerEvents: 'none',
-          overflow: 'hidden'
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-end'
         }}>
           <img
             src="/marigold-top.png"
             alt="Garland Right"
             style={{
-              width: '100%',
               height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'right center', // Show right part of image (or mirror)
+              width: 'auto', // Preserve aspect ratio
+              objectFit: 'contain',
+              transform: 'scaleX(-1)', // Mirror for symmetry
               filter: 'drop-shadow(-2px 2px 4px rgba(0,0,0,0.2))'
             }}
           />
