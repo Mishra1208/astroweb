@@ -9,6 +9,18 @@ export default function Footer() {
             {/* Golden Top Border Effect */}
             <div className={styles.goldLine}></div>
 
+            {/* Static Footer Garlands */}
+            <img
+                src="/NEW/MARIGOLD-footer.png"
+                alt="Decorative Garland"
+                className={`${styles.footerGarland} ${styles.left}`}
+            />
+            <img
+                src="/NEW/MARIGOLD-footer.png"
+                alt="Decorative Garland"
+                className={`${styles.footerGarland} ${styles.right}`}
+            />
+
             <div className={styles.content}>
                 {/* Column 1: Brand */}
                 <div className={styles.column}>
