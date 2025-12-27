@@ -51,20 +51,23 @@ export default function RootLayout({ children }) {
           position: 'fixed',
           top: 0,
           left: 0,
-          height: '85vh', // Hang down most of the page
+          height: '45vh', // Reduce height to be decorative, not dominating
+          width: '80px', // Constrain width
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
-          alignItems: 'flex-start'
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start' // Push to extreme left
         }}>
           <img
             src="/marigold-top.png"
             alt="Garland Left"
             style={{
               height: '100%',
-              width: 'auto', // Preserve aspect ratio to show full photo
+              width: '100%',
               objectFit: 'contain',
-              filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))'
+              objectPosition: 'top left', // Anchor to top-left corner
+              filter: 'drop-shadow(2px 2px 3px rgba(0,0,0,0.15))'
             }}
           />
         </div>
@@ -74,22 +77,24 @@ export default function RootLayout({ children }) {
           position: 'fixed',
           top: 0,
           right: 0,
-          height: '85vh',
+          height: '45vh',
+          width: '80px',
           zIndex: 9998,
           pointerEvents: 'none',
           display: 'flex',
           alignItems: 'flex-start',
-          justifyContent: 'flex-end'
+          justifyContent: 'flex-end' // Push to extreme right
         }}>
           <img
             src="/marigold-top.png"
             alt="Garland Right"
             style={{
               height: '100%',
-              width: 'auto', // Preserve aspect ratio
+              width: '100%',
               objectFit: 'contain',
+              objectPosition: 'top right', // Anchor to top-right corner
               transform: 'scaleX(-1)', // Mirror for symmetry
-              filter: 'drop-shadow(-2px 2px 4px rgba(0,0,0,0.2))'
+              filter: 'drop-shadow(-2px 2px 3px rgba(0,0,0,0.15))'
             }}
           />
         </div>
