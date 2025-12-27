@@ -72,12 +72,12 @@ function GarlandString({ index, side, total }) {
         hover: {
             // A "push" effect that swings and settles
             rotate: isLeft
-                ? [0, 8, -6, 4, -2, 0]
-                : [0, -8, 6, -4, 2, 0],
+                ? [0, 10, -8, 6, -4, 2, -1, 0]
+                : [0, -10, 8, -6, 4, -2, 1, 0],
             transition: {
-                duration: 2.5,
+                duration: 6,
                 ease: "linear",
-                times: [0, 0.2, 0.4, 0.6, 0.8, 1]
+                times: [0, 0.1, 0.25, 0.45, 0.65, 0.8, 0.9, 1]
             }
         }
     };
