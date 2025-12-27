@@ -1,0 +1,233 @@
+/* Main Container */
+.container {
+    background: var(--bg-primary);
+    min-height: 100vh;
+    padding-top: 8rem;
+    /* Space for Navbar */
+    font-family: var(--font-body), serif;
+    color: var(--text-primary);
+    background-image: url('/parchment-hq.jpg');
+    /* Texture base */
+    background-blend-mode: multiply;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 2rem 4rem;
+    position: relative;
+}
+
+.profileFrame {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    padding: 10px;
+    border: 3px solid var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(180, 83, 9, 0.3);
+    /* Saffron glow */
+    background: linear-gradient(145deg, #2a1b12, #4a3b32);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.name {
+    font-family: var(--font-rozha);
+    font-size: 3.5rem;
+    background: linear-gradient(to right, var(--accent-gold), #fff, var(--accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 1.2rem;
+    color: var(--accent-saffron);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.location {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+/* Section Common */
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.sectionTitle {
+    font-family: var(--font-rozha);
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--accent-gold);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.sectionTitle::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-saffron);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Bio Section */
+.bioContainer {
+    background: rgba(43, 27, 18, 0.4);
+    /* Dark glass */
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(180, 83, 9, 0.2);
+    backdrop-filter: blur(10px);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Services Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(20, 10, 5, 0.6);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(251, 191, 36, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+    background: rgba(20, 10, 5, 0.8);
+}
+
+.cardIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.cardTitle {
+    font-family: var(--font-rozha);
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+.cardDesc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Gallery */
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.galleryItem {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border: 2px solid rgba(180, 83, 9, 0.3);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.galleryItem:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-gold);
+}
+
+.galleryImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contact/Schedule */
+.contactContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contactCard {
+    background: linear-gradient(145deg, #2a1b12, #1a0f0a);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--accent-saffron);
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.contactLabel {
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.contactValue {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .profileFrame {
+        width: 220px;
+        height: 220px;
+    }
+
+    .section {
+        padding: 3rem 1.5rem;
+    }
+}
