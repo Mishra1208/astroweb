@@ -36,10 +36,10 @@ export default function Navbar() {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     const menuItems = [
-        { name: 'होम', id: 'home' },
-        { name: 'राशिफल', id: 'horoscope' },
-        { name: 'टैरो', id: 'tarot' },
-        { name: 'हमारे बारे में', id: 'about' }
+        { name: 'होम', id: 'home', href: '/' },
+        { name: 'राशिफल', id: 'horoscope', href: '/#horoscope' },
+        { name: 'टैरो', id: 'tarot', href: '/#tarot' },
+        { name: 'हमारे बारे में', id: 'about', href: '/acharya' }
     ];
 
     return (
@@ -65,7 +65,7 @@ export default function Navbar() {
                         {menuItems.map((item) => (
                             <Link
                                 key={item.id}
-                                href={`#${item.id}`}
+                                href={item.href}
                                 className={styles.link}
                             >
                                 {item.name}
@@ -140,7 +140,7 @@ export default function Navbar() {
                                     transition={{ delay: index * 0.1 }}
                                 >
                                     <Link
-                                        href={`#${item.id}`}
+                                        href={item.href}
                                         className={styles.overlayLink}
                                         onClick={toggleMenu} // Close on click
                                     >
