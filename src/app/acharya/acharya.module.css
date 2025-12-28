@@ -121,6 +121,32 @@
     color: #2B1B12;
 }
 
+.chaupaiContainer {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.3);
+}
+
+.chaupai {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: #7A1E1E;
+    /* Maroon */
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.chaupaiSource {
+    font-size: 0.9rem;
+    color: #C45A00;
+    /* Deep Saffron */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* Services Grid */
 .grid {
     display: grid;
