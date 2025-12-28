@@ -33,23 +33,23 @@ export default function AcharyaPage() {
                     {/* Using the renamed profile image */}
                     <Image
                         src="/aacharya/profile.jpg"
-                        alt="Acharya Pandit Raj Kumar"
+                        alt="आचार्य पंडित राज कुमार"
                         fill
                         className={styles.profileImage}
                     />
                 </motion.div>
 
                 <motion.h1 className={styles.name} variants={itemVariants}>
-                    Acharya Pandit Raj Kumar
+                    आचार्य पंडित राज कुमार
                 </motion.h1>
 
                 <motion.p className={styles.title} variants={itemVariants}>
-                    Vedic Astrologer & Ritual Specialist
+                    वैदिक ज्योतिषी और अनुष्ठान विशेषज्ञ
                 </motion.p>
 
                 <motion.div className={styles.location} variants={itemVariants}>
                     <MapPin size={18} color="#fbbf24" />
-                    <span>Pratapgarh, Uttar Pradesh, India</span>
+                    <span>प्रतापगढ़, उत्तर प्रदेश, भारत</span>
                 </motion.div>
             </motion.section>
 
@@ -63,11 +63,11 @@ export default function AcharyaPage() {
                     transition={{ duration: 0.8 }}
                 >
                     <p>
-                        "Sanatan Dharma is not just a religion, it is a way of life that connects us to the cosmos."
+                        "सनातन धर्म केवल एक धर्म नहीं है, यह जीवन जीने की एक कला है जो हमें ब्रह्मांड से जोड़ती है।"
                     </p>
                     <br />
                     <p>
-                        Based in the historic land of Pratapgarh, Acharya Pandit Raj Kumar has dedicated his life to the preservation and practice of Vedic traditions. With deep knowledge of Astrology (Jyotish Shastra) and Vedic Rituals (Karmakand), he guides individuals towards spiritual growth and worldly prosperity. His approach combines ancient wisdom with practical solutions for modern life challenges.
+                        प्रतापगढ़ की ऐतिहासिक भूमि में स्थित, आचार्य पंडित राज कुमार ने अपना जीवन वैदिक परंपराओं के संरक्षण और अभ्यास के लिए समर्पित कर दिया है। ज्योतिष शास्त्र और वैदिक अनुष्ठानों (कर्मकांड) के गहरे ज्ञान के साथ, वे व्यक्तियों को आध्यात्मिक और सांसारिक समृद्धि की ओर मार्गदर्शन करते हैं। उनका दृष्टिकोण आधुनिक जीवन की चुनौतियों के लिए प्राचीन ज्ञान को व्यावहारिक समाधानों के साथ जोड़ता है।
                     </p>
                 </motion.div>
             </section>
@@ -75,17 +75,17 @@ export default function AcharyaPage() {
             {/* Services Section */}
             <section className={styles.section}>
                 <div style={{ textAlign: 'center' }}>
-                    <h2 className={styles.sectionTitle}>Spiritual Services</h2>
+                    <h2 className={styles.sectionTitle}>आध्यात्मिक सेवाएँ</h2>
                 </div>
 
                 <div className={styles.grid}>
                     {[
-                        { title: "Janampatri & Kundli", icon: "📜", desc: "Detailed birth chart analysis and future predictions based on Vedic principles." },
-                        { title: "Vivah Sanskar", icon: "🔥", desc: "Traditional marriage ceremonies focusing on Gun Milan and Mangal Dosha Nivaran." },
-                        { title: "Grah Shanti Puja", icon: "✨", desc: "Rituals to appease planetary influences and bring peace to your home." },
-                        { title: "Vastu Consultation", icon: "🏠", desc: "Harmonizing your living and work spaces with universal energies." },
-                        { title: "Rudrabhishek", icon: "🕉️", desc: "Sacred bathing ceremony of Lord Shiva for health, wealth, and prosperity." },
-                        { title: "Maha Mrityunjaya", icon: "🙌", desc: "Powerful chanting rituals for longevity and overcoming dire health issues." }
+                        { title: "जन्मपत्री और कुंडली", icon: "📜", desc: "वैदिक सिद्धांतों पर आधारित विस्तृत जन्म चार्ट विश्लेषण और भविष्य की भविष्यवाणियां।" },
+                        { title: "विवाह संस्कार", icon: "🔥", desc: "गुण मिलान और मांगलिक दोष निवारण पर केंद्रित पारंपरिक विवाह समारोह।" },
+                        { title: "ग्रह शांति पूजा", icon: "✨", desc: "ग्रहों के प्रभाव को शांत करने और आपके घर में शांति लाने के लिए अनुष्ठान।" },
+                        { title: "वास्तु परामर्श", icon: "🏠", desc: "ब्रह्मांडीय ऊर्जाओं के साथ आपके रहने और कार्य करने के स्थानों को संतुलित करना।" },
+                        { title: "रुद्राभिषेक", icon: "🕉️", desc: "स्वास्थ्य, धन और समृद्धि के लिए भगवान शिव का पवित्र अभिषेक समारोह।" },
+                        { title: "महा मृत्युंजय", icon: "🙌", desc: "दीर्घायु और गंभीर स्वास्थ्य समस्याओं पर विजय पाने के लिए शक्तिशाली मंत्र जप।" }
                     ].map((service, idx) => (
                         <motion.div
                             key={idx}
@@ -106,7 +106,7 @@ export default function AcharyaPage() {
             {/* Past Works Gallery */}
             <section className={styles.section}>
                 <div style={{ textAlign: 'center' }}>
-                    <h2 className={styles.sectionTitle}>Glimpses of Ceremonies</h2>
+                    <h2 className={styles.sectionTitle}>समारोहों की झलकियां</h2>
                 </div>
 
                 <div className={styles.galleryGrid}>
@@ -134,31 +134,31 @@ export default function AcharyaPage() {
             {/* Contact Section */}
             <section className={styles.section}>
                 <div style={{ textAlign: 'center' }}>
-                    <h2 className={styles.sectionTitle}>Connect with Acharya Ji</h2>
+                    <h2 className={styles.sectionTitle}>आचार्य जी से संपर्क करें</h2>
                 </div>
 
                 <div className={styles.contactContainer}>
                     <div className={styles.contactCard}>
-                        <div className={styles.contactLabel}>For Appointments</div>
+                        <div className={styles.contactLabel}>नियुक्ति (Appointment) के लिए</div>
                         <div className={styles.contactValue}>
                             <Phone size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#fbbf24" />
                             +91 98765 43210
                         </div>
-                        <p style={{ color: '#a8a29e', marginTop: '1rem', fontSize: '0.9rem' }}>
-                            Available Daily: 9:00 AM - 7:00 PM <br />
-                            (Please WhatsApp for bookings)
+                        <p style={{ color: '#d6d3d1', marginTop: '1rem', fontSize: '0.9rem' }}>
+                            उपलब्ध: सुबह 9:00 - शाम 7:00 <br />
+                            (कृपया बुकिंग के लिए व्हाट्सएप करें)
                         </p>
                     </div>
 
                     <div className={styles.contactCard}>
-                        <div className={styles.contactLabel}>Location</div>
+                        <div className={styles.contactLabel}>स्थान</div>
                         <div className={styles.contactValue}>
                             <MapPin size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#fbbf24" />
-                            Pratapgarh, UP
+                            प्रतापगढ़, उत्तर प्रदेश
                         </div>
-                        <p style={{ color: '#a8a29e', marginTop: '1rem', fontSize: '0.9rem' }}>
-                            Near Main Temple, Civil Lines <br />
-                            Uttar Pradesh, India
+                        <p style={{ color: '#d6d3d1', marginTop: '1rem', fontSize: '0.9rem' }}>
+                            मुख्य मंदिर के पास, सिविल लाइन्स <br />
+                            उत्तर प्रदेश, भारत
                         </p>
                     </div>
                 </div>
