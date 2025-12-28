@@ -83,7 +83,7 @@ export default function AcharyaPage() {
                             </div>
                             <div className={styles.hanumanImageContainer}>
                                 <Image
-                                    src="/ram.png"
+                                    src="/ramji.png"
                                     alt="Lord Ram"
                                     width={120}
                                     height={120}
