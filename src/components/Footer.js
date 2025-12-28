@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Footer() {
     const pathname = usePathname();
-    const isHome = pathname === '/';
+    const isHome = pathname === '/services';
 
     return (
         <footer className={`${styles.footer} ${isHome ? styles.homeFooter : ''}`}>
