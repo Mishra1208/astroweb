@@ -184,8 +184,21 @@ input,
   }
 
   /* Hide middle strings on mobile to show Logo (2 Left, 2 Right) */
-  .string-2, .string-3, .string-4 {
+  .string-2,
+  .string-3,
+  .string-4 {
     display: none !important;
+  }
+
+  /* Shift Right Strings into view (since 96% is cut off) */
+  .string-5 {
+    left: 68% !important;
+    /* Move from 80% to 68% */
+  }
+
+  .string-6 {
+    left: 83% !important;
+    /* Move from 96% to 83% */
   }
 
   /* Sway Wrapper for Animation */

@@ -79,22 +79,24 @@ export default function Navbar() {
             {isMobile && (
                 <motion.div
                     className={styles.mobileLogo}
-                    initial={{ y: 0, opacity: 1 }}
+                    initial={{ y: 0, x: "-50%", opacity: 1 }}
                     animate={{
                         y: isScrolled ? -100 : 0,
+                        x: "-50%",
                         opacity: isScrolled ? 0 : 1
                     }}
                     transition={{ duration: 0.5 }}
                     style={{
                         position: 'fixed',
                         top: '2rem',
-                        left: '2rem',
+                        left: '50%', // Centered
                         zIndex: 1000,
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
                         fontSize: '1.5rem',
                         color: 'var(--accent-red)',
-                        textShadow: '0 0 10px rgba(239, 230, 216, 0.8)'
+                        textShadow: '0 0 10px rgba(239, 230, 216, 0.8)',
+                        whiteSpace: 'nowrap'
                     }}
                 >
                     ASTRO<span style={{ color: 'var(--accent-main)' }}>WEB</span>
