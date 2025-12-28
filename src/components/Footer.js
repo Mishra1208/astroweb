@@ -67,7 +67,7 @@ export default function Footer() {
                     <ul className={styles.contactList}>
                         <li><MapPin size={18} color="#fbbf24" /> New Delhi, India</li>
                         <li><Mail size={18} color="#fbbf24" /> support@astroweb.com</li>
-                        <li><Phone size={18} color="#fbbf24" /> +91 98765 43210</li>
+                        <li><Phone size={18} color="#fbbf24" /> +91 86010 42988</li>
                     </ul>
                     <div className={styles.socials}>
                         <a href="#" className={styles.socialIcon}><Instagram size={20} /></a>
