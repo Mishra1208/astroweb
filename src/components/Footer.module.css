@@ -9,6 +9,15 @@
     /* Push footer down for image space */
 }
 
+/* Home Page Specific Override */
+.homeFooter {
+    margin-top: 0;
+    padding-top: 20rem;
+    /* Combine previous padding + margin into padding so background covers it */
+    background: linear-gradient(to bottom, #000 0%, var(--bg-secondary) 30%);
+    /* Blend with cosmos black */
+}
+
 /* ... existing styles ... */
 
 .centerDecoration {

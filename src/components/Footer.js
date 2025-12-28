@@ -1,11 +1,15 @@
+'use client';
+
 import styles from "./Footer.module.css";
 import { Star, ShieldCheck, Mail, Phone, MapPin, Instagram, Twitter, Youtube } from "lucide-react";
-// Removed external dependency to prevent build errors. Using emojis for now.
-// Safest bet matches current stack: text/svgs.
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+
     return (
-        <footer className={styles.footer}>
+        <footer className={`${styles.footer} ${isHome ? styles.homeFooter : ''}`}>
             {/* Golden Top Border Effect */}
             <div className={styles.goldLine}></div>
 
