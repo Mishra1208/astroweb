@@ -7,16 +7,21 @@ import { MessageCircle } from "lucide-react"; // Using lucide icon instead of Fo
 
 export default function BookingModal({ isOpen, onClose }) {
     const [name, setName] = useState("");
-    const [service, setService] = useState("Kundli");
-    const [time, setTime] = useState("Morning");
+    // FIXED: Initial state matches the full value of the first option
+    const [service, setService] = useState("Kundli Reading");
+    const [time, setTime] = useState("Morning (9 AM - 12 PM)");
 
     const handleBooking = () => {
-        // Construct the WhatsApp message
-        const message = `Namaste Acharya Ji 🙏%0A%0AMy name is *${name}*.%0AI am interested in *${service}*.%0APreferred time: *${time}*.%0A%0APlease let me know the availability.`;
+        // Construct the WhatsApp message using standard Javascript strings
+        // Using single * for WhatsApp bold formatting (e.g. *Text*)
+        const text = `Namaste Acharya Ji,\n\nMy name is *${name}*.\nI am interested in *${service}*.\nPreferred time: *${time}*.\n\nPlease let me know the availability.`;
+
+        // Encode the message properly for URL
+        const encodedMessage = encodeURIComponent(text);
 
         // Open WhatsApp
-        const phoneNumber = "918601042988";
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+        const phoneNumber = "919958363629";
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
 
         onClose(); // Close modal after clicking
     };
@@ -32,7 +37,7 @@ export default function BookingModal({ isOpen, onClose }) {
                 exit={{ opacity: 0 }}
                 onClick={onClose}
             >
-                <divWrapper onClick={(e) => e.stopPropagation()}>
+                <DivWrapper onClick={(e) => e.stopPropagation()}>
                     <motion.div
                         className={styles.modal}
                         initial={{ scale: 0.8, y: 50, opacity: 0 }}
@@ -94,7 +99,7 @@ export default function BookingModal({ isOpen, onClose }) {
                             Book on WhatsApp
                         </button>
                     </motion.div>
-                </divWrapper>
+                </DivWrapper>
             </motion.div>
         </AnimatePresence>
     );
@@ -102,6 +107,6 @@ export default function BookingModal({ isOpen, onClose }) {
 
 // Wrapper to avoid motion prop issues on plain divs if needed, 
 // though standard motion.div is usually fine. Using a simple fragment-like structure here.
-const divWrapper = ({ children, onClick }) => (
+const DivWrapper = ({ children, onClick }) => (
     <div onClick={onClick} style={{ display: 'contents' }}>{children}</div>
 );

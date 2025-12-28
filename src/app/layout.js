@@ -45,7 +45,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
         {/* Marigold Garland Decoration - Animated & Interactive */}
         <Garland side="left" />
