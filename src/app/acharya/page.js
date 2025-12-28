@@ -5,6 +5,8 @@ import styles from './acharya.module.css';
 import { MapPin, Phone, Calendar, Star, Sun, Moon, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Gallery3D from '@/components/Gallery3D';
+import BookingModal from '@/components/BookingModal';
+import CompatibilityTool from '@/components/CompatibilityTool';
 
 // Animation variants
 const containerVariants = {
@@ -209,6 +211,8 @@ export default function AcharyaPage() {
                     </div>
                 </div>
             </section>
+
+            <BookingModal />
 
         </main>
     );
