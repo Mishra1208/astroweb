@@ -55,51 +55,74 @@ export default function AcharyaPage() {
             </motion.section>
 
             {/* Biography Section */}
-            <section className={styles.section}>
-                <motion.div
-                    className={styles.bioContainer}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <div className={styles.chaupaiContainer}>
-                        <div className={styles.chaupaiWrapper}>
-                            <div className={styles.hanumanImageContainer}>
-                                <Image
-                                    src="/toadd.png"
-                                    alt="Lord Hanuman"
-                                    width={120}
-                                    height={120}
-                                    className={styles.hanumanImage}
-                                />
-                            </div>
-                            <div className={styles.chaupaiText}>
-                                <p className={styles.chaupai}>
-                                    "कवन सो काज कठिन जग माहीं।<br />
-                                    जो नहिं होइ तात तुम्ह पाहीं॥"
-                                </p>
-                                <span className={styles.chaupaiSource}>– रामचरितमानस (किष्किंधा कांड)</span>
-                            </div>
-                            <div className={styles.hanumanImageContainer}>
-                                <Image
-                                    src="/ramji.png"
-                                    alt="Lord Ram"
-                                    width={120}
-                                    height={120}
-                                    className={styles.hanumanImage}
-                                />
+            <section className={styles.sectionNoPadding}>
+                <div className={styles.bioSectionWrapper}>
+                    {/* Left Garland */}
+                    <div className={styles.flankingGarlandLeft}>
+                        <Image
+                            src="/secondgarland.png"
+                            alt="Garland Decoration"
+                            fill
+                            className={styles.garlandImage}
+                        />
+                    </div>
+
+                    {/* Bio Card */}
+                    <motion.div
+                        className={styles.bioContainer}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <div className={styles.chaupaiContainer}>
+                            <div className={styles.chaupaiWrapper}>
+                                <div className={styles.hanumanImageContainer}>
+                                    <Image
+                                        src="/toadd.png"
+                                        alt="Lord Hanuman"
+                                        width={120}
+                                        height={120}
+                                        className={styles.hanumanImage}
+                                    />
+                                </div>
+                                <div className={styles.chaupaiText}>
+                                    <p className={styles.chaupai}>
+                                        "कवन सो काज कठिन जग माहीं।<br />
+                                        जो नहिं होइ तात तुम्ह पाहीं॥"
+                                    </p>
+                                    <span className={styles.chaupaiSource}>– रामचरितमानस (किष्किंधा कांड)</span>
+                                </div>
+                                <div className={styles.hanumanImageContainer}>
+                                    <Image
+                                        src="/ramji.png"
+                                        alt="Lord Ram"
+                                        width={120}
+                                        height={120}
+                                        className={styles.hanumanImage}
+                                    />
+                                </div>
                             </div>
                         </div>
+                        <br />
+                        <p>
+                            प्रतापगढ़ की ऐतिहासिक भूमि में स्थित, आचार्य पंडित राज कुमार तिवारी ने अपना जीवन वैदिक परंपराओं के संरक्षण और अभ्यास के लिए समर्पित कर दिया है। ज्योतिष शास्त्र और वैदिक अनुष्ठानों (कर्मकांड) के गहरे ज्ञान के साथ, वे व्यक्तियों को आध्यात्मिक और सांसारिक समृद्धि की ओर मार्गदर्शन करते हैं।
+                        </p>
+                        <div className={styles.expertTags}>
+                            <span>कर्मकांड</span> • <span>महायज्ञ</span> • <span>ग्रह शांति</span> • <span>वास्तु</span> • <span>तंत्र निवारण</span> • <span>विवाह संस्कार</span>
+                        </div>
+                    </motion.div>
+
+                    {/* Right Garland */}
+                    <div className={styles.flankingGarlandRight}>
+                        <Image
+                            src="/secondgarland.png"
+                            alt="Garland Decoration"
+                            fill
+                            className={styles.garlandImage}
+                        />
                     </div>
-                    <br />
-                    <p>
-                        प्रतापगढ़ की ऐतिहासिक भूमि में स्थित, आचार्य पंडित राज कुमार तिवारी ने अपना जीवन वैदिक परंपराओं के संरक्षण और अभ्यास के लिए समर्पित कर दिया है। ज्योतिष शास्त्र और वैदिक अनुष्ठानों (कर्मकांड) के गहरे ज्ञान के साथ, वे व्यक्तियों को आध्यात्मिक और सांसारिक समृद्धि की ओर मार्गदर्शन करते हैं।
-                    </p>
-                    <div className={styles.expertTags}>
-                        <span>कर्मकांड</span> • <span>महायज्ञ</span> • <span>ग्रह शांति</span> • <span>वास्तु</span> • <span>तंत्र निवारण</span> • <span>विवाह संस्कार</span>
-                    </div>
-                </motion.div>
+                </div>
             </section>
 
             {/* Services Section */}

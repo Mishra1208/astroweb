@@ -104,7 +104,31 @@
 }
 
 /* Bio Section */
+/* Flanking Garlands Layout */
+.sectionNoPadding {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 0;
+    /* Vertical padding only */
+    position: relative;
+    overflow: hidden;
+}
+
+.bioSectionWrapper {
+    display: flex;
+    align-items: center;
+    /* Center horizontally relative to card */
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
 .bioContainer {
+    /* Keep existing bioContainer styles, but ensure z-index is higher */
+    z-index: 2;
+    flex-shrink: 0;
+    /* Do not shrink */
+    /* ... existing styles ... */
     background: rgba(246, 241, 232, 0.6);
     /* Lighter Sand Glass */
     padding: 3rem;
@@ -116,24 +140,51 @@
     font-size: 1.1rem;
     text-align: center;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
+    /* Remove auto margin as it's flex centered */
     box-shadow: 0 10px 30px rgba(176, 141, 87, 0.15);
     color: #2B1B12;
 }
 
-.chaupaiContainer {
-    margin-bottom: 2rem;
+.flankingGarlandLeft,
+.flankingGarlandRight {
+    flex: 1;
+    /* Take up remaining space */
+    height: 150px;
+    /* Adjust based on image aspect ratio, maybe 100-200px */
     position: relative;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(176, 141, 87, 0.3);
+    opacity: 0.5;
+    /* Reduced transparency */
+    z-index: 1;
 }
 
-.chaupaiWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+.flankingGarlandLeft {
+    margin-right: -20px;
+    /* Slight overlap or touch */
+}
+
+.flankingGarlandRight {
+    margin-left: -20px;
+}
+
+.garlandImage {
+    object-fit: cover;
+    /* Or cover to fill the bar */
+    /* If user wants running line, maybe contain or repeat? user said "run all the way" */
+    object-position: center;
+}
+
+@media (max-width: 1024px) {
+
+    .flankingGarlandLeft,
+    .flankingGarlandRight {
+        display: none;
+        /* Hide on smaller screens or reduce size */
+    }
+
+    .bioSectionWrapper {
+        padding: 0 1rem;
+    }
 }
 
 .hanumanImageContainer {
