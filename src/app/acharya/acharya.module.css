@@ -156,6 +156,7 @@
     opacity: 0.5;
     /* Reduced transparency */
     z-index: 1;
+    margin-top: 14px;
 }
 
 .flankingGarlandLeft {
