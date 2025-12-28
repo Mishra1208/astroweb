@@ -64,11 +64,24 @@ export default function AcharyaPage() {
                     transition={{ duration: 0.8 }}
                 >
                     <div className={styles.chaupaiContainer}>
-                        <p className={styles.chaupai}>
-                            "कवन सो काज कठिन जग माहीं।<br />
-                            जो नहिं होइ तात तुम्ह पाहीं॥"
-                        </p>
-                        <span className={styles.chaupaiSource}>– रामचरितमानस (किष्किंधा कांड)</span>
+                        <div className={styles.chaupaiWrapper}>
+                            <div className={styles.hanumanImageContainer}>
+                                <Image
+                                    src="/hanumanji.png"
+                                    alt="Lord Hanuman"
+                                    width={120}
+                                    height={120}
+                                    className={styles.hanumanImage}
+                                />
+                            </div>
+                            <div className={styles.chaupaiText}>
+                                <p className={styles.chaupai}>
+                                    "कवन सो काज कठिन जग माहीं।<br />
+                                    जो नहिं होइ तात तुम्ह पाहीं॥"
+                                </p>
+                                <span className={styles.chaupaiSource}>– रामचरितमानस (किष्किंधा कांड)</span>
+                            </div>
+                        </div>
                     </div>
                     <br />
                     <p>
