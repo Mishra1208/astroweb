@@ -63,9 +63,11 @@ export default function Gallery3D() {
             opacity: 0.7;
             transition: all 0.3s;
         }
-        .swiper-slidejs-active {
+        .swiper-slide-active {
             filter: blur(0);
             opacity: 1;
+            transform: scale(1.1); /* Slight zoom for active item */
+            z-index: 2;
         }
         .swiper-pagination-bullet {
             background: #7A1E1E !important;
