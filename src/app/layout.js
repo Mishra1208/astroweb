@@ -36,6 +36,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import Garland from "@/components/Garland";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Astroweb | Aligning the Cosmos",
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
         <Navbar />
 
         {children}
+        <Footer />
         <SpeedInsights />
         <Analytics />
       </body>
