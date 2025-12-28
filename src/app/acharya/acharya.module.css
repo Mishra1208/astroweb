@@ -1,21 +1,12 @@
 /* Main Container */
 .container {
-    background: var(--bg-primary);
+    background-color: #EFE6D8;
+    /* Warm Parchment */
     min-height: 100vh;
     padding-top: 8rem;
-    /* Space for Navbar */
     font-family: var(--font-body), serif;
-    color: #fce7f3;
-    /* Light Cream text for dark background */
-
-    /* New Background with Strong Overlay for Readability */
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-        url('/aacharya/bg-warm.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    /* Parallax effect */
+    color: #2B1B12;
+    /* Dark Brown Text */
 }
 
 /* Hero Section */
@@ -33,10 +24,11 @@
     height: 280px;
     border-radius: 50%;
     padding: 10px;
-    border: 3px solid var(--accent-gold);
-    box-shadow: 0 10px 30px rgba(180, 83, 9, 0.3);
+    border: 3px solid #B08D57;
+    /* Antique Brass */
+    box-shadow: 0 10px 30px rgba(196, 90, 0, 0.2);
     /* Saffron glow */
-    background: linear-gradient(145deg, #2a1b12, #4a3b32);
+    background: linear-gradient(145deg, #F6F1E8, #EFE6D8);
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
@@ -54,21 +46,22 @@
     font-family: var(--font-heading);
     /* Tiro Devanagari Hindi */
     font-size: 3.5rem;
-    background: linear-gradient(to right, var(--accent-gold), #fff, var(--accent-gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #7A1E1E;
+    /* Maroon / Kumkum */
+    margin-bottom: 0.5rem;
+    text-shadow: none;
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .title {
     font-size: 1.2rem;
-    color: var(--accent-saffron);
+    color: #C45A00;
+    /* Deep Saffron */
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .location {
@@ -112,18 +105,20 @@
 
 /* Bio Section */
 .bioContainer {
-    background: rgba(43, 27, 18, 0.4);
-    /* Dark glass */
+    background: rgba(246, 241, 232, 0.6);
+    /* Lighter Sand Glass */
     padding: 3rem;
     border-radius: 20px;
-    border: 1px solid rgba(180, 83, 9, 0.2);
+    border: 1px solid rgba(176, 141, 87, 0.4);
+    /* Antique Brass */
     backdrop-filter: blur(10px);
     line-height: 1.8;
     font-size: 1.1rem;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(176, 141, 87, 0.15);
+    color: #2B1B12;
 }
 
 /* Services Grid */
@@ -134,18 +129,22 @@
 }
 
 .card {
-    background: rgba(20, 10, 5, 0.6);
+    background: #F6F1E8;
+    /* Light Sand */
     padding: 2rem;
     border-radius: 16px;
-    border: 1px solid rgba(251, 191, 36, 0.1);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(176, 141, 87, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(43, 27, 18, 0.05);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-gold);
-    background: rgba(20, 10, 5, 0.8);
+    border-color: #C45A00;
+    /* Deep Saffron */
+    box-shadow: 0 10px 20px rgba(196, 90, 0, 0.15);
+    background: #fff;
 }
 
 .cardIcon {
@@ -158,12 +157,14 @@
     font-family: var(--font-heading);
     /* Tiro Devanagari Hindi */
     font-size: 1.5rem;
-    color: var(--accent-gold);
+    color: #7A1E1E;
+    /* Maroon */
     margin-bottom: 0.5rem;
 }
 
 .cardDesc {
-    color: var(--text-secondary);
+    color: #5C4435;
+    /* Muted Brown */
     font-size: 0.95rem;
 }
 
@@ -204,10 +205,10 @@
 }
 
 .contactCard {
-    background: linear-gradient(145deg, #2a1b12, #1a0f0a);
+    background: linear-gradient(145deg, #F6F1E8, #EFE6D8);
     padding: 2rem;
     border-radius: 16px;
-    border: 1px solid var(--accent-saffron);
+    border: 1px solid #B08D57;
     flex: 1;
     min-width: 300px;
     max-width: 400px;
@@ -215,16 +216,28 @@
 }
 
 .contactLabel {
-    color: var(--accent-gold);
+    color: #7A1E1E;
+    /* Maroon / Kumkum */
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
 .contactValue {
     font-size: 1.2rem;
     font-weight: 600;
+    color: #2B1B12;
+    /* Dark Brown */
+}
+
+.contactDetails {
+    color: #5C4435;
+    /* Muted Brown */
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {

@@ -125,10 +125,10 @@ export default function AcharyaPage() {
                     <div className={styles.contactCard}>
                         <div className={styles.contactLabel}>नियुक्ति (Appointment) के लिए</div>
                         <div className={styles.contactValue}>
-                            <Phone size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#fbbf24" />
+                            <Phone size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#7A1E1E" />
                             +91 98765 43210
                         </div>
-                        <p style={{ color: '#d6d3d1', marginTop: '1rem', fontSize: '0.9rem' }}>
+                        <p className={styles.contactDetails}>
                             उपलब्ध: सुबह 9:00 - शाम 7:00 <br />
                             (कृपया बुकिंग के लिए व्हाट्सएप करें)
                         </p>
@@ -137,10 +137,10 @@ export default function AcharyaPage() {
                     <div className={styles.contactCard}>
                         <div className={styles.contactLabel}>स्थान</div>
                         <div className={styles.contactValue}>
-                            <MapPin size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#fbbf24" />
+                            <MapPin size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#7A1E1E" />
                             प्रतापगढ़, उत्तर प्रदेश
                         </div>
-                        <p style={{ color: '#d6d3d1', marginTop: '1rem', fontSize: '0.9rem' }}>
+                        <p className={styles.contactDetails}>
                             मुख्य मंदिर के पास, सिविल लाइन्स <br />
                             उत्तर प्रदेश, भारत
                         </p>
