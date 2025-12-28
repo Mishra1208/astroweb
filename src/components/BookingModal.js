@@ -20,7 +20,7 @@ export default function BookingModal({ isOpen, onClose }) {
         const encodedMessage = encodeURIComponent(text);
 
         // Open WhatsApp
-        const phoneNumber = "919958363629";
+        const phoneNumber = "918601042988";
         window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
 
         onClose(); // Close modal after clicking
