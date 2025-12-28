@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import styles from './acharya.module.css';
 import { MapPin, Phone, Calendar, Star, Sun, Moon, Heart } from 'lucide-react';
 import Image from 'next/image';
+import Gallery3D from '@/components/Gallery3D';
 
 // Animation variants
 const containerVariants = {
@@ -109,25 +110,8 @@ export default function AcharyaPage() {
                     <h2 className={styles.sectionTitle}>समारोहों की झलकियां</h2>
                 </div>
 
-                <div className={styles.galleryGrid}>
-                    {[1, 2, 3, 4, 5].map((num) => (
-                        <motion.div
-                            key={num}
-                            className={styles.galleryItem}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: num * 0.1 }}
-                        >
-                            <Image
-                                src={`/aacharya/work-${num}.jpg`}
-                                alt={`Ceremony ${num}`}
-                                width={400}
-                                height={300}
-                                className={styles.galleryImage}
-                            />
-                        </motion.div>
-                    ))}
+                <div className={styles.galleryWrapper}>
+                    <Gallery3D />
                 </div>
             </section>
 
