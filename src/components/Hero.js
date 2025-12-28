@@ -64,6 +64,12 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 1.2 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                    const element = document.getElementById('horoscope');
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }}
             >
                 अपना राशिफल देखें
             </motion.button>
