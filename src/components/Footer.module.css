@@ -264,6 +264,17 @@
         align-items: center;
         text-align: center;
     }
+
+    /* Fix Footer Garland on Mobile */
+    .footerGarland {
+        display: block;
+        /* Ensure visible */
+        width: 45vw;
+        /* Larger width relative to viewport */
+        top: -25px;
+        /* Adjust position */
+        max-width: 150px;
+    }
 }
 
 .centerDecoration {

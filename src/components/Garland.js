@@ -51,6 +51,7 @@ export default function Garland({ side = 'left' }) {
                 zIndex: 9998,
                 pointerEvents: 'none',
             }}
+            className={`fixedGarland ${side}`}
         >
             {/* Render strings absolutely positioned within this bunch container */}
             {strings.map((i) => (
@@ -140,19 +141,21 @@ function GarlandString({ index, side, total, shouldAnimate }) {
                 cursor: 'pointer',
             }}
         >
-            <img
-                src="/newgarland.png"
-                alt={`Garland String ${index} `}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover', // Force it to fill the height even if it crops width
-                    objectPosition: 'top center', // Ensure distinct top attachment
-                    transform: !isLeft ? 'scaleX(-1)' : 'none',
-                    filter: 'drop-shadow(2px 4px 5px rgba(0,0,0,0.2))' // Deep shadow for depth
-                }}
-                draggable={false}
-            />
+            <div className="mobileSwayWrapper" style={{ width: '100%', height: '100%' }}>
+                <img
+                    src="/newgarland.png"
+                    alt={`Garland String ${index} `}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover', // Force it to fill the height even if it crops width
+                        objectPosition: 'top center', // Ensure distinct top attachment
+                        transform: !isLeft ? 'scaleX(-1)' : 'none',
+                        filter: 'drop-shadow(2px 4px 5px rgba(0,0,0,0.2))' // Deep shadow for depth
+                    }}
+                    draggable={false}
+                />
+            </div>
         </motion.div>
     );
 }

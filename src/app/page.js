@@ -238,7 +238,7 @@ export default function Home() {
                     width={32}
                     height={32}
                 />
-                Book Appointment
+                <span className={styles.btnText}>Book Appointment</span>
             </motion.button>
 
             {/* Modal */}
