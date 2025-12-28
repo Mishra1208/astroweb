@@ -13,8 +13,8 @@ export default function BookingModal({ isOpen, onClose }) {
 
     const handleBooking = () => {
         // Construct the WhatsApp message using standard Javascript strings
-        // Using single * for WhatsApp bold formatting (e.g. *Text*)
-        const text = `Namaste Acharya Ji,\n\nMy name is *${name}*.\nI am interested in *${service}*.\nPreferred time: *${time}*.\n\nPlease let me know the availability.`;
+        // Hindi Message as requested
+        const text = `नमस्ते आचार्य जी 🙏\n\nमेरा नाम *${name}* है।\nमैं *${service}* के बारे में जानना चाहता हूँ।\nपसंदीदा समय: *${time}*।\n\nकृपया मुझे उपलब्धता बताएं।`;
 
         // Encode the message properly for URL
         const encodedMessage = encodeURIComponent(text);
