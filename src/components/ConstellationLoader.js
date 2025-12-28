@@ -29,16 +29,16 @@ export default function ConstellationLoader({ onComplete }) {
             <div style={{ position: 'relative', width: '150px', height: '150px' }}>
                 <svg viewBox="0 0 100 100" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
 
-                    {/* Glowing Connections */}
+                    {/* Glowing Connections - Darker Gold */}
                     <motion.path
                         d={genericPath}
                         fill="transparent"
-                        stroke="#fbbf24"
-                        strokeWidth="1"
+                        stroke="#B45309"
+                        strokeWidth="1.5"
                         initial={{ pathLength: 0, opacity: 0 }}
                         animate={{ pathLength: 1, opacity: 1 }}
                         transition={{ duration: 2, ease: "easeInOut" }}
-                        style={{ filter: 'drop-shadow(0 0 5px #fbbf24)' }}
+                        style={{ filter: 'drop-shadow(0 0 2px rgba(180, 83, 9, 0.5))' }}
                     />
 
                     {/* Stars - positioned at vertices of the generic path approximately */}
@@ -65,25 +65,27 @@ export default function ConstellationLoader({ onComplete }) {
             {/* Loading Text */}
             <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: [0.3, 1, 0.3] }}
+                animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
                 style={{
                     marginTop: '2rem',
                     fontFamily: 'var(--font-rozha)',
-                    color: '#fbbf24',
-                    fontSize: '1.2rem',
-                    textAlign: 'center'
+                    color: '#92400e', /* Dark Brown/Maroon */
+                    fontSize: '1.4rem',
+                    textAlign: 'center',
+                    fontWeight: 'bold'
                 }}
             >
                 नक्षत्र गणना...
                 <span style={{
                     display: 'block',
-                    fontSize: '0.8rem',
+                    fontSize: '0.9rem',
                     fontFamily: 'var(--font-poppins)',
-                    color: '#fff',
+                    color: '#B45309', /* Dark Gold */
                     letterSpacing: '2px',
                     marginTop: '0.3rem',
-                    opacity: 0.7
+                    opacity: 0.9,
+                    fontWeight: '600'
                 }}>
                     Verifying Constellation...
                 </span>
@@ -98,11 +100,11 @@ function Star({ cx, cy, r = 2, delay }) {
             cx={cx}
             cy={cy}
             r={r}
-            fill="#fff"
+            fill="#B45309" /* Dark Star */
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: [1, 1.5, 1], opacity: 1 }}
             transition={{ delay: delay, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-            style={{ filter: 'drop-shadow(0 0 3px #fff)' }}
+            style={{ filter: 'drop-shadow(0 0 2px rgba(180, 83, 9, 0.5))' }}
         />
     );
 }
