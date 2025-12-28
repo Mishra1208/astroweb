@@ -1,120 +1,107 @@
-'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, X, MessageCircle } from 'lucide-react';
-import styles from './BookingModal.module.css';
+"use client";
 
-export default function BookingModal() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [formData, setFormData] = useState({
-        name: '',
-        service: 'Kundli',
-        time: 'Morning'
-    });
+import styles from "./BookingModal.module.css";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { MessageCircle } from "lucide-react"; // Using lucide icon instead of FontAwesome
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+export default function BookingModal({ isOpen, onClose }) {
+    const [name, setName] = useState("");
+    const [service, setService] = useState("Kundli");
+    const [time, setTime] = useState("Morning");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Construct WhatsApp Message
-        const message = `Namaste Acharya Ji 🙏, I want to book an appointment.\n\n👤 Name: ${formData.name}\n🔮 Service: ${formData.service}\n⏰ Preferred Time: ${formData.time}`;
-
-        // Encode URL
-        const whatsappUrl = `https://wa.me/918601042988?text=${encodeURIComponent(message)}`;
+    const handleBooking = () => {
+        // Construct the WhatsApp message
+        const message = `Namaste Acharya Ji 🙏%0A%0AMy name is *${name}*.%0AI am interested in *${service}*.%0APreferred time: *${time}*.%0A%0APlease let me know the availability.`;
 
         // Open WhatsApp
-        window.open(whatsappUrl, '_blank');
-        setIsOpen(false);
+        const phoneNumber = "918601042988";
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+
+        onClose(); // Close modal after clicking
     };
 
+    if (!isOpen) return null;
+
     return (
-        <>
-            {/* Floating Book Button */}
-            <motion.button
-                className={styles.floatingBtn}
-                onClick={() => setIsOpen(true)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+        <AnimatePresence>
+            <motion.div
+                className={styles.overlay}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={onClose}
             >
-                <Calendar size={20} />
-                Book Appointment
-            </motion.button>
+                <divWrapper onClick={(e) => e.stopPropagation()}>
+                    <motion.div
+                        className={styles.modal}
+                        initial={{ scale: 0.8, y: 50, opacity: 0 }}
+                        animate={{ scale: 1, y: 0, opacity: 1 }}
+                        exit={{ scale: 0.8, y: 50, opacity: 0 }}
+                    >
+                        <button className={styles.closeButton} onClick={onClose}>×</button>
 
-            {/* Modal */}
-            <AnimatePresence>
-                {isOpen && (
-                    <div className={styles.overlay} onClick={() => setIsOpen(false)}>
-                        <motion.div
-                            className={styles.modal}
-                            onClick={(e) => e.stopPropagation()}
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.8, opacity: 0 }}
+                        <h2 className={styles.title}>Book Appointment</h2>
+                        <p className={styles.subtitle}>Connect directly on WhatsApp</p>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.label}>Your Name</label>
+                            <input
+                                type="text"
+                                className={styles.input}
+                                placeholder="Enter your name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.label}>Select Service</label>
+                            <select
+                                className={styles.select}
+                                value={service}
+                                onChange={(e) => setService(e.target.value)}
+                            >
+                                <option value="Kundli Reading">Kundli Reading (जन्म कुंडली)</option>
+                                <option value="Dosh Nivaran">Dosh Nivaran (दोष निवारण)</option>
+                                <option value="Mahayagya">Mahayagya (महायज्ञ)</option>
+                                <option value="Vastu Consultation">Vastu (वास्तु)</option>
+                                <option value="Marriage Matching">Marriage (विवाह)</option>
+                                <option value="Business/Career">Business/Career (व्यापार)</option>
+                            </select>
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.label}>Preferred Time</label>
+                            <select
+                                className={styles.select}
+                                value={time}
+                                onChange={(e) => setTime(e.target.value)}
+                            >
+                                <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+                                <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
+                                <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
+                            </select>
+                        </div>
+
+                        <button
+                            className={styles.submitButton}
+                            onClick={handleBooking}
+                            disabled={!name} // Disable if name is empty
+                            style={{ opacity: !name ? 0.7 : 1, cursor: !name ? 'not-allowed' : 'pointer' }}
                         >
-                            <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
-                                <X size={24} />
-                            </button>
-
-                            <h2 className={styles.title}>Book Appointment</h2>
-
-                            <form onSubmit={handleSubmit}>
-                                <div className={styles.formGroup}>
-                                    <label className={styles.label}>Your Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        required
-                                        className={styles.input}
-                                        placeholder="Enter your name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <label className={styles.label}>Select Service</label>
-                                    <select
-                                        name="service"
-                                        className={styles.select}
-                                        value={formData.service}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="Kundli">Kundli Analysis (कुंडली)</option>
-                                        <option value="Dosh Nivaran">Dosh Nivaran (दोष निवारण)</option>
-                                        <option value="Mahayagya">Mahayagya (महायज्ञ)</option>
-                                        <option value="Vivah Sanskar">Vivah Sanskar (विवाह)</option>
-                                        <option value="Vastu">Vastu Consultation (वास्तु)</option>
-                                        <option value="Other">Other (अन्य)</option>
-                                    </select>
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <label className={styles.label}>Preferred Time</label>
-                                    <select
-                                        name="time"
-                                        className={styles.select}
-                                        value={formData.time}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
-                                        <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
-                                        <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
-                                    </select>
-                                </div>
-
-                                <button type="submit" className={styles.submitBtn}>
-                                    <MessageCircle size={18} style={{ marginRight: '8px', verticalAlign: '-3px' }} />
-                                    Book via WhatsApp
-                                </button>
-                            </form>
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
-        </>
+                            <MessageCircle size={20} />
+                            Book on WhatsApp
+                        </button>
+                    </motion.div>
+                </divWrapper>
+            </motion.div>
+        </AnimatePresence>
     );
 }
+
+// Wrapper to avoid motion prop issues on plain divs if needed, 
+// though standard motion.div is usually fine. Using a simple fragment-like structure here.
+const divWrapper = ({ children, onClick }) => (
+    <div onClick={onClick} style={{ display: 'contents' }}>{children}</div>
+);

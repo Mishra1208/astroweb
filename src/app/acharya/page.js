@@ -5,8 +5,6 @@ import styles from './acharya.module.css';
 import { MapPin, Phone, Calendar, Star, Sun, Moon, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Gallery3D from '@/components/Gallery3D';
-import BookingModal from '@/components/BookingModal';
-import CompatibilityTool from '@/components/CompatibilityTool';
 
 // Animation variants
 const containerVariants = {
@@ -22,7 +20,12 @@ const itemVariants = {
     visible: { y: 0, opacity: 1, transition: { duration: 0.6 } }
 };
 
+import { useState } from 'react';
+import BookingModal from '@/components/BookingModal'; // Import the new modal
+
 export default function AcharyaPage() {
+    const [isBookingOpen, setIsBookingOpen] = useState(false);
+
     return (
         <main className={styles.container}>
             {/* Hero Section */}
@@ -32,6 +35,7 @@ export default function AcharyaPage() {
                 animate="visible"
                 variants={containerVariants}
             >
+                {/* ... existing hero code ... */}
                 <motion.div className={styles.profileFrame} variants={itemVariants}>
                     {/* Using the renamed profile image */}
                     <Image
@@ -58,6 +62,7 @@ export default function AcharyaPage() {
 
             {/* Biography Section */}
             <section className={styles.sectionNoPadding}>
+                {/* ... existing bio section code ... */}
                 <div className={styles.bioSectionWrapper}>
                     {/* Left Garland */}
                     <div className={styles.flankingGarlandLeft}>
@@ -129,6 +134,7 @@ export default function AcharyaPage() {
 
             {/* Services Section */}
             <section className={styles.section}>
+                {/* ... existing services code ... */}
                 <div style={{ textAlign: 'center' }}>
                     <h2 className={styles.sectionTitle}>आध्यात्मिक सेवाएँ</h2>
                 </div>
@@ -187,6 +193,7 @@ export default function AcharyaPage() {
 
                 <div className={styles.contactContainer}>
                     <div className={styles.contactCard}>
+                        {/* ... existing contact content ... */}
                         <div className={styles.contactLabel}>नियुक्ति (Appointment) के लिए</div>
                         <div className={styles.contactValue}>
                             <Phone size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#7A1E1E" />
@@ -199,6 +206,7 @@ export default function AcharyaPage() {
                     </div>
 
                     <div className={styles.contactCard}>
+                        {/* ... existing contact content ... */}
                         <div className={styles.contactLabel}>स्थान</div>
                         <div className={styles.contactValue}>
                             <MapPin size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#7A1E1E" />
@@ -212,7 +220,22 @@ export default function AcharyaPage() {
                 </div>
             </section>
 
-            <BookingModal />
+            {/* Floating Booking Button */}
+            <motion.button
+                className={styles.floatingButton}
+                onClick={() => setIsBookingOpen(true)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 }}
+            >
+                <Calendar className={styles.btnIcon} />
+                Book Appointment
+            </motion.button>
+
+            {/* Modal */}
+            <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
 
         </main>
     );
