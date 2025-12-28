@@ -67,7 +67,7 @@ export default function AcharyaPage() {
                         <div className={styles.chaupaiWrapper}>
                             <div className={styles.hanumanImageContainer}>
                                 <Image
-                                    src="/hanumanji-new.png"
+                                    src="/toadd.png"
                                     alt="Lord Hanuman"
                                     width={120}
                                     height={120}
@@ -80,6 +80,15 @@ export default function AcharyaPage() {
                                     जो नहिं होइ तात तुम्ह पाहीं॥"
                                 </p>
                                 <span className={styles.chaupaiSource}>– रामचरितमानस (किष्किंधा कांड)</span>
+                            </div>
+                            <div className={styles.hanumanImageContainer}>
+                                <Image
+                                    src="/ram.png"
+                                    alt="Lord Ram"
+                                    width={120}
+                                    height={120}
+                                    className={styles.hanumanImage}
+                                />
                             </div>
                         </div>
                     </div>
