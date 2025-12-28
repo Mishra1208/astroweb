@@ -1,9 +1,32 @@
 .footer {
     background: var(--bg-secondary);
     position: relative;
-    padding-top: 4rem;
+    padding-top: 6rem;
+    /* Increased padding */
     color: #EFE6D8;
     font-family: var(--font-body), serif;
+    margin-top: 8rem;
+    /* Push footer down for image space */
+}
+
+/* ... existing styles ... */
+
+.centerDecoration {
+    position: absolute;
+    top: -100px;
+    /* Pull up higher for larger image */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.centerImage {
+    width: 300px;
+    /* Much larger */
+    height: auto;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.6));
+    animation: floating 4s ease-in-out infinite;
 }
 
 .goldLine {
