@@ -45,7 +45,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
             >
-                अपनी ब्रह्मांडीय<br />नियति खोजें
+                अपना भविष्य जानें
             </motion.h1>
 
             <motion.p
