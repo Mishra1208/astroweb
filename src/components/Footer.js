@@ -20,6 +20,11 @@ export default function Footer() {
                 alt="Decorative Garland"
                 className={`${styles.footerGarland} ${styles.right}`}
             />
+            {/* Center Decorative Image */}
+            <div className={styles.centerDecoration}>
+                <img src="/newimg.png" alt="Sacred Scymbol" className={styles.centerImage} />
+            </div>
+
 
             <div className={styles.content}>
                 {/* Column 1: Brand */}

@@ -233,3 +233,35 @@
         text-align: center;
     }
 }
+
+.centerDecoration {
+    position: absolute;
+    top: -50px;
+    /* Pulls it up to sit on the border */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.centerImage {
+    width: 140px;
+    /* Adjust size */
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
