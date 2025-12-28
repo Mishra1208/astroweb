@@ -37,9 +37,9 @@ export default function Navbar() {
 
     const menuItems = [
         { name: 'होम', id: 'home', href: '/' },
-        { name: 'राशिफल', id: 'horoscope', href: '/#horoscope' },
-        { name: 'टैरो', id: 'tarot', href: '/#tarot' },
-        { name: 'हमारे बारे में', id: 'about', href: '/acharya' }
+        { name: 'सेवाएं', id: 'services', href: '/services' },
+        { name: 'राशिफल', id: 'horoscope', href: '/services#horoscope' },
+        { name: 'टैरो', id: 'tarot', href: '/services#tarot' }
     ];
 
     return (

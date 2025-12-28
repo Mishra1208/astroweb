@@ -53,11 +53,11 @@ export default function Footer() {
                 <div className={styles.column}>
                     <h3 className={styles.colTitle}>Services</h3>
                     <ul className={styles.links}>
-                        <li><a href="#">Kundli Generation (Janampatri)</a></li>
-                        <li><a href="#">Match Making (Gun Milan)</a></li>
-                        <li><a href="#">Daily Horoscope</a></li>
-                        <li><a href="#">Tarot Reading</a></li>
-                        <li><a href="#">Vedic Panchang</a></li>
+                        <li><a href="/services#kundli">Kundli Generation (Janampatri)</a></li>
+                        <li><a href="/services#matchmaking">Match Making (Gun Milan)</a></li>
+                        <li><a href="/services#horoscope">Daily Horoscope</a></li>
+                        <li><a href="/services#tarot">Tarot Reading</a></li>
+                        <li><a href="/services#panchang">Vedic Panchang</a></li>
                     </ul>
                 </div>
 

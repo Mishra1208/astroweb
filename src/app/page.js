@@ -5,6 +5,7 @@ import styles from './home.module.css';
 import { MapPin, Phone, Calendar, Star, Sun, Moon, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Gallery3D from '@/components/Gallery3D';
+import LoadingScreen from '@/components/LoadingScreen';
 
 // Animation variants
 const containerVariants = {
@@ -28,6 +29,7 @@ export default function Home() {
 
     return (
         <main className={styles.container}>
+            <LoadingScreen />
             {/* Hero Section */}
             <motion.section
                 className={styles.hero}
