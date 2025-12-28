@@ -10,15 +10,15 @@ export default function TarotReading() {
     const [cards, setCards] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null); // index of selected card
 
-    useEffect(() => {
-        shuffleDeck();
-    }, []);
-
     const shuffleDeck = () => {
         const shuffled = [...tarotDeck].sort(() => 0.5 - Math.random());
         setCards(shuffled.slice(0, 3));
         setSelectedCard(null);
     };
+
+    useEffect(() => {
+        shuffleDeck();
+    }, []);
 
     const handleCardClick = (index) => {
         if (selectedCard !== null) return;

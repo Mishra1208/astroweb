@@ -18,7 +18,9 @@ export default function Panchang() {
     useEffect(() => {
         const date = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        setCurrentDate(date.toLocaleDateString('hi-IN', options));
+        setTimeout(() => {
+            setCurrentDate(date.toLocaleDateString('hi-IN', options));
+        }, 0);
 
         // Helper: Convert "HH:MM AM" string to Date object for today
         const parseTime = (timeStr) => {

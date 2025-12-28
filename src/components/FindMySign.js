@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./FindMySign.module.css";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import ConstellationLoader from "./ConstellationLoader";
@@ -10,6 +10,16 @@ export default function FindMySign() {
     const [date, setDate] = useState("");
     const [result, setResult] = useState(null);
     const [isVerifying, setIsVerifying] = useState(false);
+
+    // Generate stable stars for background
+    const stars = useMemo(() => {
+        return Array.from({ length: 50 }).map((_, i) => ({
+            id: i,
+            cx: Math.random() * 100,
+            cy: Math.random() * 100,
+            delay: Math.random()
+        }));
+    }, []);
 
     const calculateSign = (dateString) => {
         if (!dateString) return null;

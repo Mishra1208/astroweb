@@ -12,11 +12,6 @@ export default function Planet({ planetData }) {
 
     // Load Texture
     const texture = useTexture(textureUrl);
-    const ringTexture = hasRings ? useTexture(ringTextureUrl) : null;
-
-    if (hasRings && ringTexture) {
-        ringTexture.rotation = Math.PI / 2; // Adjust ring texture orientation if needed
-    }
 
     // Random start angle so planets aren't all aligned
     const startAngle = useMemo(() => Math.random() * Math.PI * 2, []);
@@ -61,20 +56,29 @@ export default function Planet({ planetData }) {
                     />
                 </mesh>
 
-                {/* Saturn Rings */}
-                {hasRings && ringTexture && (
-                    <mesh rotation={[-Math.PI / 2, 0, 0]}>
-                        {/* Ring args: innerRadius, outerRadius, thetaSegments */}
-                        <ringGeometry args={[radius + 0.5, radius + 2.5, 64]} />
-                        <meshStandardMaterial
-                            map={ringTexture}
-                            transparent
-                            side={THREE.DoubleSide}
-                            opacity={0.8}
-                        />
-                    </mesh>
+                {/* Saturn Rings - Extracted to component to avoid conditional hook */}
+                {hasRings && ringTextureUrl && (
+                    <PlanetRing radius={radius} ringTextureUrl={ringTextureUrl} />
                 )}
             </group>
         </group>
+    );
+}
+
+function PlanetRing({ radius, ringTextureUrl }) {
+    const ringTexture = useTexture(ringTextureUrl);
+    ringTexture.rotation = Math.PI / 2;
+
+    return (
+        <mesh rotation={[-Math.PI / 2, 0, 0]}>
+            {/* Ring args: innerRadius, outerRadius, thetaSegments */}
+            <ringGeometry args={[radius + 0.5, radius + 2.5, 64]} />
+            <meshStandardMaterial
+                map={ringTexture}
+                transparent
+                side={THREE.DoubleSide}
+                opacity={0.8}
+            />
+        </mesh>
     );
 }
