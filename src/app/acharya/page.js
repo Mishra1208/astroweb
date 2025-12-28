@@ -67,7 +67,7 @@ export default function AcharyaPage() {
                         <div className={styles.chaupaiWrapper}>
                             <div className={styles.hanumanImageContainer}>
                                 <Image
-                                    src="/hanumanji.png?v=new"
+                                    src="/hanumanji-new.png"
                                     alt="Lord Hanuman"
                                     width={120}
                                     height={120}
