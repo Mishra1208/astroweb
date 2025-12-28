@@ -183,6 +183,11 @@ input,
     display: none !important;
   }
 
+  /* Hide middle strings on mobile to show Logo (2 Left, 2 Right) */
+  .string-2, .string-3, .string-4 {
+    display: none !important;
+  }
+
   /* Sway Wrapper for Animation */
   .mobileSwayWrapper {
     transform-origin: top center;

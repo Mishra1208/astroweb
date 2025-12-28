@@ -128,6 +128,7 @@ function GarlandString({ index, side, total, shouldAnimate }) {
             animate={shouldAnimate ? "animate" : "initial"}
             whileHover="hover"
             variants={variants}
+            className={`garland-string string-${index}`}
             style={{
                 position: 'absolute', // Stack them!
                 top: 0, // All hang from the very top
