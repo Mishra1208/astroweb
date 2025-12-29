@@ -235,6 +235,23 @@ export default function VideoShorts() {
                 .video-shorts-container .avatar { width: 32px; height: 32px; border-radius: 50%; background: #d4af37; display: flex; align-items: center; justify-content: center; border: 1px solid white; }
                 .videoShortsSwiper .swiper-pagination-bullet { background: #666; width: 8px; height: 8px; transition: all 0.3s; }
                 .videoShortsSwiper .swiper-pagination-bullet-active { background: #d4af37; width: 24px; border-radius: 4px; }
+                
+                /* CRITICAL INTERACTION FIXES */
+                .videoShortsSwiper .swiper-slide {
+                    z-index: 0 !important;
+                    transition: z-index 0.3s, transform 0.3s !important;
+                }
+                .videoShortsSwiper .swiper-slide-active {
+                    z-index: 50 !important; /* Ensure active slide is ALWAYS on top */
+                    pointer-events: auto !important;
+                }
+                .videoShortsSwiper .swiper-slide:not(.swiper-slide-active) {
+                    opacity: 0.6;
+                    /* pointer-events: none;  <-- Optional: Disables touch on side slides if needed, but z-index usually fixes it */
+                }
+                .videoShortsSwiper .swiper-wrapper {
+                     z-index: 1;
+                }
             `}</style>
         </div>
     );
