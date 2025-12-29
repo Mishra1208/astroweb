@@ -401,7 +401,8 @@
 /* Floating Action Button */
 .floatingButton {
     position: fixed;
-    bottom: 30px;
+    bottom: 100px;
+    /* Increased to avoid black footer bar overlap */
     right: 30px;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     /* WhatsApp Colors with depth */
@@ -556,7 +557,8 @@
         border-radius: 50%;
         justify-content: center;
         right: 20px;
-        bottom: 20px;
+        bottom: 120px;
+        /* Significant increase for mobile as footer is taller due to stacking */
     }
 
     /* Hide text */
