@@ -263,6 +263,66 @@ input,
   }
 }
 
+/* --- IPAD / TABLET FIXES (769px - 1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* 
+     Apply "2 Strings" Logic to iPad Air 
+     Hide 2-6. Show 0 & 1.
+  */
+  .string-2,
+  .string-3,
+  .string-4,
+  .string-5,
+  .string-6 {
+    display: none !important;
+  }
+
+  /* Precise Positioning for iPad */
+  /* Using slightly wider percentages than mobile since screen is wider */
+  .fixedGarland .garland-string {
+    width: 16% !important;
+    /* Widen to fix "shrinked" look */
+  }
+
+  .fixedGarland.left .string-0 {
+    left: 6% !important;
+    /* Move inward significantly */
+    display: block !important;
+  }
+
+  .fixedGarland.right .string-0 {
+    right: 6% !important;
+    /* Move inward significantly */
+    left: auto !important;
+    display: block !important;
+  }
+
+  .fixedGarland.left .string-1 {
+    left: 20% !important;
+    /* Spaced out closer to content */
+  }
+
+  .fixedGarland.right .string-1 {
+    right: 20% !important;
+    left: auto !important;
+  }
+
+  /* CONTINUOUS ANIMATION FOR IPAD */
+  /* Replicate Mobile Sway Logic */
+  .mobileSwayWrapper {
+    transform-origin: top center;
+    animation: mobileSway 4s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Reverse Sway for Right Side */
+  .fixedGarland.right .mobileSwayWrapper {
+    animation-direction: alternate-reverse;
+  }
+}
+
 /* Keyframes for Sway (Global) */
 @keyframes mobileSway {
 

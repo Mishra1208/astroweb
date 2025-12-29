@@ -503,6 +503,48 @@
     display: none;
 }
 
+/* --- IPAD / TABLET FIXES (769px - 1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* 1. Hide Desktop Flanking Garlands */
+    .flankingGarlandRight,
+    .flankingGarlandLeft {
+        display: none !important;
+    }
+
+    /* 2. Enable Mobile Continuous Garland Inside Card */
+    .mobileCardGarland {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        position: absolute;
+        top: -5.3px;
+        /* Match Mobile Polish positioning */
+        left: 0;
+        width: 100%;
+        height: 60px;
+        z-index: 0;
+        opacity: 0.9;
+        pointer-events: none;
+    }
+
+    .garlandSegment {
+        height: 100%;
+        width: auto;
+        margin-right: -15px;
+        /* Overlap */
+        object-fit: contain;
+        display: block;
+    }
+
+    /* Ensure content sits on top */
+    .chaupaiContainer,
+    .hanumanImageContainer {
+        position: relative;
+        z-index: 2;
+    }
+}
+
 /* 2. WhatsApp Button on Mobile */
 @media (max-width: 768px) {
 

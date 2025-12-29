@@ -86,7 +86,7 @@ export default function Home() {
                     >
                         {/* Mobile-Only Top Garland (Inside Card, Behind Hanuman) */}
                         <div className={styles.mobileCardGarland}>
-                            {[1, 2, 3, 4, 5].map((i) => (
+                            {[...Array(12)].map((_, i) => (
                                 <img
                                     key={i}
                                     src="/secondgarland.png"
