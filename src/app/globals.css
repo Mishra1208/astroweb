@@ -167,6 +167,10 @@ input,
   }
 
   /* Fixed Garland (Header Style) */
+  /* 
+     Shared Mobile Garland Base 
+     (Animation Wrapper, Z-Index, etc in main rule)
+  */
   .fixedGarland {
     display: block !important;
     height: 120px !important;
@@ -174,31 +178,68 @@ input,
     z-index: 100 !important;
     /* Below Navbar (1000) but above bg */
     width: 100% !important;
-    left: 0 !important;
+    /* Only use width here, positioning handles below */
+  }
+
+  /* Left Garland Component: Anchored Left */
+  .fixedGarland.left {
     left: 0 !important;
     right: 0 !important;
+    /* Force Full Width */
   }
 
+  /* Right Garland Component: Anchored Right */
   .fixedGarland.right {
-    display: none !important;
+    display: block !important;
+    right: 0 !important;
+    left: 0 !important;
+    /* Force Full Width to ensure it enters screen */
   }
 
-  /* Hide middle strings on mobile to show Logo (2 Left, 2 Right) */
+  /* 
+     String Visibility & Spacing 
+     Show only 0 and 1. Hide 2-6.
+     Use 15% width to fit them nicely without crowding Logo or Hamburger.
+  */
+  .fixedGarland .garland-string {
+    width: 15% !important;
+    /* Make strings slimmer on mobile */
+  }
+
   .string-2,
   .string-3,
-  .string-4 {
+  .string-4,
+  .string-5,
+  .string-6 {
     display: none !important;
   }
 
-  /* Shift Right Strings into view (since 96% is cut off) */
-  .string-5 {
-    left: 68% !important;
-    /* Move from 80% to 68% */
+  /* precise positioning to avoid overlap and ensure visibility */
+  /* Outer String (0) - moved slightly in from edge */
+  .fixedGarland.left .string-0 {
+    left: 1% !important;
+    display: block !important;
   }
 
-  .string-6 {
-    left: 83% !important;
-    /* Move from 96% to 83% */
+  .fixedGarland.right .string-0 {
+    right: 1% !important;
+    left: auto !important;
+    display: block !important;
+  }
+
+  /* Inner String (1) - Spaced out (15% width + 2% gap = 17%) */
+  .fixedGarland.left .string-1 {
+    left: 17% !important;
+  }
+
+  .fixedGarland.right .string-1 {
+    right: 17% !important;
+    left: auto !important;
+  }
+
+  /* Reverse Sway for Right Side for Mirror Effect (Optional but nice) */
+  .fixedGarland.right .mobileSwayWrapper {
+    animation-direction: alternate-reverse;
   }
 
   /* Sway Wrapper for Animation */

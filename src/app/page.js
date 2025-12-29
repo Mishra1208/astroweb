@@ -84,6 +84,18 @@ export default function Home() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
+                        {/* Mobile-Only Top Garland (Inside Card, Behind Hanuman) */}
+                        <div className={styles.mobileCardGarland}>
+                            {[1, 2, 3, 4, 5].map((i) => (
+                                <img
+                                    key={i}
+                                    src="/secondgarland.png"
+                                    alt=""
+                                    className={styles.garlandSegment}
+                                />
+                            ))}
+                        </div>
+
                         <div className={styles.chaupaiContainer}>
                             <div className={styles.chaupaiWrapper}>
                                 <div className={styles.hanumanImageContainer}>

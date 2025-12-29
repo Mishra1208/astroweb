@@ -125,6 +125,8 @@
 
 .bioContainer {
     /* Keep existing bioContainer styles, but ensure z-index is higher */
+    position: relative;
+    /* Essential for containing the absolute garland */
     z-index: 2;
     flex-shrink: 0;
     /* Do not shrink */
@@ -496,6 +498,11 @@
     transform-origin: top center;
 }
 
+/* Default state for mobileCardGarland (Desktop) - Defined BEFORE media query */
+.mobileCardGarland {
+    display: none;
+}
+
 /* 2. WhatsApp Button on Mobile */
 @media (max-width: 768px) {
 
@@ -521,42 +528,64 @@
         height: 32px;
     }
 
-    /* 3. Mobile Garlands: Use a single TOP bar instead of vertical sides */
-    .flankingGarlandRight {
+    /* 3. Mobile Garlands: Use the one INSIDE the card now */
+    .flankingGarlandRight,
+    .flankingGarlandLeft {
         display: none !important;
     }
 
-    .flankingGarlandLeft {
-        display: block !important;
+    /* New Mobile Card Garland */
+    .mobileCardGarland {
+        display: flex;
+        /* Flex row to hold multiple segments */
+        justify-content: center;
+        /* Center them */
+        overflow: hidden;
+        /* Crop excess */
+
         position: absolute;
-        top: -30px;
-        /* Drape over the top edge */
+        top: -5.3px;
+        /* Pull up slightly to cover card edge */
         left: 0;
         width: 100%;
-        height: 80px;
-        /* Sufficient height for the curve */
-        opacity: 1;
-        /* Full visibility */
-        z-index: 10;
+        height: 60px;
+        z-index: 0;
+        opacity: 0.9;
         pointer-events: none;
+
+        /* Static garland (No Animation) */
     }
 
-    .flankingGarlandLeft .garlandImage {
-        object-fit: contain;
-        /* Don't stretch */
-        object-position: top center;
-        width: 100%;
+    .garlandSegment {
         height: 100%;
-        animation: sway 4s ease-in-out infinite;
-        /* Gentle sway */
-        transform-origin: top center;
+        width: auto;
+        /* Maintain Aspect Ratio */
+        margin-right: -15px;
+        /* Overlap to remove gaps (Adjust as needed) */
+        object-fit: contain;
+        display: block;
     }
 
-    /* Ensure wrapper allows the garland to be visible on top */
+    /* Ensure content sits on top */
+    .chaupaiContainer,
+    .hanumanImageContainer {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Remove excessive padding since garland is inside card now */
     .bioSectionWrapper {
         position: relative;
-        padding-top: 7rem;
-        /* Generous spacing to ensure NO overlap with garland */
-        margin-top: 1rem;
+        padding-top: 2rem;
+        /* Reduced from 7rem */
+        padding-bottom: 2rem;
+    }
+
+    /* Fix for Cut-off Text: Ensure container fits inside viewport with reduced padding */
+    .bioContainer {
+        padding: 1.5rem !important;
+        width: 113%;
+        max-width: 113%;
+        box-sizing: border-box;
     }
 }
