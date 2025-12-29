@@ -234,4 +234,53 @@
     .overlayLink {
         font-size: 2rem;
     }
+
+    .ganeshIcon {
+        display: none;
+    }
+}
+
+/* TABLET / IPAD AIR ADJUSTMENTS (Strictly for Navbar) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        min-width: auto;
+        width: auto;
+        gap: 1.5rem;
+        /* Drastically reduce gap to pull Ganesh IN */
+        padding: 0.8rem 1.5rem;
+    }
+
+    .links {
+        gap: 1rem;
+        /* Tighter links */
+    }
+
+    .link {
+        font-size: 0.95rem;
+        /* Slightly smaller text */
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .ganeshIcon {
+        height: 45px;
+        /* Adjust icon size slightly if needed */
+    }
+}
+
+.ganeshIcon {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.8));
+    animation: float 4s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.ganeshIcon:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 20px rgba(251, 191, 36, 1));
 }

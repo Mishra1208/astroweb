@@ -57,6 +57,9 @@ export default function Navbar() {
                     }}
                     transition={{ duration: 0.5 }}
                 >
+                    {/* Left Ganesh */}
+                    <img src="/ganesh.png" alt="Shree Ganesh" className={styles.ganeshIcon} />
+
                     {/* Updated Branding: Jai Mata Di */}
                     <div className={styles.logo} style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem' }}>
                         जय <span style={{ color: 'var(--accent-main)' }}>माता दी</span>
@@ -73,6 +76,9 @@ export default function Navbar() {
                             </Link>
                         ))}
                     </div>
+
+                    {/* Right Ganesh */}
+                    <img src="/ganesh.png" alt="Shree Ganesh" className={styles.ganeshIcon} />
                 </motion.nav>
             )}
 
@@ -97,10 +103,34 @@ export default function Navbar() {
                         fontSize: '1.8rem',
                         color: 'var(--accent-red)',
                         textShadow: '0 0 10px rgba(239, 230, 216, 0.8)',
-                        whiteSpace: 'nowrap'
+                        whiteSpace: 'nowrap',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.8rem'
                     }}
                 >
-                    जय <span style={{ color: 'var(--accent-main)' }}>माता दी</span>
+                    <img
+                        src="/ganesh.png"
+                        alt="Ganesh"
+                        style={{
+                            height: '55px',
+                            width: 'auto',
+                            filter: 'drop-shadow(0 0 5px gold)'
+                        }}
+                    />
+                    <span>
+                        जय <span style={{ color: 'var(--accent-main)' }}>माता दी</span>
+                    </span>
+                    <img
+                        src="/ganesh.png"
+                        alt="Ganesh"
+                        style={{
+                            height: '55px',
+                            width: 'auto',
+                            filter: 'drop-shadow(0 0 5px gold)',
+                            transform: 'scaleX(-1)' // Mirror for symmetry
+                        }}
+                    />
                 </motion.div>
             )}
 

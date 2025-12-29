@@ -144,7 +144,18 @@ function GarlandString({ index, side, total, shouldAnimate }) {
                 cursor: 'pointer',
             }}
         >
-            <div className="mobileSwayWrapper" style={{ width: '100%', height: '100%' }}>
+            <div
+                className="mobileSwayWrapper"
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    // Alternate sway direction for crossing effect!
+                    // Even (0,2,4,6) = Normal, Odd (1,3,5) = Reverse
+                    animationDirection: index % 2 === 0 ? 'alternate' : 'alternate-reverse',
+                    // Add slight random delay so they are not perfectly synced even in crossing
+                    animationDelay: `${index * -0.5}s`
+                }}
+            >
                 <img
                     src="/newgarland.png"
                     alt={`Garland String ${index} `}
@@ -162,4 +173,3 @@ function GarlandString({ index, side, total, shouldAnimate }) {
         </motion.div>
     );
 }
-

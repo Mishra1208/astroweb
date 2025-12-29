@@ -206,7 +206,6 @@ input,
     /* Make strings slimmer on mobile */
   }
 
-  .string-2,
   .string-3,
   .string-4,
   .string-5,
@@ -217,24 +216,36 @@ input,
   /* precise positioning to avoid overlap and ensure visibility */
   /* Outer String (0) - moved slightly in from edge */
   .fixedGarland.left .string-0 {
-    left: 1% !important;
+    left: 0% !important;
     display: block !important;
   }
 
   .fixedGarland.right .string-0 {
-    right: 1% !important;
+    right: 0% !important;
     left: auto !important;
     display: block !important;
   }
 
   /* Inner String (1) - Spaced out (15% width + 2% gap = 17%) */
   .fixedGarland.left .string-1 {
-    left: 17% !important;
+    left: 10% !important;
   }
 
   .fixedGarland.right .string-1 {
-    right: 17% !important;
+    right: 10% !important;
     left: auto !important;
+  }
+
+  /* Middle String (2) - Fills the gap at 5% */
+  .fixedGarland.left .string-2 {
+    left: 5% !important;
+    display: block !important;
+  }
+
+  .fixedGarland.right .string-2 {
+    right: 5% !important;
+    left: auto !important;
+    display: block !important;
   }
 
   /* Reverse Sway for Right Side for Mirror Effect (Optional but nice) */
@@ -263,8 +274,56 @@ input,
   }
 }
 
-/* --- IPAD / TABLET FIXES (769px - 1024px) --- */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* --- IPAD AIR / SMALL TABLET (769px - 950px) --- */
+/* Fixes overlap by pushing garlands to edges */
+@media (min-width: 769px) and (max-width: 950px) {
+
+  .string-2,
+  .string-3,
+  .string-4,
+  .string-5,
+  .string-6 {
+    display: none !important;
+  }
+
+  .fixedGarland .garland-string {
+    width: 16% !important;
+  }
+
+  .fixedGarland.left .string-0 {
+    left: 3.5% !important;
+    display: block !important;
+  }
+
+  .fixedGarland.right .string-0 {
+    right: 3.5% !important;
+    left: auto !important;
+    display: block !important;
+  }
+
+  .fixedGarland.left .string-1 {
+    left: 14% !important;
+  }
+
+  .fixedGarland.right .string-1 {
+    right: 14% !important;
+    left: auto !important;
+  }
+
+  .mobileSwayWrapper {
+    transform-origin: top center;
+    animation: mobileSway 4s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fixedGarland.right .mobileSwayWrapper {
+    animation-direction: alternate-reverse;
+  }
+}
+
+/* --- IPAD PRO / LARGE TABLET (951px - 1024px) --- */
+@media (min-width: 951px) and (max-width: 1024px) {
 
   /* 
      Apply "2 Strings" Logic to iPad Air 
