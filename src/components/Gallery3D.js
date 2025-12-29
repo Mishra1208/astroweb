@@ -10,7 +10,16 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 export default function Gallery3D() {
-    const images = [1, 2, 3, 4, 5];
+    const images = [
+        '/aacharya/work-1.jpg',
+        '/aacharya/work-2.jpg',
+        '/aacharya/work-3.jpg',
+        '/aacharya/work-4.jpg',
+        '/aacharya/work-5.jpg',
+        '/aacharya/new videos/86bf76be-9e13-4bc7-8a29-2981532489c2.jpg',
+        '/aacharya/new videos/91826d99-2001-4228-af0b-5598a161a6e9.jpg',
+        '/aacharya/new videos/IMG_5591.jpg'
+    ];
 
     return (
         <div className="gallery-container">
@@ -34,12 +43,12 @@ export default function Gallery3D() {
                 modules={[EffectCoverflow, Pagination, Autoplay]}
                 className="mySwiper"
             >
-                {images.map((num) => (
-                    <SwiperSlide key={num} style={{ width: '300px', height: '300px', backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                        <div style={{ width: '100%', height: '100%', position: 'relative', borderRadius: '15px', overflow: 'hidden', border: '3px solid #B08D57' }}>
+                {images.map((src, index) => (
+                    <SwiperSlide key={index} style={{ width: '300px', height: '300px', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                        <div style={{ width: '100%', height: '100%', position: 'relative', borderRadius: '15px', overflow: 'hidden', border: '3px solid #d4af37' }}>
                             <Image
-                                src={`/aacharya/work-${num}.jpg`}
-                                alt={`Ceremony ${num}`}
+                                src={src}
+                                alt={`Ceremony ${index + 1}`}
                                 fill
                                 style={{ objectFit: 'cover' }}
                             />

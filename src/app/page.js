@@ -5,6 +5,7 @@ import styles from './home.module.css';
 import { MapPin, Phone, Calendar, Star, Sun, Moon, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Gallery3D from '@/components/Gallery3D';
+import VideoShorts from '@/components/VideoShorts';
 import LoadingScreen from '@/components/LoadingScreen';
 
 // Animation variants
@@ -199,6 +200,8 @@ export default function Home() {
                 </div>
             </section>
 
+
+
             {/* Contact Section */}
             <section className={styles.section}>
                 <div style={{ textAlign: 'center' }}>
@@ -232,6 +235,22 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
+            </section>
+
+            {/* Video Shorts Section (Moved to Bottom) */}
+            <section className={styles.section} style={{
+                background: 'none',
+                color: '#333',
+                paddingBottom: '20px',
+                marginTop: '0px',
+                paddingTop: '20px',
+                position: 'relative',
+                zIndex: 1
+            }}>
+                <div style={{ textAlign: 'center' }}>
+                    <h2 className={styles.sectionTitle} style={{ color: '#7A1E1E', marginBottom: '20px' }}>दिव्य दर्शन (Shorts)</h2>
+                </div>
+                <VideoShorts />
             </section>
 
             {/* Floating Booking Button */}
