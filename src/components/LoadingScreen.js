@@ -7,11 +7,19 @@ export default function LoadingScreen() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading time (Optimized to 3s)
-        const timer = setTimeout(() => {
+        // Check if intro has already been shown in this session
+        const hasShown = sessionStorage.getItem("introShown");
+
+        if (hasShown) {
             setIsLoading(false);
-        }, 3000);
-        return () => clearTimeout(timer);
+        } else {
+            // Simulate loading time (Optimized to 3s)
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+                sessionStorage.setItem("introShown", "true");
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     return (

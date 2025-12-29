@@ -13,9 +13,12 @@ export default function Garland({ side = 'left' }) {
     const [startAnimation, setStartAnimation] = useState(false);
 
     useEffect(() => {
+        const hasShown = sessionStorage.getItem("introShown");
+        const delay = hasShown ? 100 : 3200; // Immediate if already shown, else sync with loading
+
         const timer = setTimeout(() => {
             setStartAnimation(true);
-        }, 3200); // 3s loading + 0.2s buffer
+        }, delay);
         return () => clearTimeout(timer);
     }, []);
 
