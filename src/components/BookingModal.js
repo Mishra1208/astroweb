@@ -83,9 +83,9 @@ export default function BookingModal({ isOpen, onClose }) {
                                 value={time}
                                 onChange={(e) => setTime(e.target.value)}
                             >
-                                <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
-                                <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
-                                <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
+                                <option value="सुबह (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+                                <option value="दोपहर (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
+                                <option value="शाम (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
                             </select>
                         </div>
 

@@ -101,6 +101,31 @@ export default function LoadingScreen() {
                             gap: '0.8rem'
                         }}
                     >
+                        {/* Institute Name */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1, duration: 1 }}
+                            style={{
+                                textAlign: 'center',
+                                marginBottom: '0.5rem'
+                            }}
+                        >
+                            <h2 style={{
+                                fontFamily: 'var(--font-heading)',
+                                fontSize: '2.8rem',
+                                background: 'linear-gradient(to right, #7A1E1E, #C45A00)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                margin: 0,
+                                fontWeight: '800',
+                                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))',
+                                letterSpacing: '1px'
+                            }}>
+                                जय मां भवानी ज्योतिष शोध संस्थान
+                            </h2>
+                        </motion.div>
+
                         {/* Main Title */}
                         <motion.h1
                             initial={{ opacity: 0, y: 10, letterSpacing: '5px' }}

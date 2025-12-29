@@ -78,7 +78,17 @@ export default function VideoShorts() {
 
     const toggleMute = (e) => {
         if (e) e.stopPropagation();
-        setIsMuted(!isMuted);
+        const newMuted = !isMuted;
+        setIsMuted(newMuted);
+
+        // Standard iOS Fix: Directly manipulate the DOM element for audio
+        const video = videoRefs.current[activeIndex];
+        if (video) {
+            video.muted = newMuted;
+            if (!newMuted) {
+                video.play().catch(() => { });
+            }
+        }
     };
 
     if (!isMounted) return <div style={{ minHeight: '600px' }} />;
@@ -124,6 +134,7 @@ export default function VideoShorts() {
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                             className="play-overlay"
+                                            style={{ pointerEvents: 'none' }}
                                         >
                                             <Play size={60} fill="currentColor" />
                                         </motion.div>
@@ -131,7 +142,11 @@ export default function VideoShorts() {
                                 </AnimatePresence>
 
                                 {index === activeIndex && (
-                                    <div onClick={toggleMute} className="control-btn mute-btn">
+                                    <div
+                                        onClick={toggleMute}
+                                        className="control-btn mute-btn"
+                                        style={{ pointerEvents: 'auto' }}
+                                    >
                                         {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
                                     </div>
                                 )}
