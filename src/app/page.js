@@ -53,9 +53,13 @@ export default function Home() {
                     आचार्य पंडित राज कुमार तिवारी
                 </motion.h1>
 
-                <motion.h3 className={styles.name} variants={itemVariants}>
+                <motion.h1
+                    className={styles.name}
+                    style={{ fontSize: '2rem', marginTop: '-0.5rem' }}
+                    variants={itemVariants}
+                >
                     जय मां भवानी ज्योतिष शोध संस्थान
-                </motion.h3>
+                </motion.h1>
 
                 <motion.p className={styles.title} variants={itemVariants}>
                     वैदिक ज्योतिषी और अनुष्ठान विशेषज्ञ
