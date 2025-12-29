@@ -361,6 +361,30 @@
         margin-top: 10px;
         /* Slight adjustment */
     }
+
+    /* Mobile Developer Credits Polish */
+    .devText {
+        font-size: 1rem !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: center;
+    }
+
+    .devText::before,
+    .devText::after {
+        display: none !important;
+    }
+
+    .devContact {
+        flex-direction: column !important;
+        gap: 10px !important;
+        font-size: 0.8rem !important;
+        margin-top: 5px;
+    }
+
+    .devSeparator {
+        display: none !important;
+    }
 }
 
 .centerDecoration {
