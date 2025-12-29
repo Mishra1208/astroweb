@@ -1,9 +1,9 @@
 import { horoscopes } from "@/data/horoscopes";
 
-export async function fetchDailyHoroscope(signName) {
+export async function fetchDailyHoroscope(signName, time = 'today') {
     try {
-        // Call our own internal API route
-        const response = await fetch(`/api/horoscope?sign=${signName}`);
+        // Call our own internal API route (Scraping LiveHindustan)
+        const response = await fetch(`/api/daily-horoscope?sign=${signName}&time=${time}`);
 
         if (!response.ok) {
             throw new Error("Internal API Failed");

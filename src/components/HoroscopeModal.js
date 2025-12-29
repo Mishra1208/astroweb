@@ -8,16 +8,14 @@ import { fetchDailyHoroscope } from "@/lib/api";
 export default function HoroscopeModal({ sign, signId, onClose, icon }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [timeframe, setTimeframe] = useState('today');
 
     useEffect(() => {
         let isMounted = true;
 
         async function getData() {
             setLoading(true);
-            // Wait a small bit to show loading state (optional, just for feel)
-            // await new Promise(r => setTimeout(r, 500)); 
-
-            const result = await fetchDailyHoroscope(signId);
+            const result = await fetchDailyHoroscope(signId, timeframe);
 
             if (isMounted) {
                 setData(result);
@@ -30,7 +28,7 @@ export default function HoroscopeModal({ sign, signId, onClose, icon }) {
         }
 
         return () => { isMounted = false; };
-    }, [signId]);
+    }, [signId, timeframe]);
 
     if (!sign) return null;
 
@@ -45,67 +43,133 @@ export default function HoroscopeModal({ sign, signId, onClose, icon }) {
             >
                 <motion.div
                     className={styles.modal}
-                    initial={{ scale: 0.8, y: 50, opacity: 0 }}
+                    initial={{ scale: 0.9, y: 20, opacity: 0 }}
                     animate={{ scale: 1, y: 0, opacity: 1 }}
-                    exit={{ scale: 0.8, y: 50, opacity: 0 }}
+                    exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                    transition={{ type: "spring", damping: 25, stiffness: 300 }}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <button className={styles.closeButton} onClick={onClose}>×</button>
+                    <motion.button
+                        className={styles.closeButton}
+                        onClick={onClose}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        ×
+                    </motion.button>
 
                     <div className={styles.header}>
-                        <div className={styles.icon}>
-                            <img src={icon} alt={sign} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                        </div>
-                        <h2 className={styles.title}>{sign}</h2>
+                        <motion.div
+                            className={styles.icon}
+                            animate={{
+                                y: [0, -10, 0],
+                                rotate: [0, 2, 0, -2, 0]
+                            }}
+                            transition={{
+                                duration: 6,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        >
+                            <img src={icon} alt={sign} />
+                        </motion.div>
+                        <motion.h2
+                            className={styles.title}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                        >
+                            {sign}
+                        </motion.h2>
                     </div>
 
-                    {loading ? (
-                        <div style={{ textAlign: 'center', padding: '3rem' }}>
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ repeat: Infinity, duration: 1 }}
-                                style={{
-                                    display: 'inline-block',
-                                    width: '50px',
-                                    height: '50px',
-                                    border: '4px solid rgba(255,215,0,0.3)',
-                                    borderTop: '4px solid gold',
-                                    borderRadius: '50%'
-                                }}
-                            />
-                            <p style={{ marginTop: '1.5rem', color: '#ccc', fontFamily: 'var(--font-poppins)' }}>
-                                सितारों से संपर्क हो रहा है...
-                            </p>
-                        </div>
-                    ) : (
-                        <>
-                            <div className={styles.details}>
-                                {data.mood && <span className={styles.tag}>{data.mood}</span>}
-                                {data.chakra && <span className={styles.tag}>{data.chakra}</span>}
-                            </div>
-                            <p className={styles.text}>{data.text}</p>
+                    <div className={styles.tabs}>
+                        {[
+                            { id: 'today', label: 'आज' },
+                            { id: 'tomorrow', label: 'कल' },
+                            { id: 'weekly', label: 'साप्ताहिक' },
+                            { id: 'monthly', label: 'मासिक' }
+                        ].map((tab) => (
+                            <button
+                                key={tab.id}
+                                className={`${styles.tab} ${timeframe === tab.id ? styles.activeTab : ''}`}
+                                onClick={() => setTimeframe(tab.id)}
+                            >
+                                {tab.label}
+                                {timeframe === tab.id && (
+                                    <motion.div
+                                        layoutId="horoscopeIndicator"
+                                        className={styles.tabIndicator}
+                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                    />
+                                )}
+                            </button>
+                        ))}
+                    </div>
 
-                            <div style={{
-                                marginTop: '1.5rem',
-                                fontSize: '0.85rem',
-                                color: data.isLive ? '#4ade80' : '#fda4af',
-                                textAlign: 'right',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-end',
-                                gap: '6px'
-                            }}>
-                                <span style={{
-                                    width: '8px',
-                                    height: '8px',
-                                    borderRadius: '50%',
-                                    backgroundColor: data.isLive ? '#4ade80' : '#fda4af',
-                                    display: 'inline-block'
-                                }}></span>
-                                {data.isLive ? "लाइव भविष्यवाणी (API)" : "ऑफ़लाइन संग्रह (Offline)"}
-                            </div>
-                        </>
-                    )}
+                    <div className={styles.contentArea}>
+                        <AnimatePresence mode="wait">
+                            {loading ? (
+                                <motion.div
+                                    key="loading"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className={styles.loadingWrapper}
+                                >
+                                    <motion.div
+                                        animate={{
+                                            scale: [1, 1.1, 1],
+                                            opacity: [0.5, 1, 0.5]
+                                        }}
+                                        transition={{ repeat: Infinity, duration: 1.5 }}
+                                        className={styles.loadingPulse}
+                                    >
+                                        ✨
+                                    </motion.div>
+                                    <p className={styles.loadingText}>
+                                        सितारों की चाल देखी जा रही है...
+                                    </p>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key={timeframe}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <p className={styles.text}>{data?.text}</p>
+
+                                    <div className={styles.footer}>
+                                        {data?.readMoreUrl ? (
+                                            <a
+                                                href={data.readMoreUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={styles.readMore}
+                                            >
+                                                विस्तार से पढ़ें →
+                                            </a>
+                                        ) : <div />}
+
+                                        <div className={styles.sourceInfo}>
+                                            <span className={styles.liveDot}></span>
+                                            {data?.isLive ? (
+                                                <a
+                                                    href="https://www.livehindustan.com/"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={styles.sourceLink}
+                                                >
+                                                    {data.source} Live
+                                                </a>
+                                            ) : "Archived"}
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                 </motion.div>
             </motion.div>
         </AnimatePresence>
