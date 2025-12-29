@@ -4,18 +4,17 @@ import ZodiacGrid from '@/components/ZodiacGrid';
 import TarotReading from '@/components/TarotReading';
 import About from '@/components/About';
 import Panchang from '@/components/Panchang';
-import LoadingScreen from '@/components/LoadingScreen'; // Import Loader
 
 export default function Services() {
   return (
     <main>
-      <LoadingScreen /> {/* Added Sri Yantra Loader */}
+      {/* LoadingScreen moved to layout.js */}
       <Hero />
       <Panchang />
       <FindMySign />
       <ZodiacGrid />
       <TarotReading />
       <About />
-    </main>
+    </main >
   );
 }

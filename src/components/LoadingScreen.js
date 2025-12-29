@@ -54,6 +54,32 @@ export default function LoadingScreen() {
                         filter: 'blur(20px)',
                     }}></div>
 
+                    {/* Goddess Eye Animation */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        style={{
+                            width: '280px',
+                            height: 'auto',
+                            marginBottom: '1rem',
+                            zIndex: 20,
+                            position: 'relative'
+                        }}
+                    >
+                        <motion.img
+                            src="/eye.png"
+                            alt="Divine Goddess Eye"
+                            animate={{
+                                filter: ["drop-shadow(0 0 15px rgba(196, 90, 0, 0.4))", "drop-shadow(0 0 40px rgba(196, 90, 0, 0.9))", "drop-shadow(0 0 15px rgba(196, 90, 0, 0.4))"],
+                                scale: [1, 1.05, 1]
+                            }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                        />
+                    </motion.div>
+
+
                     {/* Spinning Sri Yantra / Mandala Image */}
                     <motion.div
                         animate={{ rotate: 360 }}

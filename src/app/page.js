@@ -30,7 +30,7 @@ export default function Home() {
 
     return (
         <main className={styles.container}>
-            <LoadingScreen />
+            {/* LoadingScreen moved to layout.js */}
             {/* Hero Section */}
             <motion.section
                 className={styles.hero}
@@ -59,7 +59,7 @@ export default function Home() {
 
                 <motion.div className={styles.location} variants={itemVariants}>
                     <MapPin size={18} color="#fbbf24" />
-                    <span>प्रतापगढ़, उत्तर प्रदेश, भारत</span>
+                    <span>प्रयागराज, उत्तर प्रदेश, भारत</span>
                 </motion.div>
             </motion.section>
 
@@ -128,7 +128,7 @@ export default function Home() {
                         </div>
                         <br />
                         <p>
-                            प्रतापगढ़ की ऐतिहासिक भूमि में स्थित, आचार्य पंडित राज कुमार तिवारी ने अपना जीवन वैदिक परंपराओं के संरक्षण और अभ्यास के लिए समर्पित कर दिया है। ज्योतिष शास्त्र और वैदिक अनुष्ठानों (कर्मकांड) के गहरे ज्ञान के साथ, वे व्यक्तियों को आध्यात्मिक और सांसारिक समृद्धि की ओर मार्गदर्शन करते हैं।
+                            प्रयागराज की ऐतिहासिक भूमि में स्थित, आचार्य पंडित राज कुमार तिवारी ने अपना जीवन वैदिक परंपराओं के संरक्षण और अभ्यास के लिए समर्पित कर दिया है। ज्योतिष शास्त्र और वैदिक अनुष्ठानों (कर्मकांड) के गहरे ज्ञान के साथ, वे व्यक्तियों को आध्यात्मिक और सांसारिक समृद्धि की ओर मार्गदर्शन करते हैं।
                         </p>
                         <div className={styles.expertTags}>
                             <span>कर्मकांड</span> • <span>महायज्ञ</span> • <span>ग्रह शांति</span> • <span>वास्तु</span> • <span>तंत्र निवारण</span> • <span>विवाह संस्कार</span>
@@ -227,7 +227,7 @@ export default function Home() {
                         <div className={styles.contactLabel}>स्थान</div>
                         <div className={styles.contactValue}>
                             <MapPin size={24} style={{ verticalAlign: 'middle', marginRight: '10px' }} color="#7A1E1E" />
-                            प्रतापगढ़, उत्तर प्रदेश
+                            प्रयागराज, उत्तर प्रदेश
                         </div>
                         <p className={styles.contactDetails}>
                             मुख्य मंदिर के पास, सिविल लाइन्स <br />
