@@ -77,6 +77,20 @@ export default function Footer() {
                 </div>
             </div>
 
+            {/* Developer Credits Section */}
+            <div className={styles.developerCredits}>
+                <p className={styles.devText}>
+                    Designed and Developed with Spiritual Precision by <strong>Narendra Mishra</strong>
+                </p>
+                <div className={styles.devContact}>
+                    <span>For technical guidance or inquiries</span>
+                    <span className={styles.devSeparator}>•</span>
+                    <a href="mailto:support@astroweb.com">support@astroweb.com</a>
+                    <span className={styles.devSeparator}>•</span>
+                    <a href="tel:+918601042988">+91 86010 42988</a>
+                </div>
+            </div>
+
             <div className={styles.bottomBar}>
                 <p>&copy; {new Date().getFullYear()} AstroWeb AI. All Rights Reserved.</p>
                 <div className={styles.legalLinks}>

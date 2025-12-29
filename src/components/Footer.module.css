@@ -98,6 +98,7 @@
     font-size: 2.5rem;
     background: linear-gradient(to right, var(--accent-gold), #fff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
 }
@@ -209,6 +210,73 @@
     color: #000;
     border-color: var(--accent-gold);
 }
+
+/* Developer Credits */
+.developerCredits {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid rgba(180, 140, 60, 0.15);
+    background: rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.devText {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: #EFE6D8;
+    margin: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.devText::before,
+.devText::after {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(180, 140, 60, 0.4), transparent);
+}
+
+.devText strong {
+    color: var(--accent-gold);
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(180, 140, 60, 0.2);
+}
+
+.devContact {
+    font-size: 0.85rem;
+    color: rgba(239, 230, 216, 0.6);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.devSeparator {
+    color: rgba(180, 140, 60, 0.3);
+    font-size: 1.2rem;
+}
+
+.devContact a {
+    color: #EFE6D8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px dotted rgba(239, 230, 216, 0.3);
+    padding-bottom: 1px;
+}
+
+.devContact a:hover {
+    color: var(--accent-gold);
+    border-bottom: 1px solid var(--accent-gold);
+    text-shadow: 0 0 8px rgba(180, 140, 60, 0.3);
+}
+
 
 /* Bottom Bar */
 .bottomBar {
