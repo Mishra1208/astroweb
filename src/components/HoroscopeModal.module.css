@@ -14,8 +14,8 @@
 }
 
 .modal {
-    background: #0a0a0a;
-    /* Black bg */
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    /* Deep Space */
     border: 1px solid rgba(255, 215, 0, 0.2);
     /* Gold border */
     border-radius: 30px;
@@ -23,8 +23,42 @@
     max-width: 500px;
     width: 90%;
     position: relative;
-    box-shadow: 0 0 50px rgba(251, 191, 36, 0.15);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
     text-align: center;
+    overflow: hidden;
+    /* Contain the stars */
+}
+
+/* Star Field Effect */
+.modal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    z-index: 0;
+    /* Sit on top of background, behind content (if content is z1) - actually just use pointer-events:none */
+    pointer-events: none;
+    box-shadow:
+        /* White/Blue Stars */
+        50px 265px #fff, 23px 509px #fff, 206px 498px #fff, 215px 344px #fff, 71px 677px #e0f2fe, 423px 149px #fff, 33px 628px #fff, 497px 519px #e0f2fe, 80px 586px #fff, 21px 137px #e0f2fe, 244px 438px #fff, 227px 93px #fff, 191px 400px #fff, 54px 588px #fff, 132px 230px #e0f2fe, 175px 503px #fff, 126px 472px #fff, 274px 8px #fff, 139px 17px #e0f2fe, 293px 307px #fff, 3px 670px #fff, 289px 99px #e0f2fe, 419px 209px #e0f2fe, 308px 287px #fff, 322px 101px #fff, 192px 529px #fff, 267px 429px #fff, 500px 622px #fff, 215px 411px #e0f2fe, 239px 228px #e0f2fe, 122px 470px #fff, 95px 383px #fff, 215px 128px #e0f2fe, 311px 364px #fff, 44px 455px #e0f2fe, 37px 301px #fff, 72px 9px #fff, 258px 414px #e0f2fe, 138px 411px #fff, 4px 20px #e0f2fe, 87px 22px #fff, 72px 84px #e0f2fe, 495px 474px #fff, 115px 310px #e0f2fe, 284px 390px #e0f2fe, 161px 113px #fff, 453px 529px #fff, 249px 348px #e0f2fe, 111px 205px #e0f2fe, 47px 481px #e0f2fe, 128px 167px #e0f2fe, 430px 672px #fff, 18px 473px #e0f2fe, 283px 619px #fff, 377px 79px #e0f2fe, 278px 383px #e0f2fe, 245px 209px #fff, 109px 341px #fff, 300px 418px #fff, 213px 335px #fff,
+        /* Orange/Gold/Blue Stars (Larger/Colorful) */
+        491px 597px 0 1px #fbbf24, 16px 481px 0 1px #60a5fa, 198px 222px 0 1px #fbbf24, 407px 468px 0 1px #fca5a5, 45px 609px 0 1px #60a5fa, 377px 188px 0 1px #fbbf24, 286px 662px 0 1px #60a5fa, 463px 576px 0 1px #60a5fa, 447px 309px 0 1px #fca5a5, 194px 472px 0 1px #60a5fa, 267px 491px 0 1px #fca5a5, 61px 327px 0 1px #60a5fa, 254px 276px 0 1px #fbbf24, 209px 524px 0 1px #fca5a5, 452px 549px 0 1px #60a5fa, 436px 695px 0 1px #fca5a5, 47px 59px 0 1px #fca5a5, 260px 610px 0 1px #60a5fa, 30px 10px 0 1px #60a5fa, 437px 251px 0 1px #fca5a5, 126px 223px 0 1px #60a5fa, 116px 35px 0 1px #60a5fa, 436px 568px 0 1px #fbbf24, 406px 42px 0 1px #fbbf24, 87px 49px 0 1px #fca5a5, 45px 184px 0 1px #fbbf24, 112px 386px 0 1px #fbbf24, 391px 96px 0 1px #fca5a5, 323px 396px 0 1px #60a5fa, 393px 532px 0 1px #60a5fa, 324px 12px 0 1px #60a5fa, 465px 341px 0 1px #fbbf24, 92px 296px 0 1px #60a5fa, 451px 56px 0 1px #60a5fa, 313px 530px 0 1px #60a5fa, 6px 31px 0 1px #60a5fa, 199px 634px 0 1px #fca5a5, 493px 532px 0 1px #fca5a5, 442px 206px 0 1px #fbbf24, 266px 598px 0 1px #fbbf24;
+    animation: twinkle 5s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
 }
 
 .closeButton {
@@ -48,10 +82,44 @@
 }
 
 .icon {
-    font-size: 5rem;
-    display: block;
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4));
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Circular Glow Background */
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.icon img {
+    /* Ensure image respects container */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    transition: transform 0.5s ease;
+}
+
+.icon:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+        transform: scale(1.02);
+    }
 }
 
 .title {

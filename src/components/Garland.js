@@ -15,7 +15,7 @@ export default function Garland({ side = 'left' }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setStartAnimation(true);
-        }, 4800); // Sync with loading screen
+        }, 3200); // 3s loading + 0.2s buffer
         return () => clearTimeout(timer);
     }, []);
 

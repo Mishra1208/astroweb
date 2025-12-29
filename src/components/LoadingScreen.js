@@ -7,10 +7,10 @@ export default function LoadingScreen() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading time (Increased to 4.5s for readability)
+        // Simulate loading time (Optimized to 3s)
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 4500);
+        }, 3000);
         return () => clearTimeout(timer);
     }, []);
 
@@ -97,7 +97,7 @@ export default function LoadingScreen() {
                         <motion.h1
                             initial={{ opacity: 0, y: 10, letterSpacing: '5px' }}
                             animate={{ opacity: 1, y: 0, letterSpacing: '8px' }}
-                            transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
+                            transition={{ delay: 0.3, duration: 1.5, ease: "easeOut" }}
                             style={{
                                 fontFamily: 'var(--font-rozha)',
                                 background: 'linear-gradient(to right, var(--accent-red), var(--accent-main))',
@@ -115,7 +115,7 @@ export default function LoadingScreen() {
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 0.9 }}
-                            transition={{ delay: 1.2 }}
+                            transition={{ delay: 0.9 }}
                             style={{
                                 fontFamily: 'var(--font-rozha)',
                                 color: 'var(--accent-main)',
@@ -131,7 +131,7 @@ export default function LoadingScreen() {
                         <motion.span
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 0.7 }}
-                            transition={{ delay: 1.8 }}
+                            transition={{ delay: 1.5 }}
                             style={{
                                 fontSize: '0.75rem',
                                 fontFamily: 'var(--font-body)',

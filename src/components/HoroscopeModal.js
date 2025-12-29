@@ -53,7 +53,9 @@ export default function HoroscopeModal({ sign, signId, onClose, icon }) {
                     <button className={styles.closeButton} onClick={onClose}>×</button>
 
                     <div className={styles.header}>
-                        <span className={styles.icon}>{icon}</span>
+                        <div className={styles.icon}>
+                            <img src={icon} alt={sign} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        </div>
                         <h2 className={styles.title}>{sign}</h2>
                     </div>
 

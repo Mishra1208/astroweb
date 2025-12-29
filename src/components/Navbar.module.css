@@ -6,8 +6,8 @@
     transform: translateX(-50%);
     /* Perfectly centered */
     width: fit-content;
-    min-width: 600px;
-    /* Substantial but compact */
+    min-width: 700px;
+    /* Expanded width for better presence */
     background: rgba(255, 253, 240, 0.7);
     /* Frosted Parchment */
     backdrop-filter: blur(12px);
@@ -15,12 +15,13 @@
     border: 1px solid rgba(176, 141, 87, 0.2);
     /* Brass */
     border-radius: 50px;
-    padding: 0.8rem 3rem;
+    padding: 1.2rem 4rem;
+    /* Enlarged Padding */
     display: flex;
     justify-content: center;
     /* Center items in the pill */
-    gap: 4rem;
-    /* Specific spacing between Logo and Links */
+    gap: 5rem;
+    /* Increased spacing between Logo and Links */
     align-items: center;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
@@ -37,7 +38,8 @@
 .logo {
     font-family: var(--font-heading), serif;
     /* Tiro Devanagari */
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    /* Larger Logo */
     color: var(--accent-red);
     /* Maroon */
     letter-spacing: 1px;
@@ -53,7 +55,8 @@
 
 .links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
+    /* More breathing room between links */
     align-items: center;
     list-style: none;
     margin: 0;
@@ -66,10 +69,12 @@
     text-decoration: none;
     font-family: var(--font-ui), sans-serif;
     /* Mukta */
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    /* Larger Text */
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    /* Expanded Text */
     position: relative;
     white-space: nowrap;
     cursor: pointer;
