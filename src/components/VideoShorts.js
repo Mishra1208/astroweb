@@ -77,7 +77,10 @@ export default function VideoShorts() {
     };
 
     const toggleMute = (e) => {
+        // Prevent double firing if both touch and click happen
+        if (e && e.cancelable) e.preventDefault();
         if (e) e.stopPropagation();
+
         const newMuted = !isMuted;
         setIsMuted(newMuted);
 
@@ -85,8 +88,12 @@ export default function VideoShorts() {
         const video = videoRefs.current[activeIndex];
         if (video) {
             video.muted = newMuted;
+            // Force play if unmuting, just in case
             if (!newMuted) {
-                video.play().catch(() => { });
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => { });
+                }
             }
         }
     };
@@ -143,11 +150,12 @@ export default function VideoShorts() {
 
                                 {index === activeIndex && (
                                     <div
+                                        onTouchEnd={toggleMute}
                                         onClick={toggleMute}
                                         className="control-btn mute-btn"
-                                        style={{ pointerEvents: 'auto' }}
+                                        style={{ pointerEvents: 'auto', width: '50px', height: '50px' }}
                                     >
-                                        {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                                        {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
                                     </div>
                                 )}
 

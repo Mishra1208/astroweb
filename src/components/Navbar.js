@@ -57,8 +57,9 @@ export default function Navbar() {
                     }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className={styles.logo}>
-                        ASTRO<span style={{ color: 'var(--accent-main)' }}>WEB</span>
+                    {/* Updated Branding: Jai Mata Di */}
+                    <div className={styles.logo} style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem' }}>
+                        जय <span style={{ color: 'var(--accent-main)' }}>माता दी</span>
                     </div>
 
                     <div className={styles.links}>
@@ -93,13 +94,13 @@ export default function Navbar() {
                         zIndex: 1000,
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
-                        fontSize: '1.5rem',
+                        fontSize: '1.8rem',
                         color: 'var(--accent-red)',
                         textShadow: '0 0 10px rgba(239, 230, 216, 0.8)',
                         whiteSpace: 'nowrap'
                     }}
                 >
-                    ASTRO<span style={{ color: 'var(--accent-main)' }}>WEB</span>
+                    जय <span style={{ color: 'var(--accent-main)' }}>माता दी</span>
                 </motion.div>
             )}
 
