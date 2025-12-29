@@ -126,7 +126,6 @@ function GarlandString({ index, side, total, shouldAnimate }) {
         <motion.div
             initial="initial"
             animate={shouldAnimate ? "animate" : "initial"}
-            whileHover="hover"
             variants={variants}
             className={`garland-string string-${index}`}
             style={{
