@@ -85,9 +85,9 @@ export default function Footer() {
                 <div className={styles.devContact}>
                     <span>For technical guidance or inquiries</span>
                     <span className={styles.devSeparator}>•</span>
-                    <a href="mailto:support@astroweb.com">support@astroweb.com</a>
+                    <a href="mailto:mishranarendra1208@gmail.com">mishranarendra1208@gmail.com</a>
                     <span className={styles.devSeparator}>•</span>
-                    <a href="tel:+918601042988">+91 86010 42988</a>
+                    <a href="tel:+918375981566">+91 8375981566</a>
                 </div>
             </div>
 
