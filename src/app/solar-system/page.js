@@ -1,7 +1,7 @@
 import Scene from '@/components/SolarSystem/Scene';
 
 export const metadata = {
-    title: 'Cosmic View | Acharya Rajkumar',
+    title: 'Cosmic View | Achaarya Rajkumar',
     description: 'Interactive 3D Solar System',
 };
 

@@ -41,7 +41,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Acharya Rajkumar | Aligning the Cosmos",
+  title: "Achaarya Rajkumar | Aligning the Cosmos",
   description: "Premium Vedic Astrology & Horoscope",
 };
 

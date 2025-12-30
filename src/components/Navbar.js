@@ -63,7 +63,7 @@ export default function Navbar() {
                     {/* Updated Branding: Acharya Rajkumar */}
                     <div className={styles.logo} style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', textAlign: 'center' }}>
                         <div style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '-5px' }}>जय माता दी</div>
-                        <div style={{ color: 'var(--accent-main)' }}>Acharya Rajkumar</div>
+                        <div style={{ color: 'var(--accent-main)' }}>Achaarya Rajkumar</div>
                     </div>
 
                     <div className={styles.links}>
