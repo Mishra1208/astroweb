@@ -55,7 +55,7 @@ export default function Home() {
 
                 <motion.h1
                     className={styles.name}
-                    style={{ fontSize: '2rem', marginTop: '-0.5rem' }}
+                    style={{ fontSize: '2rem', marginTop: '0.5rem' }}
                     variants={itemVariants}
                 >
                     जय मां भवानी ज्योतिष शोध संस्थान
