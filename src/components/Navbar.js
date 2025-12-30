@@ -5,7 +5,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
+import { usePathname } from 'next/navigation';
+
 export default function Navbar() {
+    const pathname = usePathname();
+    const isLegal = pathname === '/legal';
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -101,8 +105,10 @@ export default function Navbar() {
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
                         fontSize: '1.2rem',
-                        color: 'var(--accent-red)',
-                        textShadow: '0 0 10px rgba(239, 230, 216, 0.8)',
+                        // Conditional Color: Gold on Legal (Dark BG), Maroon on Home (Light BG)
+                        color: isLegal ? 'var(--accent-gold)' : 'var(--accent-red)',
+                        // Conditional Shadow: Clearer shadow for Legal
+                        textShadow: isLegal ? '0 2px 4px rgba(0,0,0,0.8)' : '0 0 10px rgba(239, 230, 216, 0.8)',
                         whiteSpace: 'nowrap',
                         display: 'flex',
                         flexDirection: 'column', // Vertical Stack
@@ -117,13 +123,14 @@ export default function Navbar() {
                         style={{
                             height: '45px', // Slightly larger for center focus
                             width: 'auto',
-                            filter: 'drop-shadow(0 0 5px gold)'
+                            // Brighter drop shadow for Legal page visibility
+                            filter: isLegal ? 'drop-shadow(0 0 8px #FFD700)' : 'drop-shadow(0 0 5px gold)'
                         }}
                     />
 
                     {/* Brand Name Below */}
                     <span>
-                        आचार्य पंडित <span style={{ color: 'var(--accent-main)' }}>राज कुमार तिवारी</span>
+                        आचार्य पंडित <span style={{ color: isLegal ? '#FFD700' : 'var(--accent-main)' }}>राज कुमार तिवारी</span>
                     </span>
                 </motion.div>
             )}

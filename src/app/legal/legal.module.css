@@ -1,5 +1,5 @@
 .container {
-    padding: 120px 2rem 4rem 2rem;
+    padding: 160px 2rem 4rem 2rem;
     /* Top padding to clear fixed navbar */
     background-color: #0f0804;
     /* Deep dark brown/black base */
@@ -88,7 +88,7 @@
 /* Responseiveness */
 @media (max-width: 768px) {
     .container {
-        padding: 100px 1.5rem 3rem 1.5rem;
+        padding: 180px 1.5rem 3rem 1.5rem;
     }
 
     .title {
@@ -105,5 +105,13 @@
 
     .section h3 {
         font-size: 1.5rem;
+    }
+}
+
+/* iPad Air / Tablet Specific */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 160px 2rem 4rem 2rem;
+        /* Increased top padding for iPad */
     }
 }
