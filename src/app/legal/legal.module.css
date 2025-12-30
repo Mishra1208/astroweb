@@ -1,0 +1,109 @@
+.container {
+    padding: 120px 2rem 4rem 2rem;
+    /* Top padding to clear fixed navbar */
+    background-color: #0f0804;
+    /* Deep dark brown/black base */
+    background-image: radial-gradient(circle at 50% 0%, #2B1B12 0%, #000000 100%);
+    /* Premium dark gradient */
+    min-height: 100vh;
+    color: #EFE6D8;
+    font-family: var(--font-body), sans-serif;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-family: 'Rozha One', serif;
+    font-size: 1.5rem;
+    color: rgba(239, 230, 216, 0.8);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+}
+
+.goldLine {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+    margin: 0 auto;
+}
+
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(180, 140, 60, 0.2);
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.section h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(180, 140, 60, 0.2);
+    padding-bottom: 10px;
+}
+
+.section h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.section p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: rgba(239, 230, 216, 0.9);
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 2.5rem 0;
+}
+
+.hindi h3,
+.hindi h4,
+.hindi p {
+    /* Slightly lighter font weight for Hindi readability depending on font */
+}
+
+/* Responseiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 1.5rem 3rem 1.5rem;
+    }
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .section h3 {
+        font-size: 1.5rem;
+    }
+}

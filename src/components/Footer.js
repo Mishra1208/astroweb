@@ -1,7 +1,7 @@
 'use client';
 
 import styles from "./Footer.module.css";
-import { Star, ShieldCheck, Mail, Phone, MapPin, Instagram, Twitter, Youtube } from "lucide-react";
+import { Star, ShieldCheck, Mail, Phone, MapPin, Instagram } from "lucide-react";
 import { usePathname } from 'next/navigation';
 
 export default function Footer() {
@@ -33,11 +33,11 @@ export default function Footer() {
             <div className={styles.content}>
                 {/* Column 1: Brand */}
                 <div className={styles.column}>
-                    <h2 className={styles.brandTitle} style={{ fontSize: '1.8rem' }}>आचार्य पंडित राज कुमार तिवारी</h2>
+                    <h2 className={styles.brandTitle} style={{ fontSize: '1.8rem', whiteSpace: 'nowrap', letterSpacing: '2px', paddingRight: '10px', width: 'fit-content' }}>आचार्य पंडित राज कुमार तिवारी</h2>
                     <p className={styles.brandDesc}>
-                        Bridging ancient Vedic wisdom with modern technology.
-                        Your trusted guide for cosmic insights, birth charts, and spiritual growth.
+                        आपकी हर समस्या का समाधान अब एक क्लिक दूर। आचार्य पंडित राज कुमार तिवारी जी के वर्षों के अनुभव और वैदिक ज्ञान से अपने जीवन को खुशहाल बनाएं। ज्योतिष, वास्तु और पूजा-पाठ के लिए सबसे विश्वसनीय स्थान।
                     </p>
+
                     <div className={styles.badgeContainer}>
                         {/* Trust Badges */}
                         <div className={styles.trustBadge}>
@@ -51,28 +51,34 @@ export default function Footer() {
 
                 {/* Column 2: Quick Links */}
                 <div className={styles.column}>
-                    <h3 className={styles.colTitle}>Services</h3>
+                    <h3 className={styles.colTitle}>सेवाएं (शीघ्र उपलब्ध...)</h3>
                     <ul className={styles.links}>
-                        <li><a href="/services#kundli">Kundli Generation (Janampatri)</a></li>
-                        <li><a href="/services#matchmaking">Match Making (Gun Milan)</a></li>
-                        <li><a href="/services#horoscope">Daily Horoscope</a></li>
-                        <li><a href="/services#tarot">Tarot Reading</a></li>
-                        <li><a href="/services#panchang">Vedic Panchang</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>कुंडली निर्माण (जन्मपत्री)</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>गुण मिलान</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>दैनिक राशिफल</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>टैरो रीडिंग</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>वैदिक पंचांग</a></li>
                     </ul>
                 </div>
 
                 {/* Column 3: Contact (moved to 3rd position) */}
                 <div className={styles.column}>
-                    <h3 className={styles.colTitle}>Contact Us</h3>
+                    <h3 className={styles.colTitle}>संपर्क करें</h3>
                     <ul className={styles.contactList}>
-                        <li><MapPin size={18} color="#fbbf24" /> Prayagraj, Uttar Pradesh, India</li>
-                        <li><Mail size={18} color="#fbbf24" /> mishranarendra1208@gmail.com</li>
+                        <li><MapPin size={18} color="#fbbf24" /> प्रयागराज, उत्तर प्रदेश, भारत</li>
+                        <li><Mail size={18} color="#fbbf24" /> tiwarirajkumar659@gmail.com</li>
                         <li><Phone size={18} color="#fbbf24" /> +91 86010 42988</li>
                     </ul>
                     <div className={styles.socials}>
-                        <a href="#" className={styles.socialIcon}><Instagram size={20} /></a>
-                        <a href="#" className={styles.socialIcon}><Twitter size={20} /></a>
-                        <a href="#" className={styles.socialIcon}><Youtube size={20} /></a>
+                        <a href="https://www.instagram.com/karmkandirajkumartiwari?igsh=MXV6b3B0b2x3Z25lOA==" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+                            <Instagram size={24} />
+                        </a>
+                        <a href="tel:+918601042988" className={styles.socialIcon}>
+                            <Phone size={24} />
+                        </a>
+                        <a href="mailto:tiwarirajkumar659@gmail.com" className={styles.socialIcon}>
+                            <Mail size={24} />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -94,9 +100,9 @@ export default function Footer() {
             <div className={styles.bottomBar}>
                 <p>&copy; {new Date().getFullYear()} आचार्य पंडित राज कुमार तिवारी. All Rights Reserved.</p>
                 <div className={styles.legalLinks}>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Disclaimer</a>
+                    <a href="/legal#privacy">Privacy Policy</a>
+                    <a href="/legal#terms">Terms of Service</a>
+                    <a href="/legal#disclaimer">Disclaimer</a>
                 </div>
             </div>
         </footer>

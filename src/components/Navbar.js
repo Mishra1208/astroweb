@@ -95,42 +95,36 @@ export default function Navbar() {
                     transition={{ duration: 0.5 }}
                     style={{
                         position: 'fixed',
-                        top: '2rem',
+                        top: '1.5rem', // Moved up slightly to fit vertical stack
                         left: '50%', // Centered
                         zIndex: 10000,
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
-                        fontSize: '1.2rem', // Reduced for long Hindi name
+                        fontSize: '1.2rem',
                         color: 'var(--accent-red)',
                         textShadow: '0 0 10px rgba(239, 230, 216, 0.8)',
                         whiteSpace: 'nowrap',
                         display: 'flex',
+                        flexDirection: 'column', // Vertical Stack
                         alignItems: 'center',
-                        gap: '0.8rem'
+                        gap: '0.2rem' // Tight gap between icon and text
                     }}
                 >
+                    {/* Single Top Ganesh Icon */}
                     <img
                         src="/ganesh.png"
                         alt="Ganesh"
                         style={{
-                            height: '55px',
+                            height: '45px', // Slightly larger for center focus
                             width: 'auto',
                             filter: 'drop-shadow(0 0 5px gold)'
                         }}
                     />
+
+                    {/* Brand Name Below */}
                     <span>
                         आचार्य पंडित <span style={{ color: 'var(--accent-main)' }}>राज कुमार तिवारी</span>
                     </span>
-                    <img
-                        src="/ganesh.png"
-                        alt="Ganesh"
-                        style={{
-                            height: '55px',
-                            width: 'auto',
-                            filter: 'drop-shadow(0 0 5px gold)',
-                            transform: 'scaleX(-1)' // Mirror for symmetry
-                        }}
-                    />
                 </motion.div>
             )}
 

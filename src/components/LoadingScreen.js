@@ -36,7 +36,7 @@ export default function LoadingScreen() {
                         width: '100vw',
                         height: '100vh',
                         background: 'var(--bg-primary)', // Parchment
-                        zIndex: 9999,
+                        zIndex: 20000,
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
@@ -139,7 +139,7 @@ export default function LoadingScreen() {
                         >
                             <h2 style={{
                                 fontFamily: 'var(--font-heading)',
-                                fontSize: '2.8rem',
+                                fontSize: '2rem',
                                 background: 'linear-gradient(to right, #7A1E1E, #C45A00)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
@@ -162,7 +162,7 @@ export default function LoadingScreen() {
                                 background: 'linear-gradient(to right, var(--accent-red), var(--accent-main))',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
-                                fontSize: '2.5rem',
+                                fontSize: '2rem',
                                 textTransform: 'uppercase',
                                 filter: 'drop-shadow(0 0 2px rgba(176, 141, 87, 0.3))'
                             }}

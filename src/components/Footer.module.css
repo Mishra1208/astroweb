@@ -55,13 +55,14 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    padding: 0 2rem 4rem 6rem;
+    grid-template-columns: 2fr 1.2fr 1fr;
+    gap: 4rem;
+    padding: 0 4rem 4rem 2rem;
     /* Shift content right for visual balance */
     position: relative;
     z-index: 2;
     /* Ensure text is above garlands */
+    gap: 12rem;
 }
 
 /* Footer Decor */
@@ -118,6 +119,7 @@
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .colTitle::after {
@@ -307,6 +309,7 @@
     .content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 3rem;
     }
 
     .colTitle::after {
@@ -416,5 +419,72 @@
 
     100% {
         transform: translateY(0);
+    }
+}
+
+@media (min-width: 1024px) {
+    .homeFooter {
+        padding-top: 16rem;
+        /* Reduced from 20rem to move content up on desktop */
+    }
+}
+
+@media (max-width: 480px) {
+    .homeFooter {
+        padding-top: 10rem;
+        /* Drastically reduced for iPhone to remove wide spacing */
+    }
+
+    .content {
+        padding: 0 2rem 4rem 2rem;
+        /* Symmetric padding for clean mobile look */
+        gap: 2.5rem;
+    }
+
+    /* Center align list items on mobile */
+    .links a,
+    .contactList li {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1023px) {
+    .homeFooter {
+        padding-top: 12rem;
+        /* Reduced top spacing for iPad */
+    }
+
+    .content {
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns for the bottom row */
+        gap: 3rem;
+        padding: 0 4rem 4rem 4rem;
+        text-align: center;
+    }
+
+    /* Brand Section: Span full width and center */
+    .content>div:nth-child(1) {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 0 2rem;
+    }
+
+    /* Center alignments for iPad view */
+    .badgeContainer,
+    .socials {
+        justify-content: center;
+    }
+
+    .links a,
+    .contactList li {
+        justify-content: center;
+    }
+
+    .colTitle::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
