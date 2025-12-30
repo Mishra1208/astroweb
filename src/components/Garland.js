@@ -40,6 +40,15 @@ export default function Garland({ side = 'left' }) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Mobile Check to prevent overlap
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <motion.div
             initial={{ y: 0 }}
@@ -50,7 +59,7 @@ export default function Garland({ side = 'left' }) {
                 top: 0,
                 [side]: '-20px', // Slight negative to hug edge
                 height: '40vh',
-                width: '350px', // Slightly wider for 7 strings
+                width: isMobile ? '140px' : '350px', // Reduced width on mobile to avoid covering Ganesh/Text
                 zIndex: 9998,
                 pointerEvents: 'none',
             }}

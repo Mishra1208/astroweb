@@ -23,7 +23,7 @@
     gap: 5rem;
     /* Increased spacing between Logo and Links */
     align-items: center;
-    z-index: 1000;
+    z-index: 10001;
     box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
     transition: all 0.3s ease;
 }
@@ -105,7 +105,7 @@
     justify-content: center;
     align-items: center;
     gap: 6px;
-    z-index: 1000;
+    z-index: 10000;
     cursor: pointer;
     box-shadow: 0 5px 20px rgba(43, 27, 18, 0.1);
     transition: all 0.3s ease;
@@ -236,7 +236,11 @@
     }
 
     .ganeshIcon {
-        display: none;
+        display: block;
+        height: 35px;
+        /* Smaller size for mobile */
+        margin: 0 5px;
+        /* Add some spacing */
     }
 }
 

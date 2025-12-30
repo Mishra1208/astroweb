@@ -97,7 +97,7 @@ export default function Navbar() {
                         position: 'fixed',
                         top: '2rem',
                         left: '50%', // Centered
-                        zIndex: 1000,
+                        zIndex: 10000,
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
                         fontSize: '1.2rem', // Reduced for long Hindi name
