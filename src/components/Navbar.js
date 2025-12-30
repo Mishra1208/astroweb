@@ -60,9 +60,10 @@ export default function Navbar() {
                     {/* Left Ganesh */}
                     <img src="/ganesh.png" alt="Shree Ganesh" className={styles.ganeshIcon} />
 
-                    {/* Updated Branding: Jai Mata Di */}
-                    <div className={styles.logo} style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem' }}>
-                        जय <span style={{ color: 'var(--accent-main)' }}>माता दी</span>
+                    {/* Updated Branding: Acharya Rajkumar */}
+                    <div className={styles.logo} style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', textAlign: 'center' }}>
+                        <div style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '-5px' }}>जय माता दी</div>
+                        <div style={{ color: 'var(--accent-main)' }}>Acharya Rajkumar</div>
                     </div>
 
                     <div className={styles.links}>

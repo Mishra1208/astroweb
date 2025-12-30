@@ -33,7 +33,7 @@ export default function Footer() {
             <div className={styles.content}>
                 {/* Column 1: Brand */}
                 <div className={styles.column}>
-                    <h2 className={styles.brandTitle}>AstroWeb</h2>
+                    <h2 className={styles.brandTitle}>Acharya Rajkumar</h2>
                     <p className={styles.brandDesc}>
                         Bridging ancient Vedic wisdom with modern technology.
                         Your trusted guide for cosmic insights, birth charts, and spiritual growth.
@@ -92,7 +92,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.bottomBar}>
-                <p>&copy; {new Date().getFullYear()} AstroWeb AI. All Rights Reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Acharya Rajkumar. All Rights Reserved.</p>
                 <div className={styles.legalLinks}>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>

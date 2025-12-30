@@ -41,7 +41,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Astroweb | Aligning the Cosmos",
+  title: "Acharya Rajkumar | Aligning the Cosmos",
   description: "Premium Vedic Astrology & Horoscope",
 };
 
