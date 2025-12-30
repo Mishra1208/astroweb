@@ -66,7 +66,7 @@ export default function Footer() {
                     <h3 className={styles.colTitle}>Contact Us</h3>
                     <ul className={styles.contactList}>
                         <li><MapPin size={18} color="#fbbf24" /> Prayagraj, Uttar Pradesh, India</li>
-                        <li><Mail size={18} color="#fbbf24" /> support@astroweb.com</li>
+                        <li><Mail size={18} color="#fbbf24" /> mishranarendra1208@gmail.com</li>
                         <li><Phone size={18} color="#fbbf24" /> +91 86010 42988</li>
                     </ul>
                     <div className={styles.socials}>

@@ -167,7 +167,7 @@ export default function LoadingScreen() {
                                 filter: 'drop-shadow(0 0 2px rgba(176, 141, 87, 0.3))'
                             }}
                         >
-                            ASTROWEB
+                            ACHARYA RAJKUMAR
                         </motion.h1>
 
                         {/* Hindi Subtitle */}
