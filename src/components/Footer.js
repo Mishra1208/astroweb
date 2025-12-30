@@ -33,7 +33,7 @@ export default function Footer() {
             <div className={styles.content}>
                 {/* Column 1: Brand */}
                 <div className={styles.column}>
-                    <h2 className={styles.brandTitle}>Achaarya Rajkumar</h2>
+                    <h2 className={styles.brandTitle} style={{ fontSize: '1.8rem' }}>आचार्य पंडित राज कुमार तिवारी</h2>
                     <p className={styles.brandDesc}>
                         Bridging ancient Vedic wisdom with modern technology.
                         Your trusted guide for cosmic insights, birth charts, and spiritual growth.
@@ -92,7 +92,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.bottomBar}>
-                <p>&copy; {new Date().getFullYear()} Achaarya Rajkumar. All Rights Reserved.</p>
+                <p>&copy; {new Date().getFullYear()} आचार्य पंडित राज कुमार तिवारी. All Rights Reserved.</p>
                 <div className={styles.legalLinks}>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>

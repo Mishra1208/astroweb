@@ -60,10 +60,9 @@ export default function Navbar() {
                     {/* Left Ganesh */}
                     <img src="/ganesh.png" alt="Shree Ganesh" className={styles.ganeshIcon} />
 
-                    {/* Updated Branding: Acharya Rajkumar */}
-                    <div className={styles.logo} style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', textAlign: 'center' }}>
-                        <div style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '-5px' }}>जय माता दी</div>
-                        <div style={{ color: 'var(--accent-main)' }}>Achaarya Rajkumar</div>
+                    {/* Updated Branding: Full Hindi Name */}
+                    <div className={styles.logo} style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', textAlign: 'center', lineHeight: 1.2 }}>
+                        आचार्य पंडित <span style={{ color: 'var(--accent-main)' }}>राज कुमार तिवारी</span>
                     </div>
 
                     <div className={styles.links}>
@@ -101,7 +100,7 @@ export default function Navbar() {
                         zIndex: 1000,
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 700,
-                        fontSize: '1.8rem',
+                        fontSize: '1.2rem', // Reduced for long Hindi name
                         color: 'var(--accent-red)',
                         textShadow: '0 0 10px rgba(239, 230, 216, 0.8)',
                         whiteSpace: 'nowrap',
@@ -120,7 +119,7 @@ export default function Navbar() {
                         }}
                     />
                     <span>
-                        जय <span style={{ color: 'var(--accent-main)' }}>माता दी</span>
+                        आचार्य पंडित <span style={{ color: 'var(--accent-main)' }}>राज कुमार तिवारी</span>
                     </span>
                     <img
                         src="/ganesh.png"
