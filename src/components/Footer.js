@@ -5,6 +5,7 @@ import { Star, ShieldCheck, Mail, Phone, MapPin, Instagram } from "lucide-react"
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 
+
 export default function Footer() {
     const pathname = usePathname();
     const isHome = pathname === '/' || pathname === '/services' || pathname === '/legal' || pathname === '/kundli';
