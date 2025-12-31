@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { getVedicChartData } from '@/utils/vedicAstro';
 import LaganChart from '@/components/LaganChart';
 import styles from './kundli.module.css';
@@ -22,7 +22,7 @@ const getOffsetFromTimezone = (timeZone) => {
     }
 };
 
-export default function VedicDemoPage() {
+function KundliContent() {
     // Default: Prayagraj
     const [formData, setFormData] = useState({
         date: new Date().toISOString().split('T')[0],
@@ -262,5 +262,13 @@ export default function VedicDemoPage() {
 
 
         </main>
+    );
+}
+
+export default function VedicDemoPage() {
+    return (
+        <Suspense fallback={<div style={{color: '#fbbf24', textAlign: 'center', padding: '10rem'}}>Loading Kundli...</div>}>
+            <KundliContent />
+        </Suspense>
     );
 }
