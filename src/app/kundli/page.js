@@ -73,7 +73,9 @@ function KundliContent() {
 
     // Modified calculateChart to accept optional overrides (for immediate effect)
     const calculateChart = (overrideData = null) => {
-        const dataToUse = overrideData || formData;
+        // If overrideData is an Event (click), use formData. If it's a real data object, use it.
+        const isEvent = overrideData && overrideData.preventDefault;
+        const dataToUse = (overrideData && !isEvent && overrideData.date) ? overrideData : formData;
 
         try {
             // Manual Timezone Construction to ensure accuracy regardless of Browser Locale
@@ -267,7 +269,7 @@ function KundliContent() {
 
 export default function VedicDemoPage() {
     return (
-        <Suspense fallback={<div style={{color: '#fbbf24', textAlign: 'center', padding: '10rem'}}>Loading Kundli...</div>}>
+        <Suspense fallback={<div style={{ color: '#fbbf24', textAlign: 'center', padding: '10rem' }}>Loading Kundli...</div>}>
             <KundliContent />
         </Suspense>
     );
