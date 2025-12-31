@@ -43,7 +43,7 @@ export default function Navbar() {
         { name: 'होम', id: 'home', href: '/' },
         { name: 'सेवाएं', id: 'services', href: '/services' },
         { name: 'राशिफल', id: 'horoscope', href: '/services#horoscope' },
-        { name: 'टैरो', id: 'tarot', href: '/services#tarot' }
+        { name: 'कुंडली', id: 'kundli', href: '/kundli' }
     ];
 
     return (
@@ -136,9 +136,9 @@ export default function Navbar() {
             )}
 
             {/* 2. HAMBURGER BUTTON (Scroll State OR Mobile) */}
-            {/* Always visible on mobile, visible on scroll for desktop */}
+            {/* Always visible on mobile, visible on scroll for desktop. HIDDEN when menu is open to show close button. */}
             <AnimatePresence>
-                {(isScrolled || isMobile) && (
+                {(isScrolled || isMobile) && !isMenuOpen && (
                     <motion.button
                         className={styles.hamburgerBtn}
                         onClick={toggleMenu}

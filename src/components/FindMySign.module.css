@@ -140,8 +140,21 @@
     color: transparent;
 }
 
-.input:invalid::before {
+.input[type="date"]:invalid::before {
     content: 'DD / MM / YYYY';
+    color: var(--text-muted);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.input[type="time"]:invalid::before {
+    content: 'HH / MM / SS';
     color: var(--text-muted);
     position: absolute;
     left: 50%;

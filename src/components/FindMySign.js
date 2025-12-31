@@ -180,14 +180,14 @@ export default function FindMySign() {
                         className={`${styles.tab} ${activeTab === 'precise' ? styles.activeTab : ''}`}
                         onClick={() => { setActiveTab('precise'); setResult(null); }}
                     >
-                        वैदिक कुंडली से
+                        वैदिक कुंडली अनुसार
                     </button>
                 </div>
 
                 {!loading && !result && (
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>Date of Birth (जन्म तिथि)</label>
+                            <label className={styles.label}>जन्म तिथि (Date of Birth)</label>
                             <input
                                 type="date"
                                 className={styles.input}
@@ -200,9 +200,10 @@ export default function FindMySign() {
                         {activeTab === 'precise' && (
                             <>
                                 <div className={styles.inputGroup}>
-                                    <label className={styles.label}>Birth Time (समय)</label>
+                                    <label className={styles.label}>जन्म समय (Birth Time)</label>
                                     <input
                                         type="time"
+                                        step="1"
                                         className={styles.input}
                                         value={time}
                                         onChange={(e) => setTime(e.target.value)}
@@ -210,7 +211,7 @@ export default function FindMySign() {
                                     />
                                 </div>
                                 <div className={styles.inputGroup}>
-                                    <label className={styles.label}>Birth Place (शहर)</label>
+                                    <label className={styles.label}>जन्म स्थान (Birth Place)</label>
                                     <div style={{ position: 'relative' }}>
                                         <input
                                             type="text"
@@ -265,7 +266,7 @@ export default function FindMySign() {
                             whileTap={{ scale: 0.95 }}
                             type="submit"
                         >
-                            {activeTab === 'simple' ? 'Sun Sign देखें' : 'अपनी राशि जानें'}
+                            {activeTab === 'simple' ? 'अपनी राशि जानें' : 'अपनी राशि जानें'}
                         </motion.button>
                     </form>
                 )}
@@ -298,14 +299,37 @@ export default function FindMySign() {
                             <h3 className={styles.signName}>{result.hindiName}</h3>
                             <p className={styles.dateRange}>{result.sign}</p>
 
-                            <motion.button
-                                className={styles.button}
-                                style={{ marginTop: '2rem', fontSize: '0.8rem' }}
-                                onClick={() => setResult(null)}
-                                whileHover={{ scale: 1.05 }}
-                            >
-                                पुनः जाँचें
-                            </motion.button>
+                            <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                                <motion.button
+                                    className={styles.button}
+                                    style={{ fontSize: '0.9rem', width: 'auto', padding: '0.8rem 1.5rem' }}
+                                    onClick={() => setResult(null)}
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    पुनः जाँचें
+                                </motion.button>
+
+                                {activeTab === 'precise' && selectedGeo && (
+                                    <a
+                                        href={`/kundli?date=${date}&time=${time}&lat=${selectedGeo.lat}&lng=${selectedGeo.lon}&city=${encodeURIComponent(city)}&tz=5.5`}
+                                        className={styles.button} // Reusing button class for consistent style
+                                        style={{
+                                            fontSize: '0.9rem',
+                                            width: 'auto',
+                                            padding: '0.8rem 1.5rem',
+                                            textDecoration: 'none',
+                                            background: 'linear-gradient(to right, #fbbf24, #d97706)',
+                                            color: '#000',
+                                            fontWeight: 'bold',
+                                            display: 'inline-flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        लग्न कुंडली देखें 🕉️
+                                    </a>
+                                )}
+                            </div>
                         </motion.div>
                     )}
                 </AnimatePresence>

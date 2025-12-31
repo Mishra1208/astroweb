@@ -2,11 +2,12 @@
 
 import styles from "./Footer.module.css";
 import { Star, ShieldCheck, Mail, Phone, MapPin, Instagram } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from 'next/navigation';
 
 export default function Footer() {
     const pathname = usePathname();
-    const isHome = pathname === '/' || pathname === '/services' || pathname === '/legal';
+    const isHome = pathname === '/' || pathname === '/services' || pathname === '/legal' || pathname === '/kundli';
 
     return (
         <footer className={`${styles.footer} ${isHome ? styles.homeFooter : ''}`}>
@@ -53,11 +54,11 @@ export default function Footer() {
                 <div className={styles.column}>
                     <h3 className={styles.colTitle}>सेवाएं (शीघ्र उपलब्ध...)</h3>
                     <ul className={styles.links}>
-                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>कुंडली निर्माण (जन्मपत्री)</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>गुण मिलान</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>दैनिक राशिफल</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>टैरो रीडिंग</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()} style={{ cursor: 'default' }}>वैदिक पंचांग</a></li>
+                        <li><span style={{ color: '#aaa', cursor: 'default' }}>कुंडली निर्माण (शीघ्र उपलब्ध)</span></li>
+                        <li><span style={{ color: '#aaa', cursor: 'default' }}>गुण मिलान (शीघ्र उपलब्ध)</span></li>
+                        <li><Link href="/services#horoscope" className={styles.footerLink}>दैनिक राशिफल</Link></li>
+                        <li><Link href="/services#tarot" className={styles.footerLink}>टैरो रीडिंग</Link></li>
+                        <li><Link href="/kundli" className={styles.footerLink}>वैदिक पंचांग (कुंडली)</Link></li>
                     </ul>
                 </div>
 
@@ -92,8 +93,6 @@ export default function Footer() {
                     <span>For technical guidance or inquiries</span>
                     <span className={styles.devSeparator}>•</span>
                     <a href="mailto:mishranarendra1208@gmail.com">mishranarendra1208@gmail.com</a>
-                    <span className={styles.devSeparator}>•</span>
-                    <a href="tel:+918375981566">+91 8375981566</a>
                 </div>
             </div>
 

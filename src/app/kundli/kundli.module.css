@@ -1,0 +1,38 @@
+.planetContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+
+    /* Hide Scrollbar but keep functionality */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.planetContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Swipe Hint - Mobile Only */
+.swipeHint {
+    display: none;
+    /* Hidden on desktop */
+    font-size: 0.9rem;
+    color: #fff;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .swipeHint {
+        display: block;
+        /* Visible on mobile and tablet */
+    }
+}
