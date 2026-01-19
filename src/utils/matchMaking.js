@@ -36,27 +36,27 @@ export const NAKSHATRAS = [
 ];
 
 const RASHI_INFO = {
-    "Aries": { vashya: "Quadruped", lord: "Mars" },
-    "Taurus": { vashya: "Quadruped", lord: "Venus" },
-    "Gemini": { vashya: "Human", lord: "Mercury" },
-    "Cancer": { vashya: "Water", lord: "Moon" },
-    "Leo": { vashya: "Wild", lord: "Sun" },
-    "Virgo": { vashya: "Human", lord: "Mercury" },
-    "Libra": { vashya: "Human", lord: "Venus" },
-    "Scorpio": { vashya: "Insect", lord: "Mars" },
-    "Sagittarius": { vashya: "Human", lord: "Jupiter" }, // Often considered Human for first half, or Quadruped. Using Human as primary for matching simplified.
-    "Capricorn": { vashya: "Quadruped", lord: "Saturn" }, // Similar split, mostly Quadruped water-goat.
-    "Aquarius": { vashya: "Human", lord: "Saturn" },
-    "Pisces": { vashya: "Water", lord: "Jupiter" }
+    "Aries": { vashya: "Quadruped", lord: "Mars", varna: "Kshatriya" },
+    "Taurus": { vashya: "Quadruped", lord: "Venus", varna: "Vaishya" },
+    "Gemini": { vashya: "Human", lord: "Mercury", varna: "Shudra" },
+    "Cancer": { vashya: "Water", lord: "Moon", varna: "Brahman" },
+    "Leo": { vashya: "Wild", lord: "Sun", varna: "Kshatriya" },
+    "Virgo": { vashya: "Human", lord: "Mercury", varna: "Vaishya" },
+    "Libra": { vashya: "Human", lord: "Venus", varna: "Shudra" },
+    "Scorpio": { vashya: "Insect", lord: "Mars", varna: "Brahman" },
+    "Sagittarius": { vashya: "Human", lord: "Jupiter", varna: "Kshatriya" },
+    "Capricorn": { vashya: "Quadruped", lord: "Saturn", varna: "Vaishya" },
+    "Aquarius": { vashya: "Human", lord: "Saturn", varna: "Shudra" },
+    "Pisces": { vashya: "Water", lord: "Jupiter", varna: "Brahman" }
 };
 
 const YONI_COMPATIBILITY = {
     "Horse": { "Horse": 4, "Elephant": 2, "Sheep": 2, "Serpent": 1, "Dog": 0, "Cat": 2, "Rat": 1, "Cow": 3, "Buffalo": 3, "Tiger": 2, "Deer": 2, "Monkey": 3, "Mongoose": 2, "Lion": 1 },
     "Elephant": { "Horse": 2, "Elephant": 4, "Sheep": 3, "Serpent": 3, "Dog": 2, "Cat": 2, "Rat": 0, "Cow": 2, "Buffalo": 3, "Tiger": 1, "Deer": 2, "Monkey": 3, "Mongoose": 2, "Lion": 1 },
-    "Sheep": { "Horse": 2, "Elephant": 3, "Sheep": 4, "Serpent": 2, "Dog": 1, "Cat": 2, "Rat": 1, "Cow": 3, "Buffalo": 3, "Tiger": 0, "Deer": 3, "Monkey": 1, "Mongoose": 2, "Lion": 1 },
+    "Sheep": { "Horse": 2, "Elephant": 3, "Sheep": 4, "Serpent": 2, "Dog": 1, "Cat": 3, "Rat": 1, "Cow": 3, "Buffalo": 3, "Tiger": 0, "Deer": 3, "Monkey": 1, "Mongoose": 2, "Lion": 1 },
     "Serpent": { "Horse": 1, "Elephant": 3, "Sheep": 2, "Serpent": 4, "Dog": 2, "Cat": 1, "Rat": 1, "Cow": 1, "Buffalo": 1, "Tiger": 2, "Deer": 2, "Monkey": 2, "Mongoose": 0, "Lion": 2 },
     "Dog": { "Horse": 0, "Elephant": 2, "Sheep": 1, "Serpent": 2, "Dog": 4, "Cat": 2, "Rat": 1, "Cow": 2, "Buffalo": 2, "Tiger": 1, "Deer": 1, "Monkey": 2, "Mongoose": 1, "Lion": 3 },
-    "Cat": { "Horse": 2, "Elephant": 2, "Sheep": 2, "Serpent": 1, "Dog": 2, "Cat": 4, "Rat": 0, "Cow": 2, "Buffalo": 2, "Tiger": 1, "Deer": 3, "Monkey": 2, "Mongoose": 1, "Lion": 2 },
+    "Cat": { "Horse": 2, "Elephant": 2, "Sheep": 3, "Serpent": 1, "Dog": 2, "Cat": 4, "Rat": 0, "Cow": 2, "Buffalo": 2, "Tiger": 1, "Deer": 3, "Monkey": 2, "Mongoose": 1, "Lion": 2 },
     "Rat": { "Horse": 1, "Elephant": 0, "Sheep": 1, "Serpent": 1, "Dog": 1, "Cat": 0, "Rat": 4, "Cow": 2, "Buffalo": 2, "Tiger": 1, "Deer": 2, "Monkey": 2, "Mongoose": 1, "Lion": 1 },
     "Cow": { "Horse": 3, "Elephant": 2, "Sheep": 3, "Serpent": 1, "Dog": 2, "Cat": 2, "Rat": 2, "Cow": 4, "Buffalo": 3, "Tiger": 0, "Deer": 3, "Monkey": 2, "Mongoose": 2, "Lion": 1 },
     "Buffalo": { "Horse": 3, "Elephant": 3, "Sheep": 3, "Serpent": 1, "Dog": 2, "Cat": 2, "Rat": 2, "Cow": 3, "Buffalo": 4, "Tiger": 1, "Deer": 2, "Monkey": 2, "Mongoose": 1, "Lion": 0 },
@@ -158,9 +158,16 @@ export function calculateGunaMilan(bMoonLong, gMoonLong) {
         total: 0
     };
 
-    // 1. Varna (1 Point)
+    // 1. Varna (1 Point) - RASHI BASED
+    const bVarna = RASHI_INFO[bRashi].varna;
+    const gVarna = RASHI_INFO[gRashi].varna;
+
+    // Replace result objects to reflect correct Varna
+    results.varna.b = bVarna;
+    results.varna.g = gVarna;
+
     const varnaOrder = ["Shudra", "Vaishya", "Kshatriya", "Brahman"];
-    if (varnaOrder.indexOf(bNak.varna) >= varnaOrder.indexOf(gNak.varna)) {
+    if (varnaOrder.indexOf(bVarna) >= varnaOrder.indexOf(gVarna)) {
         results.varna.score = 1;
     }
 
@@ -235,9 +242,9 @@ export function calculateGunaMilan(bMoonLong, gMoonLong) {
     } else {
         // Exceptions
         // 1. Same Lord (e.g. Aries-Scorpio is 6/8 but both Mars) -> Exception (7 points)
-        // 2. Lords are Friends -> Exception (often 7 points)
-        if (bLord === gLord || results.maitri.score >= 4) {
-            results.bhakoot.score = 7; // Exception applied
+        // 2. Friendly Lords -> REMOVED for Strict Mode to match DrikPanchang
+        if (bLord === gLord) {
+            results.bhakoot.score = 7; // Exception applied for Same Lord only
         } else {
             results.bhakoot.score = 0;
         }
