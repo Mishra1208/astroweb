@@ -48,7 +48,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`}>
+      <body className={`${inter.variable} ${tiro.variable} ${hind.variable} ${mukta.variable}`} suppressHydrationWarning>
         {/* Loading Screen - Global Once-per-session */}
         <LoadingScreen />
 

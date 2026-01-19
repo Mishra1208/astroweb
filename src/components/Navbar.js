@@ -43,6 +43,7 @@ export default function Navbar() {
         { name: 'होम', id: 'home', href: '/' },
         { name: 'सेवाएं', id: 'services', href: '/services' },
         { name: 'राशिफल', id: 'horoscope', href: '/services#horoscope' },
+        { name: 'गुण मिलान', id: 'matching', href: '/matching' }, // Added Match Making
         { name: 'कुंडली', id: 'kundli', href: '/kundli' }
     ];
 

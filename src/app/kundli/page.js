@@ -5,6 +5,7 @@ import { getVedicChartData } from '@/utils/vedicAstro';
 import LaganChart from '@/components/LaganChart';
 import styles from './kundli.module.css';
 import CitySearch from '@/components/CitySearch';
+import { getPredictions } from '@/utils/predictionEngine';
 
 import { useSearchParams } from 'next/navigation';
 
@@ -38,6 +39,7 @@ function KundliContent() {
     const searchParams = useSearchParams();
 
     const [chartData, setChartData] = useState(null);
+    const [predictions, setPredictions] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -93,6 +95,11 @@ function KundliContent() {
 
             const data = getVedicChartData(trueDateCheck.toISOString(), dataToUse.lat, dataToUse.lng);
             setChartData(data);
+
+            // Generate Predictions
+            const preds = getPredictions(data);
+            setPredictions(preds);
+
             setError(null);
         } catch (e) {
             console.error(e);
@@ -258,6 +265,27 @@ function KundliContent() {
                                 ))}
                             </div>
                         </div>
+
+                        {/* --- Astrological Predictions Section --- */}
+                        {predictions && (
+                            <div className={styles.predictionSection}>
+                                <h2 className={styles.predictionMainTitle}>ज्योतिषीय विश्लेषण (Astrological Analysis)</h2>
+                                <div className={styles.predictionGrid}>
+                                    {predictions.map((pred) => (
+                                        <div key={pred.category} className={styles.predictionCard}>
+                                            <div className={styles.cardHeader}>
+                                                <span className={styles.cardIcon}>{pred.icon}</span>
+                                                <h3 className={styles.cardTitle}>{pred.title}</h3>
+                                            </div>
+                                            <p className={styles.cardContent}>{pred.content}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                                <p className={styles.predictionDisclaimer}>
+                                    * यह विश्लेषण आपकी कुंडली के ग्रहों की स्थिति पर आधारित एक सामान्य विवरण है। व्यक्तिगत मार्गदर्शन के लिए आचार्य जी से संपर्क करें।
+                                </p>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
