@@ -24,12 +24,15 @@ export default function FloatingAvatar() {
     // At scrollY = 0 (Top), x = 0 (Right side)
     // At scrollY = 1000 (Scrolled down), x = - (Window Width - Offset) (Left side)
 
-    // Smooth spring physics for the movement
-    const rawX = useTransform(scrollY, [0, 800], ["0vw", endPosition]);
-    const x = useSpring(rawX, { stiffness: 60, damping: 20 });
+    // Scroll Logic Temporarily Disabled for Performance Testing
+    // const { scrollY } = useScroll();
+    // const rawX = useTransform(scrollY, [0, 800], ["0vw", endPosition]);
+    // const x = useSpring(rawX, { stiffness: 60, damping: 20 });
+    // const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
 
-    // Also rotate slightly as it moves
-    const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
+    // Static Backup
+    const x = 0;
+    const rotate = 0;
 
     if (!isMounted) return null;
 
