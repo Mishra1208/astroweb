@@ -80,9 +80,18 @@ export default function MatchMakingPage() {
 
         setLoading(true);
         try {
+            // HELPER: Force parse as IST (UTC+05:30)
+            const parseIST = (dateStr, timeStr) => {
+                const iso = `${dateStr}T${timeStr}:00+05:30`;
+                return new Date(iso);
+            };
+
+            const bDateObj = parseIST(boyData.date, boyData.time);
+            const gDateObj = parseIST(girlData.date, girlData.time);
+
             // Calculate chart for both
-            const bChart = getVedicChartData(`${boyData.date}T${boyData.time}`, boyData.city.lat, boyData.city.lng);
-            const gChart = getVedicChartData(`${girlData.date}T${girlData.time}`, girlData.city.lat, girlData.city.lng);
+            const bChart = getVedicChartData(bDateObj, boyData.city.lat, boyData.city.lng);
+            const gChart = getVedicChartData(gDateObj, girlData.city.lat, girlData.city.lng);
 
             // Get Moon longitudes
             const bMoon = bChart.planets.find(p => p.name === 'Moon').vedic;
