@@ -56,7 +56,7 @@ export default function Footer() {
                     <h3 className={styles.colTitle}>सेवाएं (शीघ्र उपलब्ध...)</h3>
                     <ul className={styles.links}>
                         <li><span style={{ color: '#aaa', cursor: 'default' }}>कुंडली निर्माण (शीघ्र उपलब्ध)</span></li>
-                        <li><span style={{ color: '#aaa', cursor: 'default' }}>गुण मिलान (शीघ्र उपलब्ध)</span></li>
+                        <li><Link href="/matching" className={styles.footerLink}>गुण मिलान</Link></li>
                         <li><Link href="/services#horoscope" className={styles.footerLink}>दैनिक राशिफल</Link></li>
                         <li><Link href="/services#tarot" className={styles.footerLink}>टैरो रीडिंग</Link></li>
                         <li><Link href="/kundli" className={styles.footerLink}>वैदिक पंचांग (कुंडली)</Link></li>
