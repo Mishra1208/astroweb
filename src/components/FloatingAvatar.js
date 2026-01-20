@@ -1,10 +1,10 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function FloatingAvatar() {
-    const { scrollY } = useScroll();
+    // const { scrollY } = useScroll(); // Removed unused hook
     const [isMounted, setIsMounted] = useState(false);
     const [endPosition, setEndPosition] = useState("-85vw"); // Default for Desktop
 
@@ -24,13 +24,8 @@ export default function FloatingAvatar() {
     // At scrollY = 0 (Top), x = 0 (Right side)
     // At scrollY = 1000 (Scrolled down), x = - (Window Width - Offset) (Left side)
 
-    // Scroll Logic Temporarily Disabled for Performance Testing
-    // const { scrollY } = useScroll();
-    // const rawX = useTransform(scrollY, [0, 800], ["0vw", endPosition]);
-    // const x = useSpring(rawX, { stiffness: 60, damping: 20 });
-    // const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
-
-    // Static Backup
+    // Scroll Logic Completely Removed for Performance
+    // Static Position
     const x = 0;
     const rotate = 0;
 
